@@ -644,15 +644,7 @@ public class dataMenu extends javax.swing.JFrame {
         txtFieldCari21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldCari21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel3.add(txtFieldCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 300, 40));
-
-        txtTanggal21552011235.setEnabled(false);
-        txtTanggal21552011235.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        txtTanggal21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtTanggal21552011235MouseClicked(evt);
-            }
-        });
-        jPanel3.add(txtTanggal21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 380, 40));
+        jPanel3.add(txtTanggal21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 370, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -864,10 +856,8 @@ public class dataMenu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new dataMenu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new dataMenu().setVisible(true);
         });
     }
 
