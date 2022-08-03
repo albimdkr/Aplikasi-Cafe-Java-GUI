@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="301177c3-72df-41ce-90f3-0ea9b3a1bbc5">
-	<property name="ireport.zoom" value="1.6105100000000503"/>
-	<property name="ireport.x" value="67"/>
-	<property name="ireport.y" value="62"/>
+	<property name="ireport.zoom" value="2.357947691000106"/>
+	<property name="ireport.x" value="1246"/>
+	<property name="ireport.y" value="366"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -60,7 +60,7 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="109" splitType="Stretch">
+		<band height="116" splitType="Stretch">
 			<line>
 				<reportElement uuid="793cc9e0-ab60-41a9-892c-854d8978f3fc" x="0" y="78" width="802" height="1"/>
 				<graphicElement>
@@ -72,7 +72,7 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 				<imageExpression><![CDATA["C:\\Users\\albin\\Documents\\Aplikasi-Cafe-Java-GUI\\Aplikasi-Cafe-Java-GUI\\src\\img\\langkop120px.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="SubTitle" mode="Transparent" x="182" y="49" width="473" height="26" forecolor="#000000" backcolor="#2D2302"/>
+				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="SubTitle" mode="Transparent" x="182" y="48" width="473" height="26" forecolor="#000000" backcolor="#2D2302"/>
 				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="8" isBold="true" isItalic="false"/>
@@ -80,7 +80,7 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 				<text><![CDATA[Jl. Babakan No 217, Desa Majasetra, Kecamatan Majalaya, Kabupaten Bandung, Indonesia.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="Title" mode="Transparent" x="182" y="12" width="473" height="37" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="Title" mode="Transparent" x="182" y="6" width="473" height="37" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Dialog" size="20" isBold="true"/>
@@ -88,7 +88,7 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 				<text><![CDATA[LANGKAH KOPI MAJALAYA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="SubTitle" mode="Transparent" x="0" y="78" width="802" height="31" forecolor="#000000" backcolor="#2D2302"/>
+				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="SubTitle" mode="Transparent" x="0" y="79" width="802" height="31" forecolor="#000000" backcolor="#2D2302"/>
 				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isBold="true" isItalic="false"/>
@@ -103,49 +103,49 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 	<columnHeader>
 		<band height="18" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="c0c433ef-a74f-4d86-bf1e-8a48385f6827" style="Column header" x="0" y="0" width="137" height="18" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement uuid="c0c433ef-a74f-4d86-bf1e-8a48385f6827" style="Column header" mode="Opaque" x="0" y="0" width="137" height="18" forecolor="#FFFFFF" backcolor="#2D2302"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Tanggal Transaksi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="f9cc504f-f751-4f89-977b-5647bcb61764" style="Column header" x="137" y="0" width="89" height="18" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement uuid="f9cc504f-f751-4f89-977b-5647bcb61764" style="Column header" mode="Opaque" x="138" y="0" width="88" height="18" forecolor="#FFFFFF" backcolor="#2D2302"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="88f50f60-9a0a-49dc-aeb1-0285522f5e25" style="Column header" x="226" y="0" width="113" height="18" forecolor="#000000"/>
+				<reportElement uuid="88f50f60-9a0a-49dc-aeb1-0285522f5e25" style="Column header" mode="Opaque" x="227" y="0" width="95" height="18" forecolor="#FFFFFF" backcolor="#2D2302"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Kode Menu]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="e332052f-0527-4594-885c-a5b4a6b49a5d" style="Column header" x="452" y="0" width="113" height="18" forecolor="#000000"/>
+				<reportElement uuid="e332052f-0527-4594-885c-a5b4a6b49a5d" style="Column header" mode="Opaque" x="452" y="0" width="112" height="18" forecolor="#FFFFFF" backcolor="#2D2302"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Harga]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="e7b11c5c-f771-42f4-84e0-7c76cc3bc6a2" style="Column header" x="565" y="0" width="93" height="18" forecolor="#000000"/>
+				<reportElement uuid="e7b11c5c-f771-42f4-84e0-7c76cc3bc6a2" style="Column header" mode="Opaque" x="565" y="0" width="92" height="18" forecolor="#FFFFFF" backcolor="#2D2302"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Jumlah]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5f4048cc-e082-4e3e-984f-b34963973f27" style="Column header" x="658" y="0" width="144" height="18" forecolor="#000000"/>
+				<reportElement uuid="5f4048cc-e082-4e3e-984f-b34963973f27" style="Column header" mode="Opaque" x="658" y="0" width="144" height="18" forecolor="#FFFFFF" backcolor="#2D2302"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Total Harga]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="30e4bc82-f0b7-4d85-b846-30c33ab00639" style="Column header" x="339" y="0" width="113" height="18" forecolor="#000000"/>
+				<reportElement uuid="30e4bc82-f0b7-4d85-b846-30c33ab00639" style="Column header" mode="Opaque" x="323" y="0" width="128" height="18" forecolor="#FFFFFF" backcolor="#2D2302"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
@@ -154,58 +154,55 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="22" splitType="Stretch">
-			<frame>
-				<reportElement uuid="2be11989-d713-4975-9cf0-60b522b5480f" style="Row" mode="Opaque" x="0" y="0" width="797" height="18"/>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="8e3f0546-bbd8-4d70-8f8e-cdf890560f95" style="Detail" positionType="Float" x="0" y="0" width="137" height="18"/>
-					<textElement textAlignment="Center">
-						<font fontName="Dialog" size="13"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{tgl_transaksi}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="509dc334-dab8-49d2-8319-6faefb349450" style="Detail" positionType="Float" x="137" y="0" width="89" height="18"/>
-					<textElement textAlignment="Center">
-						<font fontName="Dialog" size="13"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{id_transaksi}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="64d0a105-ae31-4b36-8013-66b3d0cee2ae" style="Detail" positionType="Float" x="452" y="0" width="113" height="18"/>
-					<textElement textAlignment="Center">
-						<font fontName="Dialog" size="13"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="f384e704-4898-4e56-b361-085e985df835" style="Detail" positionType="Float" x="565" y="0" width="93" height="18"/>
-					<textElement textAlignment="Center">
-						<font fontName="Dialog" size="13" isBold="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{jumlah_menu}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="4e03e63c-23db-45e0-b177-3b240066c082" style="Detail" positionType="Float" x="226" y="0" width="113" height="18"/>
-					<textElement textAlignment="Center">
-						<font fontName="Dialog" size="13"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{kode_menu}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="32fbb578-6069-46d7-ae62-ef80f8916fe7" style="Detail" positionType="Float" x="339" y="0" width="113" height="18"/>
-					<textElement textAlignment="Center">
-						<font fontName="Dialog" size="13"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{nama_menu}]]></textFieldExpression>
-				</textField>
-			</frame>
+		<band height="38" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="63bcc65d-87d4-4eb5-98f7-29270bf542ab" style="Detail" positionType="Float" x="658" y="0" width="144" height="18"/>
+				<reportElement uuid="63bcc65d-87d4-4eb5-98f7-29270bf542ab" style="Detail" positionType="Float" x="658" y="2" width="144" height="18"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{total_harga}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f384e704-4898-4e56-b361-085e985df835" style="Detail" positionType="Float" x="565" y="2" width="92" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="13" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah_menu}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="32fbb578-6069-46d7-ae62-ef80f8916fe7" style="Detail" positionType="Float" x="323" y="2" width="128" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_menu}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="64d0a105-ae31-4b36-8013-66b3d0cee2ae" style="Detail" positionType="Float" x="452" y="2" width="112" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="4e03e63c-23db-45e0-b177-3b240066c082" style="Detail" positionType="Float" x="227" y="2" width="95" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kode_menu}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="509dc334-dab8-49d2-8319-6faefb349450" style="Detail" positionType="Float" x="138" y="2" width="88" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="8e3f0546-bbd8-4d70-8f8e-cdf890560f95" style="Detail" positionType="Float" x="0" y="2" width="138" height="18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_transaksi}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -215,7 +212,7 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 	<pageFooter>
 		<band height="92" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="SubTitle" mode="Transparent" x="573" y="0" width="68" height="27" forecolor="#000000" backcolor="#2D2302"/>
+				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="SubTitle" mode="Transparent" x="573" y="2" width="68" height="27" forecolor="#000000" backcolor="#2D2302"/>
 				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
@@ -223,7 +220,7 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 				<text><![CDATA[Majalaya,]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="5f79d571-a5f7-40b7-bbe4-a9db263550ba" style="Column header" x="641" y="0" width="161" height="27" forecolor="#000000"/>
+				<reportElement uuid="5f79d571-a5f7-40b7-bbe4-a9db263550ba" style="Column header" x="641" y="2" width="161" height="27" forecolor="#000000"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="13" isBold="true" isItalic="false"/>
 				</textElement>
@@ -241,22 +238,25 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 	</pageFooter>
 	<summary>
 		<band height="100" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="33d2ac89-998a-4bf9-815f-431ad6ae62ec" x="0" y="35" width="802" height="20" backcolor="#2D2302"/>
+			</rectangle>
 			<textField>
-				<reportElement uuid="616977ea-c13c-41f1-9bd9-83d49a81e8aa" x="716" y="35" width="86" height="20"/>
+				<reportElement uuid="616977ea-c13c-41f1-9bd9-83d49a81e8aa" x="716" y="36" width="86" height="20" forecolor="#FFFFFF"/>
 				<textElement>
 					<font fontName="Dialog" size="13" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{total_harga_4}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="5eac334b-d571-4675-ac8a-5e8a48d9f8b8" x="535" y="35" width="160" height="20"/>
+				<reportElement uuid="5eac334b-d571-4675-ac8a-5e8a48d9f8b8" x="535" y="36" width="160" height="20" forecolor="#FFFFFF"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TOTAL UANG MASUK : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5eac334b-d571-4675-ac8a-5e8a48d9f8b8" x="695" y="35" width="21" height="20"/>
+				<reportElement uuid="5eac334b-d571-4675-ac8a-5e8a48d9f8b8" x="695" y="36" width="21" height="20" forecolor="#FFFFFF"/>
 				<textElement textAlignment="Center">
 					<font fontName="Dialog" size="13" isBold="true"/>
 				</textElement>

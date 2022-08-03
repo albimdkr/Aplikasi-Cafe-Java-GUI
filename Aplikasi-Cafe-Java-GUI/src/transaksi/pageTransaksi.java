@@ -234,19 +234,14 @@ public class pageTransaksi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         Navbar = new javax.swing.JPanel();
         PanelBack21552011235 = new javax.swing.JPanel();
         BtnBack21552011235 = new javax.swing.JLabel();
         DaftarMenu = new javax.swing.JLabel();
-        PanelCari21552011235 = new javax.swing.JPanel();
-        BtnCari21552011235 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         line5 = new javax.swing.JLabel();
-        Navbar1 = new javax.swing.JPanel();
-        PanelBack77174756 = new javax.swing.JPanel();
-        BtnBack77174756 = new javax.swing.JLabel();
-        DaftarMenu1 = new javax.swing.JLabel();
         PanelBayar21552011235 = new javax.swing.JPanel();
         BtnBayar21552011235 = new javax.swing.JLabel();
         PanelAdd21552011235 = new javax.swing.JPanel();
@@ -279,10 +274,16 @@ public class pageTransaksi extends javax.swing.JFrame {
         tgl_transaksi = new com.toedter.calendar.JDateChooser();
         MasukanUang1 = new javax.swing.JLabel();
         txtFieldTotalBayar21552011235 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        PanelCari21552011235 = new javax.swing.JPanel();
+        BtnCari21552011235 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tb_keranjang = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jScrollPane1.setBackground(new java.awt.Color(64, 49, 33));
 
         jPanel2.setBackground(new java.awt.Color(64, 49, 33));
         jPanel2.setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -320,32 +321,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         DaftarMenu.setText("Transaksi");
         Navbar.add(DaftarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 280, 60));
 
-        jPanel2.add(Navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1366, 60));
-
-        PanelCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
-        PanelCari21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        PanelCari21552011235.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BtnCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnCari21552011235.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCari21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnCari21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-search-24.png"))); // NOI18N
-        BtnCari21552011235.setText("Cari ");
-        BtnCari21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnCari21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnCari21552011235MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnCari21552011235MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnCari21552011235MouseExited(evt);
-            }
-        });
-        PanelCari21552011235.add(BtnCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
-
-        jPanel2.add(PanelCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 140, 50));
+        jPanel2.add(Navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 60));
 
         jPanel3.setBackground(new java.awt.Color(64, 49, 33));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -357,40 +333,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         line5.setForeground(new java.awt.Color(255, 255, 255));
         line5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line5.setText("____________________________");
-        jPanel3.add(line5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 270, 20));
-
-        Navbar1.setBackground(new java.awt.Color(45, 35, 23));
-        Navbar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        PanelBack77174756.setBackground(new java.awt.Color(45, 35, 23));
-        PanelBack77174756.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BtnBack77174756.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BtnBack77174756.setForeground(new java.awt.Color(255, 255, 255));
-        BtnBack77174756.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnBack77174756.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-back-48.png"))); // NOI18N
-        BtnBack77174756.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnBack77174756MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnBack77174756MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnBack77174756MouseExited(evt);
-            }
-        });
-        PanelBack77174756.add(BtnBack77174756, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 60));
-
-        Navbar1.add(PanelBack77174756, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 60));
-
-        DaftarMenu1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        DaftarMenu1.setForeground(new java.awt.Color(255, 255, 255));
-        DaftarMenu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DaftarMenu1.setText("Transaksi");
-        Navbar1.add(DaftarMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 280, 60));
-
-        jPanel3.add(Navbar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1366, 60));
+        jPanel3.add(line5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 270, 20));
 
         PanelBayar21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelBayar21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -416,9 +359,9 @@ public class pageTransaksi extends javax.swing.JFrame {
                 BtnBayar21552011235MousePressed(evt);
             }
         });
-        PanelBayar21552011235.add(BtnBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 60));
+        PanelBayar21552011235.add(BtnBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 140, 60));
 
-        jPanel3.add(PanelBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, 400, 60));
+        jPanel3.add(PanelBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 540, 160, 60));
 
         PanelAdd21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelAdd21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -443,20 +386,20 @@ public class pageTransaksi extends javax.swing.JFrame {
         });
         PanelAdd21552011235.add(BtnAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 50));
 
-        jPanel3.add(PanelAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 590, 50));
+        jPanel3.add(PanelAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 590, 50));
 
         NamaMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu2.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu2.setText("Harga");
-        jPanel3.add(NamaMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 90, 40));
+        jPanel3.add(NamaMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 90, 40));
 
         line12.setBackground(new java.awt.Color(255, 255, 255));
         line12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line12.setForeground(new java.awt.Color(255, 255, 255));
-        line12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        line12.setText("_________________________________________________________________");
-        jPanel3.add(line12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 640, 620, 20));
+        line12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        line12.setText("______________________________________");
+        jPanel3.add(line12, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 670, 350, 20));
 
         line6.setBackground(new java.awt.Color(255, 255, 255));
         line6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -477,28 +420,28 @@ public class pageTransaksi extends javax.swing.JFrame {
         NamaMenu3.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu3.setText("Nama Menu");
-        jPanel3.add(NamaMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 120, 40));
+        jPanel3.add(NamaMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 120, 40));
 
         line8.setBackground(new java.awt.Color(255, 255, 255));
         line8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line8.setForeground(new java.awt.Color(255, 255, 255));
         line8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line8.setText("____________________________");
-        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 270, 20));
+        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 270, 20));
 
         txtFieldNamaMenu21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldNamaMenu21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldNamaMenu21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldNamaMenu21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldNamaMenu21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 280, 40));
+        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 280, 40));
 
         line2.setBackground(new java.awt.Color(255, 255, 255));
         line2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line2.setForeground(new java.awt.Color(255, 255, 255));
         line2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line2.setText("____________________________");
-        jPanel3.add(line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 270, 20));
+        jPanel3.add(line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 270, 20));
 
         txtFieldJumlah21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldJumlah21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -515,13 +458,13 @@ public class pageTransaksi extends javax.swing.JFrame {
                 txtFieldJumlah21552011235KeyReleased(evt);
             }
         });
-        jPanel3.add(txtFieldJumlah21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 260, 40));
+        jPanel3.add(txtFieldJumlah21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, 40));
 
         Jumlah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Jumlah.setForeground(new java.awt.Color(255, 255, 255));
         Jumlah.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Jumlah.setText("Jumlah");
-        jPanel3.add(Jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 100, 40));
+        jPanel3.add(Jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 100, 40));
 
         PaneDelete21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PaneDelete21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -531,7 +474,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         BtnDelete21552011235.setForeground(new java.awt.Color(255, 255, 255));
         BtnDelete21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BtnDelete21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-trash-24.png"))); // NOI18N
-        BtnDelete21552011235.setText("Delete");
         BtnDelete21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnDelete21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -544,16 +486,16 @@ public class pageTransaksi extends javax.swing.JFrame {
                 BtnDelete21552011235MouseExited(evt);
             }
         });
-        PaneDelete21552011235.add(BtnDelete21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 50));
+        PaneDelete21552011235.add(BtnDelete21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 40));
 
-        jPanel3.add(PaneDelete21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 610, 110, 50));
+        jPanel3.add(PaneDelete21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 210, 50, 40));
 
         line11.setBackground(new java.awt.Color(255, 255, 255));
         line11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line11.setForeground(new java.awt.Color(255, 255, 255));
-        line11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        line11.setText("____________________________________________");
-        jPanel3.add(line11, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 510, 400, 20));
+        line11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        line11.setText("______________________________________");
+        jPanel3.add(line11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 580, 350, 20));
 
         PanelPrint21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelPrint21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -563,7 +505,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         BtnPrint21552011235.setForeground(new java.awt.Color(255, 255, 255));
         BtnPrint21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BtnPrint21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-print-24.png"))); // NOI18N
-        BtnPrint21552011235.setText("Print");
+        BtnPrint21552011235.setText("Print Struk");
         BtnPrint21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnPrint21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -576,9 +518,9 @@ public class pageTransaksi extends javax.swing.JFrame {
                 BtnPrint21552011235MouseExited(evt);
             }
         });
-        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 50));
+        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 140, 60));
 
-        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 610, 160, 50));
+        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 630, 160, 60));
 
         PanelReset21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelReset21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -588,7 +530,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         BtnReset21552011235.setForeground(new java.awt.Color(255, 255, 255));
         BtnReset21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BtnReset21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-reset-24.png"))); // NOI18N
-        BtnReset21552011235.setText("Reset");
+        BtnReset21552011235.setText("Clear Form");
         BtnReset21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnReset21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -601,16 +543,16 @@ public class pageTransaksi extends javax.swing.JFrame {
                 BtnReset21552011235MouseExited(evt);
             }
         });
-        PanelReset21552011235.add(BtnReset21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 50));
+        PanelReset21552011235.add(BtnReset21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 60));
 
-        jPanel3.add(PanelReset21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, 110, 50));
+        jPanel3.add(PanelReset21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 720, 540, 60));
 
         line4.setBackground(new java.awt.Color(255, 255, 255));
         line4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line4.setForeground(new java.awt.Color(255, 255, 255));
         line4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line4.setText("____________________________");
-        jPanel3.add(line4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, 270, 20));
+        jPanel3.add(line4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 270, 20));
 
         txtFieldHarga21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldHarga21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -622,20 +564,20 @@ public class pageTransaksi extends javax.swing.JFrame {
                 txtFieldHarga21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 270, 40));
+        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 270, 40));
 
         txtFieldTotalHarga21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldTotalHarga21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldTotalHarga21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldTotalHarga21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldTotalHarga21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldTotalHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 260, 40));
+        jPanel3.add(txtFieldTotalHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 260, 40));
 
         totalHarga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         totalHarga.setForeground(new java.awt.Color(255, 255, 255));
         totalHarga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         totalHarga.setText("Total Harga");
-        jPanel3.add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 110, 40));
+        jPanel3.add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 110, 40));
 
         txtFieldMasukanUang21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldMasukanUang21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -643,13 +585,13 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldMasukanUang21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldMasukanUang21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldMasukanUang21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldMasukanUang21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, 400, 40));
+        jPanel3.add(txtFieldMasukanUang21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 560, 340, 40));
 
         MasukanUang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MasukanUang.setForeground(new java.awt.Color(255, 255, 255));
         MasukanUang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MasukanUang.setText("Total Bayar");
-        jPanel3.add(MasukanUang, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 240, 30));
+        jPanel3.add(MasukanUang, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 250, 40));
 
         txtFieldUangKembali21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldUangKembali21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -657,24 +599,24 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldUangKembali21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldUangKembali21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldUangKembali21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldUangKembali21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, 580, 40));
+        jPanel3.add(txtFieldUangKembali21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 650, 340, 40));
 
         uangKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         uangKembali.setForeground(new java.awt.Color(255, 255, 255));
-        uangKembali.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        uangKembali.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         uangKembali.setText("Uang Kembalian");
-        jPanel3.add(uangKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 140, 40));
+        jPanel3.add(uangKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, 140, 40));
 
         tgl_transaksi.setDateFormatString("dd-MM-yyyy");
         tgl_transaksi.setEnabled(false);
         tgl_transaksi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jPanel3.add(tgl_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 400, 40));
+        jPanel3.add(tgl_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 180, 40));
 
         MasukanUang1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MasukanUang1.setForeground(new java.awt.Color(255, 255, 255));
         MasukanUang1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MasukanUang1.setText("Masukan Uang Bayar");
-        jPanel3.add(MasukanUang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 460, 160, 30));
+        jPanel3.add(MasukanUang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, 160, 40));
 
         txtFieldTotalBayar21552011235.setEditable(false);
         txtFieldTotalBayar21552011235.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -690,9 +632,33 @@ public class pageTransaksi extends javax.swing.JFrame {
                 txtFieldTotalBayar21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldTotalBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 400, 50));
+        jPanel3.add(txtFieldTotalBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, 540, 50));
 
-        tb_keranjang.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        PanelCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
+        PanelCari21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        PanelCari21552011235.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnCari21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCari21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BtnCari21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-search-24.png"))); // NOI18N
+        BtnCari21552011235.setText("Cari ");
+        BtnCari21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnCari21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnCari21552011235MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnCari21552011235MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnCari21552011235MouseExited(evt);
+            }
+        });
+        PanelCari21552011235.add(BtnCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
+
+        jPanel3.add(PanelCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 140, 50));
+
         tb_keranjang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -704,31 +670,52 @@ public class pageTransaksi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tb_keranjang.setSelectionBackground(new java.awt.Color(64, 49, 33));
-        tb_keranjang.setSelectionForeground(new java.awt.Color(204, 204, 255));
-        tb_keranjang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tb_keranjangMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tb_keranjang);
+        jScrollPane2.setViewportView(tb_keranjang);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 260, 400, 120));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 540, 140));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 280, 70, 30));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 820));
+
+        jScrollPane1.setViewportView(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1379, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1382, 807));
+        setSize(new java.awt.Dimension(1364, 858));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -785,18 +772,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         changecolor(PanelReset21552011235, new Color (64,49,33));
     }//GEN-LAST:event_BtnReset21552011235MouseExited
 
-    private void BtnBack77174756MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBack77174756MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBack77174756MouseClicked
-
-    private void BtnBack77174756MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBack77174756MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBack77174756MouseEntered
-
-    private void BtnBack77174756MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBack77174756MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnBack77174756MouseExited
-
     private void BtnAdd21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAdd21552011235MouseClicked
         penjualan();
     }//GEN-LAST:event_BtnAdd21552011235MouseClicked
@@ -808,20 +783,6 @@ public class pageTransaksi extends javax.swing.JFrame {
     private void BtnAdd21552011235MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAdd21552011235MouseExited
        changecolor(PanelAdd21552011235, new Color (64,49,33));
     }//GEN-LAST:event_BtnAdd21552011235MouseExited
-
-    private void BtnDelete21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDelete21552011235MouseClicked
-        hapusData();
-        txtFieldMasukanUang21552011235.setText(null);
-        txtFieldUangKembali21552011235.setText(null);
-    }//GEN-LAST:event_BtnDelete21552011235MouseClicked
-
-    private void BtnDelete21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDelete21552011235MouseEntered
-      changecolor(PaneDelete21552011235, new Color (255,24,24));
-    }//GEN-LAST:event_BtnDelete21552011235MouseEntered
-
-    private void BtnDelete21552011235MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDelete21552011235MouseExited
-      changecolor(PaneDelete21552011235, new Color (64,49,33));
-    }//GEN-LAST:event_BtnDelete21552011235MouseExited
 
     private void BtnPrint21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPrint21552011235MouseClicked
       try{
@@ -878,10 +839,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFieldTotalBayar21552011235ActionPerformed
 
-    private void tb_keranjangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_keranjangMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_keranjangMouseClicked
-
     private void txtFieldHarga21552011235ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldHarga21552011235ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFieldHarga21552011235ActionPerformed
@@ -889,6 +846,20 @@ public class pageTransaksi extends javax.swing.JFrame {
     private void txtFieldJumlah21552011235ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldJumlah21552011235ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFieldJumlah21552011235ActionPerformed
+
+    private void BtnDelete21552011235MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDelete21552011235MouseExited
+        changecolor(PaneDelete21552011235, new Color (64,49,33));
+    }//GEN-LAST:event_BtnDelete21552011235MouseExited
+
+    private void BtnDelete21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDelete21552011235MouseEntered
+        changecolor(PaneDelete21552011235, new Color (255,24,24));
+    }//GEN-LAST:event_BtnDelete21552011235MouseEntered
+
+    private void BtnDelete21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDelete21552011235MouseClicked
+        hapusData();
+        txtFieldMasukanUang21552011235.setText(null);
+        txtFieldUangKembali21552011235.setText(null);
+    }//GEN-LAST:event_BtnDelete21552011235MouseClicked
 
     /**
      * @param args the command line arguments
@@ -917,6 +888,12 @@ public class pageTransaksi extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -929,32 +906,31 @@ public class pageTransaksi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BtnAdd21552011235;
     private javax.swing.JLabel BtnBack21552011235;
-    private javax.swing.JLabel BtnBack77174756;
     private javax.swing.JLabel BtnBayar21552011235;
     private javax.swing.JLabel BtnCari21552011235;
     private javax.swing.JLabel BtnDelete21552011235;
     private javax.swing.JLabel BtnPrint21552011235;
     private javax.swing.JLabel BtnReset21552011235;
     private javax.swing.JLabel DaftarMenu;
-    private javax.swing.JLabel DaftarMenu1;
     private javax.swing.JLabel Jumlah;
     private javax.swing.JLabel MasukanUang;
     private javax.swing.JLabel MasukanUang1;
     private javax.swing.JLabel NamaMenu2;
     private javax.swing.JLabel NamaMenu3;
     private javax.swing.JPanel Navbar;
-    private javax.swing.JPanel Navbar1;
     private javax.swing.JPanel PaneDelete21552011235;
     private javax.swing.JPanel PanelAdd21552011235;
     private javax.swing.JPanel PanelBack21552011235;
-    private javax.swing.JPanel PanelBack77174756;
     private javax.swing.JPanel PanelBayar21552011235;
     private javax.swing.JPanel PanelCari21552011235;
     private javax.swing.JPanel PanelPrint21552011235;
     private javax.swing.JPanel PanelReset21552011235;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel line11;
     private javax.swing.JLabel line12;
     private javax.swing.JLabel line2;
