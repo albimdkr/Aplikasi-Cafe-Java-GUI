@@ -302,6 +302,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         txtFieldCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtFieldCari21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        txtFieldCari21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldCari21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldCari21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel3.add(txtFieldCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 250, 50));

@@ -151,29 +151,23 @@ public class riwayatTransaksi extends javax.swing.JFrame {
         PanelBack21552011235 = new javax.swing.JPanel();
         BtnBack21552011235 = new javax.swing.JLabel();
         DaftarMenu = new javax.swing.JLabel();
-        PanelCari21552011235 = new javax.swing.JPanel();
-        jPanelTranskasi = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        BtnCari21552011235 = new javax.swing.JLabel();
         line = new javax.swing.JLabel();
-        txtFieldCari21552011235 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         Navbar1 = new javax.swing.JPanel();
         PanelBack77174756 = new javax.swing.JPanel();
         BtnBack77174756 = new javax.swing.JLabel();
         DaftarMenu1 = new javax.swing.JLabel();
-        PanelCari77174756 = new javax.swing.JPanel();
-        jPanelTranskasi1 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        BtnCari77174756 = new javax.swing.JLabel();
         line6 = new javax.swing.JLabel();
-        txtFieldCari77174756 = new javax.swing.JTextField();
+        txtFieldCari21552011235 = new javax.swing.JTextField();
         PanelRefresh21552011235 = new javax.swing.JPanel();
         BtnRefresh21552011235 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRiwayatTransaksi21552011235 = new javax.swing.JTable();
+        PanelCari21552011235 = new javax.swing.JPanel();
+        jPanelTranskasi = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        BtnCari21552011235 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -215,61 +209,12 @@ public class riwayatTransaksi extends javax.swing.JFrame {
 
         jPanel2.add(Navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1366, 60));
 
-        PanelCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
-        PanelCari21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        PanelCari21552011235.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanelTranskasi.setBackground(new java.awt.Color(64, 49, 33));
-        jPanelTranskasi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        jPanelTranskasi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel11.setBackground(new java.awt.Color(64, 49, 33));
-        jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        jPanel11.setLayout(new java.awt.GridBagLayout());
-        jPanelTranskasi.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Cari ");
-        jPanelTranskasi.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
-
-        PanelCari21552011235.add(jPanelTranskasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 160, 140, 50));
-
-        BtnCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnCari21552011235.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCari21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnCari21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-search-24.png"))); // NOI18N
-        BtnCari21552011235.setText("Cari ");
-        BtnCari21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnCari21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnCari21552011235MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnCari21552011235MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnCari21552011235MouseExited(evt);
-            }
-        });
-        PanelCari21552011235.add(BtnCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
-
-        jPanel2.add(PanelCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 140, 50));
-
         line.setBackground(new java.awt.Color(255, 255, 255));
         line.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line.setForeground(new java.awt.Color(255, 255, 255));
         line.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         line.setText("____________________________");
         jPanel2.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 270, 20));
-
-        txtFieldCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
-        txtFieldCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtFieldCari21552011235.setForeground(new java.awt.Color(255, 255, 255));
-        txtFieldCari21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtFieldCari21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel2.add(txtFieldCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 250, 50));
 
         jPanel3.setBackground(new java.awt.Color(64, 49, 33));
         jPanel3.setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -308,46 +253,6 @@ public class riwayatTransaksi extends javax.swing.JFrame {
 
         jPanel3.add(Navbar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1366, 60));
 
-        PanelCari77174756.setBackground(new java.awt.Color(64, 49, 33));
-        PanelCari77174756.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        PanelCari77174756.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanelTranskasi1.setBackground(new java.awt.Color(64, 49, 33));
-        jPanelTranskasi1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        jPanelTranskasi1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel12.setBackground(new java.awt.Color(64, 49, 33));
-        jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        jPanel12.setLayout(new java.awt.GridBagLayout());
-        jPanelTranskasi1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Cari ");
-        jPanelTranskasi1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
-
-        PanelCari77174756.add(jPanelTranskasi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 160, 140, 50));
-
-        BtnCari77174756.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnCari77174756.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCari77174756.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnCari77174756.setText("Cari ");
-        BtnCari77174756.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnCari77174756MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnCari77174756MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BtnCari77174756MouseExited(evt);
-            }
-        });
-        PanelCari77174756.add(BtnCari77174756, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
-
-        jPanel3.add(PanelCari77174756, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 140, 50));
-
         line6.setBackground(new java.awt.Color(255, 255, 255));
         line6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line6.setForeground(new java.awt.Color(255, 255, 255));
@@ -355,12 +260,13 @@ public class riwayatTransaksi extends javax.swing.JFrame {
         line6.setText("____________________________");
         jPanel3.add(line6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 270, 20));
 
-        txtFieldCari77174756.setBackground(new java.awt.Color(64, 49, 33));
-        txtFieldCari77174756.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtFieldCari77174756.setForeground(new java.awt.Color(255, 255, 255));
-        txtFieldCari77174756.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtFieldCari77174756.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldCari77174756, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 250, 50));
+        txtFieldCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
+        txtFieldCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtFieldCari21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        txtFieldCari21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFieldCari21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtFieldCari21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel3.add(txtFieldCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 250, 50));
 
         PanelRefresh21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelRefresh21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -403,6 +309,48 @@ public class riwayatTransaksi extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 1010, 340));
 
+        PanelCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
+        PanelCari21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        PanelCari21552011235.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelTranskasi.setBackground(new java.awt.Color(64, 49, 33));
+        jPanelTranskasi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        jPanelTranskasi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel11.setBackground(new java.awt.Color(64, 49, 33));
+        jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        jPanel11.setLayout(new java.awt.GridBagLayout());
+        jPanelTranskasi.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Cari ");
+        jPanelTranskasi.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
+
+        PanelCari21552011235.add(jPanelTranskasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 160, 140, 50));
+
+        BtnCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnCari21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCari21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BtnCari21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-search-24.png"))); // NOI18N
+        BtnCari21552011235.setText("Cari ");
+        BtnCari21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnCari21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnCari21552011235MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnCari21552011235MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnCari21552011235MouseExited(evt);
+            }
+        });
+        PanelCari21552011235.add(BtnCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
+
+        jPanel3.add(PanelCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 140, 50));
+
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -433,18 +381,6 @@ public class riwayatTransaksi extends javax.swing.JFrame {
         changecolor(PanelBack21552011235, new Color (45,35,23));
     }//GEN-LAST:event_BtnBack21552011235MouseExited
 
-    private void BtnCari21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari21552011235MouseClicked
-        cari();
-    }//GEN-LAST:event_BtnCari21552011235MouseClicked
-
-    private void BtnCari21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari21552011235MouseEntered
-        changecolor(PanelCari21552011235, new Color (45,35,23));
-    }//GEN-LAST:event_BtnCari21552011235MouseEntered
-
-    private void BtnCari21552011235MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari21552011235MouseExited
-        changecolor(PanelCari21552011235, new Color (64,49,33));
-    }//GEN-LAST:event_BtnCari21552011235MouseExited
-
     private void BtnRefresh21552011235MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRefresh21552011235MouseExited
         changecolor(PanelRefresh21552011235, new Color (64,49,33));
     }//GEN-LAST:event_BtnRefresh21552011235MouseExited
@@ -457,18 +393,6 @@ public class riwayatTransaksi extends javax.swing.JFrame {
         tampilData();
     }//GEN-LAST:event_BtnRefresh21552011235MouseClicked
 
-    private void BtnCari77174756MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari77174756MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCari77174756MouseExited
-
-    private void BtnCari77174756MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari77174756MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCari77174756MouseEntered
-
-    private void BtnCari77174756MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari77174756MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCari77174756MouseClicked
-
     private void BtnBack77174756MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBack77174756MouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnBack77174756MouseExited
@@ -480,6 +404,18 @@ public class riwayatTransaksi extends javax.swing.JFrame {
     private void BtnBack77174756MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBack77174756MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnBack77174756MouseClicked
+
+    private void BtnCari21552011235MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari21552011235MouseExited
+        changecolor(PanelCari21552011235, new Color (64,49,33));
+    }//GEN-LAST:event_BtnCari21552011235MouseExited
+
+    private void BtnCari21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari21552011235MouseEntered
+        changecolor(PanelCari21552011235, new Color (45,35,23));
+    }//GEN-LAST:event_BtnCari21552011235MouseEntered
+
+    private void BtnCari21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari21552011235MouseClicked
+        cari();
+    }//GEN-LAST:event_BtnCari21552011235MouseClicked
 
     /**
      * @param args the command line arguments
@@ -527,7 +463,6 @@ public class riwayatTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel BtnBack21552011235;
     private javax.swing.JLabel BtnBack77174756;
     private javax.swing.JLabel BtnCari21552011235;
-    private javax.swing.JLabel BtnCari77174756;
     private javax.swing.JLabel BtnRefresh21552011235;
     private javax.swing.JLabel DaftarMenu;
     private javax.swing.JLabel DaftarMenu1;
@@ -536,21 +471,16 @@ public class riwayatTransaksi extends javax.swing.JFrame {
     private javax.swing.JPanel PanelBack21552011235;
     private javax.swing.JPanel PanelBack77174756;
     private javax.swing.JPanel PanelCari21552011235;
-    private javax.swing.JPanel PanelCari77174756;
     private javax.swing.JPanel PanelRefresh21552011235;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelTranskasi;
-    private javax.swing.JPanel jPanelTranskasi1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel line;
     private javax.swing.JLabel line6;
     private javax.swing.JTable tableRiwayatTransaksi21552011235;
     private javax.swing.JTextField txtFieldCari21552011235;
-    private javax.swing.JTextField txtFieldCari77174756;
     // End of variables declaration//GEN-END:variables
 }
