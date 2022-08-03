@@ -24,6 +24,32 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import koneksi.koneksi;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
+import java.util.Date;
+import java.sql.*;
+
 
 /**
  *
@@ -183,6 +209,10 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         BtnRefresh21552011235 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableLaporanRiwayat21552011235 = new javax.swing.JTable();
+        NamaPendonor3 = new javax.swing.JLabel();
+        jDateChooserAwal = new com.toedter.calendar.JDateChooser();
+        jDateChooserAkhir = new com.toedter.calendar.JDateChooser();
+        NamaPendonor1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -393,9 +423,9 @@ public class LaporanRiwayat extends javax.swing.JFrame {
                 BtnPrint21552011235MouseExited(evt);
             }
         });
-        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 50));
+        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 40));
 
-        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, 550, 50));
+        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 610, 450, 40));
 
         PanelReset21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelReset21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -404,8 +434,8 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         BtnReset21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtnReset21552011235.setForeground(new java.awt.Color(255, 255, 255));
         BtnReset21552011235.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnReset21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-reset-24.png"))); // NOI18N
-        BtnReset21552011235.setText("Reset");
+        BtnReset21552011235.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-trash-24.png"))); // NOI18N
+        BtnReset21552011235.setText("Hapus Data");
         BtnReset21552011235.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnReset21552011235.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -420,7 +450,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         });
         PanelReset21552011235.add(BtnReset21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 50));
 
-        jPanel3.add(PanelReset21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 180, 50));
+        jPanel3.add(PanelReset21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 180, 50));
 
         PanelRefresh21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelRefresh21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -445,7 +475,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         });
         PanelRefresh21552011235.add(BtnRefresh21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 50));
 
-        jPanel3.add(PanelRefresh21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 580, 180, 50));
+        jPanel3.add(PanelRefresh21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 190, 180, 50));
 
         tableLaporanRiwayat21552011235.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -461,7 +491,27 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         tableLaporanRiwayat21552011235.setSelectionBackground(new java.awt.Color(64, 49, 33));
         jScrollPane1.setViewportView(tableLaporanRiwayat21552011235);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 1010, 340));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 1010, 320));
+
+        NamaPendonor3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        NamaPendonor3.setForeground(new java.awt.Color(255, 255, 255));
+        NamaPendonor3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NamaPendonor3.setText("Input Tanggal Awal Yang Akan Di Print ");
+        jPanel3.add(NamaPendonor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, 290, 40));
+
+        jDateChooserAwal.setDateFormatString("d MMM, yyyy");
+        jDateChooserAwal.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jPanel3.add(jDateChooserAwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 260, 40));
+
+        jDateChooserAkhir.setDateFormatString("d MMM, yyyy");
+        jDateChooserAkhir.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jPanel3.add(jDateChooserAkhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 610, 260, 40));
+
+        NamaPendonor1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        NamaPendonor1.setForeground(new java.awt.Color(255, 255, 255));
+        NamaPendonor1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NamaPendonor1.setText("Input Tanggal Akhir Yang Akan Di Print ");
+        jPanel3.add(NamaPendonor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 570, 290, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -542,13 +592,38 @@ public class LaporanRiwayat extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBack77174756MouseClicked
 
     private void BtnPrint21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPrint21552011235MouseClicked
-         try{
-            JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("report_transaksi.jasper"),null,koneksi.getKoneksi());
-            JasperViewer.viewReport(print, false);
-            
-        }catch(JRException e){
-            JOptionPane.showMessageDialog(rootPane, e);
-        }
+    
+     try{
+        Map<String, Object> parameter = new HashMap <>();
+        parameter.put("awal", jDateChooserAwal.getDate());
+        parameter.put("akhir", jDateChooserAkhir.getDate());
+        File file = new File ("src/laporan/report_transaksi.jrxml");
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/db_aplikasi_penjualan","root","");
+        JasperDesign jasperDesign = JRXmlLoader.load(file);;
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, con);
+        JasperViewer.viewReport(jasperPrint,false);
+    
+        
+    }    catch (JRException ex) {   
+             Logger.getLogger(LaporanRiwayat.class.getName()).log(Level.SEVERE, null, ex);
+ 
+    }    catch (SQLException ex) {
+             Logger.getLogger(LaporanRiwayat.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (ClassNotFoundException ex) {
+             Logger.getLogger(LaporanRiwayat.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+
+
+//         try{
+//            JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("report_transaksi.jasper"),null,koneksi.getKoneksi());
+//            JasperViewer.viewReport(print, false);
+//            
+//        }catch(JRException e){
+//            JOptionPane.showMessageDialog(rootPane, e);
+//        }
     }//GEN-LAST:event_BtnPrint21552011235MouseClicked
 
     private void BtnPrint21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPrint21552011235MouseEntered
@@ -561,6 +636,8 @@ public class LaporanRiwayat extends javax.swing.JFrame {
 
     private void BtnReset21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnReset21552011235MouseClicked
        try{
+           int ok = JOptionPane.showConfirmDialog (null," Apakah Anda Yakin Ingin "
+            + "Menghapus Database Riwayat Transaksi ?","Konfirmasi Hapus Data  ", JOptionPane.YES_NO_OPTION);
             String clear = "TRUNCATE `transaksi`";
             Connection connect = koneksi.getKoneksi();
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(clear);
@@ -746,6 +823,8 @@ public class LaporanRiwayat extends javax.swing.JFrame {
     private javax.swing.JLabel BtnReset21552011235;
     private javax.swing.JLabel DaftarMenu;
     private javax.swing.JLabel DaftarMenu1;
+    private javax.swing.JLabel NamaPendonor1;
+    private javax.swing.JLabel NamaPendonor3;
     private javax.swing.JPanel Navbar;
     private javax.swing.JPanel Navbar1;
     private javax.swing.JPanel PanelBack21552011235;
@@ -755,6 +834,8 @@ public class LaporanRiwayat extends javax.swing.JFrame {
     private javax.swing.JPanel PanelPrint21552011235;
     private javax.swing.JPanel PanelRefresh21552011235;
     private javax.swing.JPanel PanelReset21552011235;
+    private com.toedter.calendar.JDateChooser jDateChooserAkhir;
+    private com.toedter.calendar.JDateChooser jDateChooserAwal;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel11;
