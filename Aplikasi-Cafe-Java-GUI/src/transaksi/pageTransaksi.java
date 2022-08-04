@@ -39,6 +39,10 @@ public class pageTransaksi extends javax.swing.JFrame {
     public pageTransaksi() {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
+        BtnHitungDiskon.setEnabled(false);
+        BtnBayar21552011235.setEnabled(false);
+        //PanelBayar21552011235.setEnabled(false);
+        //BtnPrint21552011235.setEnabled(false);
         koneksi.getKoneksi();
         totalnya();
         tanggal();
@@ -252,6 +256,8 @@ public class pageTransaksi extends javax.swing.JFrame {
         line2 = new javax.swing.JLabel();
         txtFieldJumlah21552011235 = new javax.swing.JTextField();
         Jumlah = new javax.swing.JLabel();
+        PaneHitungDiskon = new javax.swing.JPanel();
+        BtnHitungDiskon = new javax.swing.JLabel();
         PaneDelete21552011235 = new javax.swing.JPanel();
         BtnDelete21552011235 = new javax.swing.JLabel();
         line11 = new javax.swing.JLabel();
@@ -262,6 +268,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         line4 = new javax.swing.JLabel();
         txtFieldHarga21552011235 = new javax.swing.JTextField();
         txtFieldTotalHarga21552011235 = new javax.swing.JTextField();
+        line3 = new javax.swing.JLabel();
         totalHarga = new javax.swing.JLabel();
         txtFieldMasukanUang21552011235 = new javax.swing.JTextField();
         MasukanUang = new javax.swing.JLabel();
@@ -279,7 +286,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         BtnBack21552011235 = new javax.swing.JLabel();
         DaftarMenu = new javax.swing.JLabel();
         NamaMenu4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtFieldDiskon = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -325,7 +332,7 @@ public class pageTransaksi extends javax.swing.JFrame {
                 BtnBayar21552011235MousePressed(evt);
             }
         });
-        PanelBayar21552011235.add(BtnBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 140, 60));
+        PanelBayar21552011235.add(BtnBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 60));
 
         jPanel3.add(PanelBayar21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 540, 160, 60));
 
@@ -352,13 +359,13 @@ public class pageTransaksi extends javax.swing.JFrame {
         });
         PanelAdd21552011235.add(BtnAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 50));
 
-        jPanel3.add(PanelAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 590, 50));
+        jPanel3.add(PanelAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 670, 590, 50));
 
         NamaMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu2.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        NamaMenu2.setText("Diskon");
-        jPanel3.add(NamaMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 90, 40));
+        NamaMenu2.setText("Diskon *Opsional");
+        jPanel3.add(NamaMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 160, 40));
 
         line12.setBackground(new java.awt.Color(255, 255, 255));
         line12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -400,7 +407,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldNamaMenu21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldNamaMenu21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldNamaMenu21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 280, 40));
+        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 260, 40));
 
         line2.setBackground(new java.awt.Color(255, 255, 255));
         line2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -424,13 +431,38 @@ public class pageTransaksi extends javax.swing.JFrame {
                 txtFieldJumlah21552011235KeyReleased(evt);
             }
         });
-        jPanel3.add(txtFieldJumlah21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, 40));
+        jPanel3.add(txtFieldJumlah21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 260, 40));
 
         Jumlah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Jumlah.setForeground(new java.awt.Color(255, 255, 255));
         Jumlah.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Jumlah.setText("Jumlah");
-        jPanel3.add(Jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 100, 40));
+        Jumlah.setText("Jumlah Pesanan /Porsi/Cup/Biji");
+        jPanel3.add(Jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 230, 40));
+
+        PaneHitungDiskon.setBackground(new java.awt.Color(64, 49, 33));
+        PaneHitungDiskon.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        PaneHitungDiskon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnHitungDiskon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnHitungDiskon.setForeground(new java.awt.Color(255, 255, 255));
+        BtnHitungDiskon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BtnHitungDiskon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconOutline/icons8-discount-24.png"))); // NOI18N
+        BtnHitungDiskon.setText("Hitung");
+        BtnHitungDiskon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnHitungDiskon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnHitungDiskonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnHitungDiskonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnHitungDiskonMouseExited(evt);
+            }
+        });
+        PaneHitungDiskon.add(BtnHitungDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+
+        jPanel3.add(PaneHitungDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 90, 40));
 
         PaneDelete21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PaneDelete21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -485,7 +517,12 @@ public class pageTransaksi extends javax.swing.JFrame {
                 BtnPrint21552011235MouseExited(evt);
             }
         });
-        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 140, 60));
+        BtnPrint21552011235.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BtnPrint21552011235KeyReleased(evt);
+            }
+        });
+        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 60));
 
         jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 630, 160, 60));
 
@@ -518,8 +555,8 @@ public class pageTransaksi extends javax.swing.JFrame {
         line4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line4.setForeground(new java.awt.Color(255, 255, 255));
         line4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        line4.setText("__________________________________________________________________");
-        jPanel3.add(line4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 610, 20));
+        line4.setText("_________________________________________________________________");
+        jPanel3.add(line4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 590, 20));
 
         txtFieldHarga21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldHarga21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -531,14 +568,21 @@ public class pageTransaksi extends javax.swing.JFrame {
                 txtFieldHarga21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 270, 40));
+        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 260, 40));
 
         txtFieldTotalHarga21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldTotalHarga21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldTotalHarga21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldTotalHarga21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldTotalHarga21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldTotalHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 260, 40));
+        jPanel3.add(txtFieldTotalHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 590, 40));
+
+        line3.setBackground(new java.awt.Color(255, 255, 255));
+        line3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        line3.setForeground(new java.awt.Color(255, 255, 255));
+        line3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        line3.setText("_________");
+        jPanel3.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 90, 20));
 
         totalHarga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         totalHarga.setForeground(new java.awt.Color(255, 255, 255));
@@ -552,6 +596,11 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldMasukanUang21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldMasukanUang21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldMasukanUang21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtFieldMasukanUang21552011235.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFieldMasukanUang21552011235KeyReleased(evt);
+            }
+        });
         jPanel3.add(txtFieldMasukanUang21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 560, 340, 40));
 
         MasukanUang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -566,6 +615,11 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldUangKembali21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldUangKembali21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldUangKembali21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtFieldUangKembali21552011235.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFieldUangKembali21552011235KeyReleased(evt);
+            }
+        });
         jPanel3.add(txtFieldUangKembali21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 650, 340, 40));
 
         uangKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -678,18 +732,28 @@ public class pageTransaksi extends javax.swing.JFrame {
         NamaMenu4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu4.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        NamaMenu4.setText("Harga");
-        jPanel3.add(NamaMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 90, 40));
+        NamaMenu4.setText("Harga /Porsi/Cup/Biji");
+        jPanel3.add(NamaMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 150, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- pilih --", "Tidak ada", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldDiskon.setBackground(new java.awt.Color(64, 49, 33));
+        txtFieldDiskon.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtFieldDiskon.setForeground(new java.awt.Color(255, 255, 255));
+        txtFieldDiskon.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFieldDiskon.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtFieldDiskon.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtFieldDiskon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                txtFieldDiskonActionPerformed(evt);
             }
         });
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 250, 40));
+        txtFieldDiskon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFieldDiskonKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtFieldDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 80, 40));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 890));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 900));
 
         jScrollPane1.setViewportView(jPanel2);
 
@@ -850,9 +914,38 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldUangKembali21552011235.setText(null);
     }//GEN-LAST:event_BtnDelete21552011235MouseClicked
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void txtFieldDiskonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldDiskonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_txtFieldDiskonActionPerformed
+
+    private void txtFieldDiskonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldDiskonKeyReleased
+        BtnHitungDiskon.setEnabled(true);
+    }//GEN-LAST:event_txtFieldDiskonKeyReleased
+
+    private void BtnHitungDiskonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHitungDiskonMouseClicked
+        
+    }//GEN-LAST:event_BtnHitungDiskonMouseClicked
+
+    private void BtnHitungDiskonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHitungDiskonMouseEntered
+        changecolor(PaneHitungDiskon, new Color (32,83,117));
+    }//GEN-LAST:event_BtnHitungDiskonMouseEntered
+
+    private void BtnHitungDiskonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHitungDiskonMouseExited
+         changecolor(PaneHitungDiskon, new Color (64,49,33));
+    }//GEN-LAST:event_BtnHitungDiskonMouseExited
+
+    private void txtFieldMasukanUang21552011235KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldMasukanUang21552011235KeyReleased
+        BtnBayar21552011235.setEnabled(true);
+        //PanelBayar21552011235.setEnabled(true);
+    }//GEN-LAST:event_txtFieldMasukanUang21552011235KeyReleased
+
+    private void BtnPrint21552011235KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnPrint21552011235KeyReleased
+       
+    }//GEN-LAST:event_BtnPrint21552011235KeyReleased
+
+    private void txtFieldUangKembali21552011235KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldUangKembali21552011235KeyReleased
+         //BtnPrint21552011235.setEnabled(true);
+    }//GEN-LAST:event_txtFieldUangKembali21552011235KeyReleased
 
     /**
      * @param args the command line arguments
@@ -902,6 +995,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel BtnBayar21552011235;
     private javax.swing.JLabel BtnCari21552011235;
     private javax.swing.JLabel BtnDelete21552011235;
+    private javax.swing.JLabel BtnHitungDiskon;
     private javax.swing.JLabel BtnPrint21552011235;
     private javax.swing.JLabel BtnReset21552011235;
     private javax.swing.JLabel DaftarMenu;
@@ -913,13 +1007,13 @@ public class pageTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel NamaMenu4;
     private javax.swing.JPanel Navbar;
     private javax.swing.JPanel PaneDelete21552011235;
+    private javax.swing.JPanel PaneHitungDiskon;
     private javax.swing.JPanel PanelAdd21552011235;
     private javax.swing.JPanel PanelBack21552011235;
     private javax.swing.JPanel PanelBayar21552011235;
     private javax.swing.JPanel PanelCari21552011235;
     private javax.swing.JPanel PanelPrint21552011235;
     private javax.swing.JPanel PanelReset21552011235;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -927,6 +1021,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel line11;
     private javax.swing.JLabel line12;
     private javax.swing.JLabel line2;
+    private javax.swing.JLabel line3;
     private javax.swing.JLabel line4;
     private javax.swing.JLabel line5;
     private javax.swing.JLabel line6;
@@ -935,6 +1030,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser tgl_transaksi;
     private javax.swing.JLabel totalHarga;
     public javax.swing.JTextField txFieldKodeMenu21552011235;
+    public javax.swing.JTextField txtFieldDiskon;
     public javax.swing.JTextField txtFieldHarga21552011235;
     public javax.swing.JTextField txtFieldJumlah21552011235;
     public static javax.swing.JTextField txtFieldMasukanUang21552011235;
