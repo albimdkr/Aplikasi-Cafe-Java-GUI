@@ -793,11 +793,11 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Total Harga"/>
+                    <Property name="text" type="java.lang.String" value="Total Harga Pesanan"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="60" y="450" width="110" height="40"/>
+                      <AbsoluteConstraints x="60" y="450" width="170" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>

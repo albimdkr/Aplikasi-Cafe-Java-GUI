@@ -106,6 +106,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldHarga21552011235.setText(null);
         txtFieldJumlah21552011235.setText(null);
         txtFieldTotalHarga21552011235.setText(null);
+        txtFieldDiskon.setText(null);
     }
      
      private void penjualan(){
@@ -192,11 +193,23 @@ public class pageTransaksi extends javax.swing.JFrame {
         
         txtFieldTotalHarga21552011235.setText(total_harga);
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Only Number");
+            JOptionPane.showMessageDialog(null, "Gunakan Angka!!!");
             txtFieldJumlah21552011235.setText(null);
         }
     }
      
+     private void hitungDiskon(){
+        int harga, total, diskon, totaldiskon;
+         
+        harga = Integer.parseInt(txtFieldTotalHarga21552011235.getText());
+        diskon = Integer.parseInt(txtFieldDiskon.getText());
+        totaldiskon = (diskon * harga)/100;
+        total = harga - totaldiskon;
+        txtFieldDiskon.setText(String.valueOf(totaldiskon));
+        txtFieldTotalHarga21552011235.setText(String.valueOf(total));
+     }
+     
+    
      private void reset(){
         txtFieldMasukanUang21552011235.setText(null);
     }
@@ -587,8 +600,8 @@ public class pageTransaksi extends javax.swing.JFrame {
         totalHarga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         totalHarga.setForeground(new java.awt.Color(255, 255, 255));
         totalHarga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        totalHarga.setText("Total Harga");
-        jPanel3.add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 110, 40));
+        totalHarga.setText("Total Harga Pesanan");
+        jPanel3.add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 170, 40));
 
         txtFieldMasukanUang21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldMasukanUang21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -923,7 +936,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFieldDiskonKeyReleased
 
     private void BtnHitungDiskonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHitungDiskonMouseClicked
-        
+       hitungDiskon();
     }//GEN-LAST:event_BtnHitungDiskonMouseClicked
 
     private void BtnHitungDiskonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHitungDiskonMouseEntered
