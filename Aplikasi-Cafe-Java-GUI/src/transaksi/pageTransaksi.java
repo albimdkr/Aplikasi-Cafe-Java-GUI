@@ -72,6 +72,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         
         String sql = "SELECT * FROM penjualan ORDER BY id_transaksi ";
         String procedures = "CALL `total_harga_transaksi`()";
+        String subtotal = "CALL `subtotal`()";
         try{
             Connection c = koneksi.getKoneksi();//memanggil koneksi
             Statement s = c.createStatement();//membuat statement
@@ -132,6 +133,8 @@ public class pageTransaksi extends javax.swing.JFrame {
             
         }
         totalnya();
+        //subtotal();
+        
     }
     
     private void total(){
@@ -154,14 +157,26 @@ public class pageTransaksi extends javax.swing.JFrame {
      
     private void hitungDiskon(){
         int harga, total, diskon, totaldiskon;
-         
-        harga = Integer.parseInt(txtFieldTotalHarga21552011235.getText());
+        
+        try{
+        harga = Integer.parseInt(txtFieldTotalBayar21552011235.getText());
         diskon = Integer.parseInt(txtFieldDiskon.getText());
         totaldiskon = (diskon * harga)/100;
         total = harga - totaldiskon;
+        txtFieldTotalBayar21552011235.setText(String.valueOf(total));
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Gunakan Angka!!!");
+            txtFieldDiskon.setText(null);;
+        }
+        
+//        harga = Integer.parseInt(txtFieldTotalHarga21552011235.getText());
+//        diskon = Integer.parseInt(txtFieldDiskon.getText());
+//        totaldiskon = (diskon * harga)/100;
+//        total = harga - totaldiskon;
         //txtFieldDiskon.setText(String.valueOf(totaldiskon));
-        txtFieldTotalHarga21552011235.setText(String.valueOf(total));
+         //txtFieldTotalHarga21552011235.setText(String.valueOf(total));
         //txtFieldTotalBayar21552011235.setText(String.valueOf(total));
+        
      }
      
     private void totalnya(){
@@ -172,7 +187,23 @@ public class pageTransaksi extends javax.swing.JFrame {
             Statement sttmnt = connect.createStatement();//membuat statement
             ResultSet rslt = sttmnt.executeQuery(procedures);//menjalanakn query\
                 while(rslt.next()){
-                     txtFieldTotalBayar21552011235.setText(rslt.getString(1));
+                txtFieldTotalBayar21552011235.setText(rslt.getString(1));
+                    // txtFieldTotalBayar21552011235.setText(rslt.getString(1));
+                     //BtnHitungDiskon txtFieldDiskon
+                    // String txtFieldDiskon = "";
+//                     if (BtnHitungDiskon.isEnabled()){
+//                         int harga, total, diskon, totaldiskon;
+//                         harga = Integer.parseInt(txtFieldTotalHarga21552011235.getText());
+//                         diskon = Integer.parseInt(txtFieldDiskon.getText());
+//                         totaldiskon = (diskon * harga)/100;
+//                         total = harga - totaldiskon;
+//                         //txtFieldDiskon.setText(String.valueOf(totaldiskon));
+//                         //txtFieldTotalHarga21552011235.setText(String.valueOf(total));
+//                         txtFieldTotalBayar21552011235.setText(rslt.getString(1));
+//                     } else {
+//                         txtFieldTotalBayar21552011235.setText(rslt.getString(1));
+//                     }
+                     
                 }
         }catch(SQLException e){
             System.out.println(e);
@@ -180,14 +211,14 @@ public class pageTransaksi extends javax.swing.JFrame {
     }
     
 //    private void subtotal(){
-//        String procedures = "CALL `sub_total_transaksi`()";
+//        String procedures = "CALL `sub_total`()";
 //        
 //        try{
 //            Connection connect = koneksi.getKoneksi();//memanggil koneksi
 //            Statement sttmnt = connect.createStatement();//membuat statement
 //            ResultSet rslt = sttmnt.executeQuery(procedures);//menjalanakn query\
 //                while(rslt.next()){
-//                     txtFieldSubTotalTransaksi.setText(rslt.getString(2));
+//                     txtFieldSubTotal.setText(rslt.getString(2));
 //                }
 //        }catch(SQLException e){
 //            System.out.println(e);
@@ -195,8 +226,6 @@ public class pageTransaksi extends javax.swing.JFrame {
 //
 //    }
    
-     
-
           
     private void kembalian(){
         String total = txtFieldTotalBayar21552011235.getText();
@@ -245,6 +274,7 @@ public class pageTransaksi extends javax.swing.JFrame {
             clear();
         }
         totalnya();
+        //subtotal();
     }
      
      
@@ -389,13 +419,13 @@ public class pageTransaksi extends javax.swing.JFrame {
         });
         PanelAdd21552011235.add(BtnAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 50));
 
-        jPanel3.add(PanelAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 670, 590, 50));
+        jPanel3.add(PanelAdd21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 590, 50));
 
         NamaMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu2.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu2.setText("Diskon *Opsional");
-        jPanel3.add(NamaMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 160, 40));
+        jPanel3.add(NamaMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 160, 40));
 
         line12.setBackground(new java.awt.Color(255, 255, 255));
         line12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -492,7 +522,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         });
         PaneHitungDiskon.add(BtnHitungDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        jPanel3.add(PaneHitungDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 90, 40));
+        jPanel3.add(PaneHitungDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, 90, 40));
 
         PaneDelete21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PaneDelete21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -517,7 +547,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         });
         PaneDelete21552011235.add(BtnDelete21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
 
-        jPanel3.add(PaneDelete21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 210, 130, 40));
+        jPanel3.add(PaneDelete21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 210, 130, 40));
 
         line11.setBackground(new java.awt.Color(255, 255, 255));
         line11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -585,8 +615,8 @@ public class pageTransaksi extends javax.swing.JFrame {
         line4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line4.setForeground(new java.awt.Color(255, 255, 255));
         line4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        line4.setText("_________________________________________________________________");
-        jPanel3.add(line4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 590, 20));
+        line4.setText("____________________________");
+        jPanel3.add(line4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 270, 20));
 
         txtFieldHarga21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldHarga21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -605,20 +635,20 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldTotalHarga21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldTotalHarga21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldTotalHarga21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldTotalHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 590, 40));
+        jPanel3.add(txtFieldTotalHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 260, 40));
 
         line3.setBackground(new java.awt.Color(255, 255, 255));
         line3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line3.setForeground(new java.awt.Color(255, 255, 255));
         line3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line3.setText("__________________");
-        jPanel3.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 170, 20));
+        jPanel3.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 170, 20));
 
         totalHarga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         totalHarga.setForeground(new java.awt.Color(255, 255, 255));
         totalHarga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         totalHarga.setText("Total Harga Pesanan");
-        jPanel3.add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 170, 40));
+        jPanel3.add(totalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 170, 40));
 
         txtFieldMasukanUang21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldMasukanUang21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -636,7 +666,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         MasukanUang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MasukanUang.setForeground(new java.awt.Color(255, 255, 255));
         MasukanUang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        MasukanUang.setText("Total");
+        MasukanUang.setText("Jumlah");
         jPanel3.add(MasukanUang, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 220, 40));
 
         txtFieldUangKembali21552011235.setBackground(new java.awt.Color(64, 49, 33));
@@ -661,7 +691,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         tgl_transaksi.setDateFormatString("dd-MM-yyyy");
         tgl_transaksi.setEnabled(false);
         tgl_transaksi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jPanel3.add(tgl_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 400, 40));
+        jPanel3.add(tgl_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 160, 40));
 
         MasukanUang1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MasukanUang1.setForeground(new java.awt.Color(255, 255, 255));
@@ -781,7 +811,7 @@ public class pageTransaksi extends javax.swing.JFrame {
                 txtFieldDiskonKeyReleased(evt);
             }
         });
-        jPanel3.add(txtFieldDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 170, 40));
+        jPanel3.add(txtFieldDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 170, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 900));
 
