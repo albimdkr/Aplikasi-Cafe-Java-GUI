@@ -260,17 +260,19 @@ public class pageTransaksi extends javax.swing.JFrame {
      
     private void hapusData(){
         int i = tb_keranjang.getSelectedRow();
+                int ok = JOptionPane.showConfirmDialog (null," Apakah anda yakin ingin "
+            + "mengahapus pesanan dalam keranjang tersebut ?","Konfirmasi Hapus Pesanan Dalam Keranjang ", JOptionPane.YES_NO_OPTION);
         
-        String kode = table.getValueAt(i, 0).toString();
-        
-        Connection connect = koneksi.getKoneksi();
-        String sql = "DELETE FROM penjualan WHERE id_transaksi = "+kode+"";
+        if (ok==0){
+            String kode = table.getValueAt(i, 0).toString();
+            Connection connect = koneksi.getKoneksi();
+            String sql = "DELETE FROM penjualan WHERE id_transaksi = "+kode+"";
         try{
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(sql);
             ps.execute();
         }catch(SQLException | HeadlessException e){
             System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
+            JOptionPane.showMessageDialog(rootPane, "Pastikan pilih list lalu klik sesuai diinginkan.", "PERINGATAN DATA GAGAL TERHAPUS !", JOptionPane.ERROR_MESSAGE);
         }finally{
             tampilData();
             clear();
@@ -278,6 +280,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         totalnya();
         //subtotal();
     }
+}
      
      
      
