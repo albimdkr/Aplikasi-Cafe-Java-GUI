@@ -123,11 +123,11 @@ public class pageTransaksi extends javax.swing.JFrame {
             //menyiapkan statement untuk di eksekusi
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(query);
             ps.executeUpdate(query);
-            JOptionPane.showMessageDialog(null,"Pesanan Berhasil Masuk Ke Struk Penjualan");
+            JOptionPane.showMessageDialog(null,"Pesanan Berhasil Masuk");
             
         }catch(SQLException | HeadlessException e){
             System.out.println(e);
-            JOptionPane.showMessageDialog(null,"Pesanan Gagal!!!");
+            JOptionPane.showMessageDialog(rootPane, "Ulangi! pastikan stok menu ada atau input jumlah pesanan terlebih dahulu.", "PESANAN GAGAL !", JOptionPane.ERROR_MESSAGE);
             
         }finally{
             tampilData();
@@ -152,7 +152,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         
         txtFieldTotalHarga21552011235.setText(total_harga);
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Gunakan Angka!!!");
+            JOptionPane.showMessageDialog(rootPane, "Ulangi! pastikan input nilai dalam jumlah ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.WARNING_MESSAGE);
             txtFieldJumlah21552011235.setText(null);
         }
     }
@@ -167,8 +167,8 @@ public class pageTransaksi extends javax.swing.JFrame {
         total = harga - totaldiskon;
         txtFieldTotalBayar21552011235.setText(String.valueOf(total));
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Gunakan Angka!!!");
-            txtFieldDiskon.setText(null);;
+            JOptionPane.showMessageDialog(rootPane, "Ulangi! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE);
+            txtFieldDiskon.setText(null);
         }
         
 //        harga = Integer.parseInt(txtFieldTotalHarga21552011235.getText());
@@ -190,45 +190,13 @@ public class pageTransaksi extends javax.swing.JFrame {
             ResultSet rslt = sttmnt.executeQuery(procedures);//menjalanakn query\
                 while(rslt.next()){
                 txtFieldTotalBayar21552011235.setText(rslt.getString(1));
-                    // txtFieldTotalBayar21552011235.setText(rslt.getString(1));
-                     //BtnHitungDiskon txtFieldDiskon
-                    // String txtFieldDiskon = "";
-//                     if (BtnHitungDiskon.isEnabled()){
-//                         int harga, total, diskon, totaldiskon;
-//                         harga = Integer.parseInt(txtFieldTotalHarga21552011235.getText());
-//                         diskon = Integer.parseInt(txtFieldDiskon.getText());
-//                         totaldiskon = (diskon * harga)/100;
-//                         total = harga - totaldiskon;
-//                         //txtFieldDiskon.setText(String.valueOf(totaldiskon));
-//                         //txtFieldTotalHarga21552011235.setText(String.valueOf(total));
-//                         txtFieldTotalBayar21552011235.setText(rslt.getString(1));
-//                     } else {
-//                         txtFieldTotalBayar21552011235.setText(rslt.getString(1));
-//                     }
-                     
                 }
         }catch(SQLException e){
             System.out.println(e);
         }
     }
     
-//    private void subtotal(){
-//        String procedures = "CALL `sub_total`()";
-//        
-//        try{
-//            Connection connect = koneksi.getKoneksi();//memanggil koneksi
-//            Statement sttmnt = connect.createStatement();//membuat statement
-//            ResultSet rslt = sttmnt.executeQuery(procedures);//menjalanakn query\
-//                while(rslt.next()){
-//                     txtFieldSubTotal.setText(rslt.getString(2));
-//                }
-//        }catch(SQLException e){
-//            System.out.println(e);
-//        }
-//
-//    }
-   
-          
+  
     private void kembalian(){
         String total = txtFieldTotalBayar21552011235.getText();
         String uang = txtFieldMasukanUang21552011235.getText();
@@ -241,7 +209,7 @@ public class pageTransaksi extends javax.swing.JFrame {
             txtFieldUangKembali21552011235.setText(fix);
             JOptionPane.showMessageDialog(null, "Transaksi Berhasil");
         }catch(NumberFormatException | HeadlessException e){
-            JOptionPane.showMessageDialog(null, "Transaksi Gagal, Ulang Kembali!!!");
+            JOptionPane.showMessageDialog(rootPane, "Ulangi! Pastikan input uang bayar dengan benar.", "PERINGATAN TRANSAKSI GAGAL !", JOptionPane.ERROR_MESSAGE);
         }
     }
      
@@ -272,12 +240,14 @@ public class pageTransaksi extends javax.swing.JFrame {
             ps.execute();
         }catch(SQLException | HeadlessException e){
             System.out.println(e);
-            JOptionPane.showMessageDialog(rootPane, "Pastikan pilih list lalu klik sesuai diinginkan.", "PERINGATAN DATA GAGAL TERHAPUS !", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Ulangi! Pastikan pilih list lalu klik sesuai diinginkan.", "PERINGATAN DATA GAGAL TERHAPUS !", JOptionPane.ERROR_MESSAGE);
         }finally{
             tampilData();
             clear();
         }
         totalnya();
+        hitungDiskon();
+        
         //subtotal();
     }
 }
@@ -925,6 +895,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         }finally{
             tampilData();
             totalnya();
+            hitungDiskon();
             txtFieldMasukanUang21552011235.setText(null);
             txtFieldUangKembali21552011235.setText(null);
         }
