@@ -47,6 +47,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         //BtnPrint21552011235.setEnabled(false);
         koneksi.getKoneksi();
         totalnya();
+        //hitungDiskon();
         tanggal();
         
         tb_keranjang.setModel(table);
@@ -74,7 +75,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         
         String sql = "SELECT * FROM penjualan ORDER BY id_transaksi ";
         String procedures = "CALL `total_harga_transaksi`()";
-        String subtotal = "CALL `subtotal`()";
         try{
             Connection c = koneksi.getKoneksi();//memanggil koneksi
             Statement s = c.createStatement();//membuat statement
@@ -135,6 +135,7 @@ public class pageTransaksi extends javax.swing.JFrame {
             
         }
         totalnya();
+        //hitungDiskon();
         //subtotal();
         
     }
@@ -166,6 +167,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         totaldiskon = (diskon * harga)/100;
         total = harga - totaldiskon;
         txtFieldTotalBayar21552011235.setText(String.valueOf(total));
+        JOptionPane.showMessageDialog(null,"Hitung Harga Diskon Berhasil");
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(rootPane, "Ulangi! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE);
             txtFieldDiskon.setText(null);
@@ -246,7 +248,7 @@ public class pageTransaksi extends javax.swing.JFrame {
             clear();
         }
         totalnya();
-        hitungDiskon();
+        //hitungDiskon();
         
         //subtotal();
     }
@@ -884,7 +886,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCari21552011235MouseExited
 
     private void BtnReset21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnReset21552011235MouseClicked
-        try{
+    ff    try{
             String clear = "TRUNCATE `penjualan`";
             Connection connect = koneksi.getKoneksi();
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(clear);
@@ -895,7 +897,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         }finally{
             tampilData();
             totalnya();
-            hitungDiskon();
+            //hitungDiskon();
             txtFieldMasukanUang21552011235.setText(null);
             txtFieldUangKembali21552011235.setText(null);
         }
