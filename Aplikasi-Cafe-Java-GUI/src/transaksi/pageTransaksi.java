@@ -230,7 +230,7 @@ public class pageTransaksi extends javax.swing.JFrame {
      
     private void hapusData(){
         int i = tb_keranjang.getSelectedRow();
-                int ok = JOptionPane.showConfirmDialog (null," Apakah anda yakin ingin "
+        int ok = JOptionPane.showConfirmDialog (null," Apakah anda yakin ingin "
             + "mengahapus pesanan dalam keranjang tersebut ?","Konfirmasi Hapus Pesanan Dalam Keranjang ", JOptionPane.YES_NO_OPTION);
         
         if (ok==0){
@@ -249,11 +249,33 @@ public class pageTransaksi extends javax.swing.JFrame {
         }
         totalnya();
         //hitungDiskon();
-        
         //subtotal();
     }
 }
      
+    
+    private void pelanggan(){
+        //String id = 
+        String nama = txtFieldNamaMenu21552011235.getText();
+        String diskon = txtFieldDiskon.getText();
+        String subtotal = txtFieldTotalBayar21552011235.getText();
+      
+        //panggil koneksi
+        Connection connect = koneksi.getKoneksi();
+        //query untuk memasukan data
+        String query = "INSERT INTO `tb_pelanggan` (`id_pelanggan`,`nama`,`diskon`, `sub_total`) "
+                + "VALUES ( NULL, '"+nama+"', '"+diskon+"', '"+subtotal+"')";
+        
+        try{
+            //menyiapkan statement untuk di eksekusi
+            PreparedStatement ps = (PreparedStatement) connect.prepareStatement(query);
+            ps.executeUpdate(query);
+            
+        }catch(SQLException | HeadlessException e){
+            System.out.println(e);
+        }finally{
+        }
+    } 
      
      
      
@@ -886,21 +908,29 @@ public class pageTransaksi extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCari21552011235MouseExited
 
     private void BtnReset21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnReset21552011235MouseClicked
-    ff    try{
+
+        int ok = JOptionPane.showConfirmDialog (null," Apakah anda yakin ingin "
+            + "Menbersihkan Halaman Transaksi?","Konfirmasi Clear Form Transaksi ", JOptionPane.YES_NO_OPTION);
+        
+        if (ok==0){
             String clear = "TRUNCATE `penjualan`";
             Connection connect = koneksi.getKoneksi();
+        try{ 
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(clear);
             ps.execute();
   
         }catch(SQLException e){
             System.out.println(e);
+            JOptionPane.showMessageDialog(rootPane, "Ulangi! Pastikan sudah benar.", "PERINGATAN FORM HALAMAN TRANSAKSI GAGAL DIBERSIHKAN !", JOptionPane.ERROR_MESSAGE);
         }finally{
             tampilData();
             totalnya();
             //hitungDiskon();
+            txtFieldDiskon.setText(null);
             txtFieldMasukanUang21552011235.setText(null);
             txtFieldUangKembali21552011235.setText(null);
         }
+      }
     }//GEN-LAST:event_BtnReset21552011235MouseClicked
 
     private void BtnReset21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnReset21552011235MouseEntered
@@ -952,6 +982,7 @@ public class pageTransaksi extends javax.swing.JFrame {
 
     private void BtnBayar21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBayar21552011235MouseClicked
         kembalian();
+        pelanggan();
     }//GEN-LAST:event_BtnBayar21552011235MouseClicked
 
     private void BtnBayar21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBayar21552011235MouseEntered
@@ -997,6 +1028,7 @@ public class pageTransaksi extends javax.swing.JFrame {
 
     private void BtnDelete21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDelete21552011235MouseClicked
         hapusData();
+        txtFieldDiskon.setText(null);
         txtFieldMasukanUang21552011235.setText(null);
         txtFieldUangKembali21552011235.setText(null);
     }//GEN-LAST:event_BtnDelete21552011235MouseClicked

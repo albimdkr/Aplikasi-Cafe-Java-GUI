@@ -8,11 +8,14 @@ import java.awt.Color;
 import transaksi.pageTransaksi;
 import transaksi.stokMenu;
 import java.awt.Dimension;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import koneksi.koneksi;
 
 /**
  *
@@ -731,8 +734,13 @@ public class dashboardBarista extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnLogout21552011235MouseEntered
 
     private void BtnLogout21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLogout21552011235MouseClicked
-        new login.selamatDatang().setVisible(true);
-        dispose();
+//        int ok = JOptionPane.showConfirmDialog (null," Apakah anda yakin ingin "
+//            + "logout dari aplikasi ini ?","Konfirmasi logout ", JOptionPane.YES_NO_OPTION);
+//        
+//        if (ok==0){
+//        new login.selamatDatang().setVisible(true);
+//        dispose();
+//        }
     }//GEN-LAST:event_BtnLogout21552011235MouseClicked
 
     private void TabHomeBtnData21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabHomeBtnData21552011235MouseEntered
