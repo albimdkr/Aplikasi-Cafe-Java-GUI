@@ -400,15 +400,16 @@ public class stokMenu extends javax.swing.JFrame {
         line11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line11.setForeground(new java.awt.Color(255, 255, 255));
         line11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        line11.setText("____________________________");
-        jPanel3.add(line11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 270, 20));
+        line11.setText("_______");
+        jPanel3.add(line11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, 20));
 
         txFieldKodeMenu21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txFieldKodeMenu21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txFieldKodeMenu21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        txFieldKodeMenu21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txFieldKodeMenu21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txFieldKodeMenu21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txFieldKodeMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 260, 40));
+        jPanel3.add(txFieldKodeMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 60, 40));
 
         table_menu.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         table_menu.setModel(new javax.swing.table.DefaultTableModel(
@@ -440,7 +441,7 @@ public class stokMenu extends javax.swing.JFrame {
         NamaMenu7.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu7.setText("Kode");
-        jPanel3.add(NamaMenu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 120, 40));
+        jPanel3.add(NamaMenu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 60, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
