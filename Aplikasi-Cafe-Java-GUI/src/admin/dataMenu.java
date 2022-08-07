@@ -62,8 +62,8 @@ public class dataMenu extends javax.swing.JFrame {
         tampilDataVarian();
         
     }
-   
-    /////SECTION MENU
+    
+    
     private void tampilData(){
         //untuk mengahapus baris setelah input
         int row = tableMenu21552011235.getRowCount();
@@ -239,13 +239,44 @@ public class dataMenu extends javax.swing.JFrame {
     }
     }
     
-    /////END SECTION MENU
-    
-    ////// SECTION VARIAN
-    ////// END SECTION VARIAN
     
     
+    ////SECTION VARIAN
+    private void tampilDataVarian(){
+        //untuk mengahapus baris setelah input
+        int row = tableVarian.getRowCount();
+        for(int a = 0 ; a < row ; a++){
+            tablevarian.removeRow(0);
+        }
+        
+        String query = "SELECT * FROM `tb_varian`";
+        
+        try{
+            java.sql.Connection connect = koneksi.getKoneksi();//memanggil koneksi
+            Statement sttmnt = connect.createStatement();//membuat statement
+            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+            
+            while (rslt.next()){
+                //menampung data sementara
+                    String no = rslt.getString("no");
+                    String nama = rslt.getString("nama_varian");
+                    String harga = rslt.getString("harga");
+                    
+                //masukan semua data kedalam array
+                String[] data = {no,nama,harga};
+                //menambahakan baris sesuai dengan data yang tersimpan diarray
+                tablevarian.addRow(data);
+            }
+                //mengeset nilai yang ditampung agar muncul di table
+                tableVarian.setModel(tablevarian);
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+       
+    }
     
+    ////SECTION VARIAN
 
     /**
      * This method is called from within the constructor to initialize the form.
