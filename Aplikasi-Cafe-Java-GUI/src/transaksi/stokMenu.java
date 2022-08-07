@@ -28,6 +28,7 @@ public class stokMenu extends javax.swing.JFrame {
     public stokMenu() {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
+        updateJcomboboxVarian();
         
         koneksi conn = new koneksi();
         koneksi.getKoneksi();
@@ -76,6 +77,27 @@ public class stokMenu extends javax.swing.JFrame {
         }
        
     }
+    
+    
+    private void updateJcomboboxVarian(){
+           String query = "SELECT * FROM tb_varian";
+           
+           try{
+            Connection connect = koneksi.getKoneksi();//memanggil koneksi
+            Statement sttmnt = connect.createStatement();//membuat statement
+            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+                while (rslt.next()){
+                    jComboBoxPilihVarian.addItem(rslt.getString("nama_varian"));
+                }
+           
+           }catch(SQLException e){
+        }
+            
+    }
+    
+    
+
+    
     
     private void cari(){
         int row = table_menu.getRowCount();
@@ -434,7 +456,6 @@ public class stokMenu extends javax.swing.JFrame {
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 920, 380));
 
         jComboBoxPilihVarian.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jComboBoxPilihVarian.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih --", "Original", "Boba", "Vanila", "Coklat", "Keju" }));
         jPanel3.add(jComboBoxPilihVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 250, 40));
 
         NamaMenu7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
