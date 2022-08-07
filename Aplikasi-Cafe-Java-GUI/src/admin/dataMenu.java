@@ -148,31 +148,7 @@ public class dataMenu extends javax.swing.JFrame {
         txtTanggal21552011235.setDate(now);    
     }
     
-    private void hapusData(){
-        //ambill data no pendaftaran
-        int i = tableMenu21552011235.getSelectedRow();
-        
-        String kode = table.getValueAt(i, 0).toString();
-        
-        java.sql.Connection connect = koneksi.getKoneksi();
-        
-        String query = "DELETE FROM `tb_menu` WHERE `tb_menu`.`kode_menu` = "+kode+" ";
-        try{
-            PreparedStatement ps = (PreparedStatement) connect.prepareStatement(query);
-            ps.execute();
-            JOptionPane.showMessageDialog(null , "Data Berhasil Dihapus");
-        }catch(SQLException | HeadlessException e){
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
-        }finally{
-            tampilData();
-            clear();
-        }
-        
-    }
-    
-    
-    private void editData(){
+        private void editData(){
         int i = tableMenu21552011235.getSelectedRow();
         
         String kode = table.getValueAt(i, 0).toString();
@@ -195,6 +171,28 @@ public class dataMenu extends javax.swing.JFrame {
         }catch(SQLException | HeadlessException e){
             System.out.println(e);
             JOptionPane.showMessageDialog(null, "Gagal Update");
+        }finally{
+            tampilData();
+            clear();
+        }
+    }
+    
+    private void hapusData(){
+        //ambill data no pendaftaran
+        int i = tableMenu21552011235.getSelectedRow();
+        
+        String kode = table.getValueAt(i, 0).toString();
+        
+        java.sql.Connection connect = koneksi.getKoneksi();
+        
+        String query = "DELETE FROM `tb_menu` WHERE `tb_menu`.`kode_menu` = "+kode+" ";
+        try{
+            PreparedStatement ps = (PreparedStatement) connect.prepareStatement(query);
+            ps.execute();
+            JOptionPane.showMessageDialog(null , "Data Berhasil Dihapus");
+        }catch(SQLException | HeadlessException e){
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
         }finally{
             tampilData();
             clear();
@@ -238,11 +236,11 @@ public class dataMenu extends javax.swing.JFrame {
            System.out.println(e);
     }
     }
-    //// END SECTION MENU
+    ////////////////////////////////////////////////// END SECTION MENU
     
     
     
-    ////SECTION VARIAN
+    //////////////////////////////////////////////////SECTION VARIAN
     private void tampilDataVarian(){
         //untuk mengahapus baris setelah input
         int row = tableVarian.getRowCount();
@@ -286,9 +284,6 @@ public class dataMenu extends javax.swing.JFrame {
         String nama = txtFieldNamaVarian.getText();
         String harga = txtFieldHargaVarian.getText();
         
-        //SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-        //String tanggal = date.format(txtTanggal21552011235.getDate());
-        
         //panggil koneksi
         java.sql.Connection connect = koneksi.getKoneksi();
         //query untuk memasukan data
@@ -311,6 +306,88 @@ public class dataMenu extends javax.swing.JFrame {
         }
     }
     
+        private void editDataVarian(){
+        int i = tableVarian.getSelectedRow();
+        
+        String no = tableVarian.getValueAt(i, 0).toString();
+        String nama = txtFieldNamaVarian.getText();
+        String harga =txtFieldHargaVarian.getText();
+        
+        java.sql.Connection connect = koneksi.getKoneksi();
+        
+        String query = "UPDATE `tb_varian` SET `nama_varian` = '"+nama+"', `harga` = '"+harga+"' "
+                + "WHERE `tb_varian`.`no` = '"+no+"';";
+
+        try{
+            PreparedStatement ps = (PreparedStatement) connect.prepareStatement(query);
+            ps.executeUpdate(query);
+            JOptionPane.showMessageDialog(null , "Data Update");
+        }catch(SQLException | HeadlessException e){
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Gagal Update");
+        }finally{
+            tampilDataVarian();
+            clearVarian();
+        }
+    }
+        
+    private void hapusDataVarian(){
+        //ambill data no pendaftaran
+        int i = tableVarian.getSelectedRow();
+        
+        String kode = tableVarian.getValueAt(i, 0).toString();
+        
+        java.sql.Connection connect = koneksi.getKoneksi();
+        
+        String query = "DELETE FROM `tb_varian` WHERE `tb_varian`.`no` = "+kode+" ";
+        try{
+            PreparedStatement ps = (PreparedStatement) connect.prepareStatement(query);
+            ps.execute();
+            JOptionPane.showMessageDialog(null , "Data Berhasil Dihapus");
+        }catch(SQLException | HeadlessException e){
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
+        }finally{
+            tampilDataVarian();
+            clearVarian();
+        }
+    }
+    
+    private void cariVarian(){
+        int row = tableVarian.getRowCount();
+        for(int a = 0 ; a < row ; a++){
+            tablevarian.removeRow(0);
+        }
+        
+        String cari = txtFieldCariVarian.getText();
+        
+        String query = "SELECT * FROM `tb_varian` WHERE `no`  LIKE '%"+cari+"%' OR `nama_varian` LIKE '%"+cari+"%' ";
+                
+       try{
+           java.sql.Connection connect = koneksi.getKoneksi();//memanggil koneksi
+           Statement sttmnt = connect.createStatement();//membuat statement
+           ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+           
+           while (rslt.next()){
+                //menampung data sementara
+                   
+                    String no = rslt.getString("no");
+                    String nama = rslt.getString("nama_varian");
+                    String harga = rslt.getString("harga");
+                    
+                //masukan semua data kedalam array
+                String[] data = {no,nama,harga};
+                //menambahakan baris sesuai dengan data yang tersimpan diarray
+                tablevarian.addRow(data);
+            }
+                //mengeset nilai yang ditampung agar muncul di table
+                tableVarian.setModel(tablevarian);
+           
+        
+    }catch(Exception e){
+           System.out.println(e);
+    }
+    }
     
     
     //// END SECTION VARIAN
@@ -1155,7 +1232,14 @@ public class dataMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFieldHarga21552011235ActionPerformed
 
     private void tableVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableVarianMouseClicked
-        // TODO add your handling code here:
+        int baris = tableVarian.getSelectedRow();
+        
+        String nama = tableVarian.getValueAt(baris,1).toString();
+        txtFieldNamaVarian.setText(nama);
+        
+        String harga = tableVarian.getValueAt(baris, 2).toString();
+        txtFieldHargaVarian.setText(harga);
+       
     }//GEN-LAST:event_tableVarianMouseClicked
 
     private void BtnAddVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddVarianMouseClicked
@@ -1163,23 +1247,23 @@ public class dataMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAddVarianMouseClicked
 
     private void BtnAddVarianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddVarianMouseEntered
-        // TODO add your handling code here:
+       changecolor(PanelAddVarian, new Color (78,159,61));
     }//GEN-LAST:event_BtnAddVarianMouseEntered
 
     private void BtnAddVarianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddVarianMouseExited
-        // TODO add your handling code here:
+        changecolor(PanelAddVarian, new Color (64,49,33));
     }//GEN-LAST:event_BtnAddVarianMouseExited
 
     private void BtnRefreshVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRefreshVarianMouseClicked
-        // TODO add your handling code here:
+        tampilDataVarian();
     }//GEN-LAST:event_BtnRefreshVarianMouseClicked
 
     private void BtnRefreshVarianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRefreshVarianMouseEntered
-        // TODO add your handling code here:
+        changecolor(PanelRefreshVarian, new Color (32,83,117));
     }//GEN-LAST:event_BtnRefreshVarianMouseEntered
 
     private void BtnRefreshVarianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRefreshVarianMouseExited
-        // TODO add your handling code here:
+        changecolor(PanelRefreshVarian, new Color (64,49,33));
     }//GEN-LAST:event_BtnRefreshVarianMouseExited
 
     private void BtnClearVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnClearVarianMouseClicked
@@ -1187,35 +1271,35 @@ public class dataMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnClearVarianMouseClicked
 
     private void BtnClearVarianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnClearVarianMouseEntered
-        // TODO add your handling code here:
+      changecolor(PanelClearVarian, new Color (224,77,1));
     }//GEN-LAST:event_BtnClearVarianMouseEntered
 
     private void BtnClearVarianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnClearVarianMouseExited
-        // TODO add your handling code here:
+      changecolor(PanelClearVarian, new Color (64,49,33));
     }//GEN-LAST:event_BtnClearVarianMouseExited
 
     private void BtnCariVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCariVarianMouseClicked
-        // TODO add your handling code here:
+      cariVarian();
     }//GEN-LAST:event_BtnCariVarianMouseClicked
 
     private void BtnCariVarianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCariVarianMouseEntered
-        // TODO add your handling code here:
+       changecolor(PanelCariVarian, new Color (45,35,23));
     }//GEN-LAST:event_BtnCariVarianMouseEntered
 
     private void BtnCariVarianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCariVarianMouseExited
-        // TODO add your handling code here:
+        changecolor(PanelCariVarian, new Color (64,49,33));
     }//GEN-LAST:event_BtnCariVarianMouseExited
 
     private void BtnEditVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEditVarianMouseClicked
-        // TODO add your handling code here:
+        editDataVarian();
     }//GEN-LAST:event_BtnEditVarianMouseClicked
 
     private void BtnEditVarianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEditVarianMouseEntered
-        // TODO add your handling code here:
+        changecolor(PanelEditVarian, new Color (45,35,23));
     }//GEN-LAST:event_BtnEditVarianMouseEntered
 
     private void BtnEditVarianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEditVarianMouseExited
-        // TODO add your handling code here:
+        changecolor(PanelEditVarian, new Color (64,49,33));
     }//GEN-LAST:event_BtnEditVarianMouseExited
 
     private void BtnEditMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEditMenuMouseExited
@@ -1231,15 +1315,15 @@ public class dataMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEditMenuMouseClicked
 
     private void BtnDeleteVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDeleteVarianMouseClicked
-        // TODO add your handling code here:
+        hapusDataVarian();
     }//GEN-LAST:event_BtnDeleteVarianMouseClicked
 
     private void BtnDeleteVarianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDeleteVarianMouseEntered
-        // TODO add your handling code here:
+        changecolor(PanelDeleteVarian, new Color (255,24,24));
     }//GEN-LAST:event_BtnDeleteVarianMouseEntered
 
     private void BtnDeleteVarianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDeleteVarianMouseExited
-        // TODO add your handling code here:
+        changecolor(PanelDeleteVarian, new Color (64,49,33));
     }//GEN-LAST:event_BtnDeleteVarianMouseExited
 
     /**
