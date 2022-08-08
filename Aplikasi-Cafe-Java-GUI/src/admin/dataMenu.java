@@ -102,7 +102,7 @@ public class dataMenu extends javax.swing.JFrame {
     }
     
     private void clear(){
-//        txt_kodebarang.setText(null);
+        txtFieldKodeMenu.setText(null);
         txtFieldNamaMenu21552011235.setText(null);
         txtFieldHarga21552011235.setText(null);
         txtFieldStok21552011235.setText(null);
@@ -112,7 +112,7 @@ public class dataMenu extends javax.swing.JFrame {
     
     
     private void tambahData(){
-//        String kode = txt_kodebarang.getText();
+        String kode = txtFieldKodeMenu.getText();
         String nama = txtFieldNamaMenu21552011235.getText();
         String harga = txtFieldHarga21552011235.getText();
         String stok = txtFieldStok21552011235.getText();
@@ -124,7 +124,7 @@ public class dataMenu extends javax.swing.JFrame {
         java.sql.Connection connect = koneksi.getKoneksi();
         //query untuk memasukan data
         String query = "INSERT INTO `tb_menu` (kode_menu, `nama_menu`, `harga`, `stok`, `tanggal`) "
-                     + "VALUES (NULL, '"+nama+"', '"+harga+"', '"+stok+"', '"+tanggal+"')";
+                     + "VALUES ('"+kode+"','"+nama+"', '"+harga+"', '"+stok+"', '"+tanggal+"')";
         
         try{
             //menyiapkan statement untuk di eksekusi
@@ -151,7 +151,7 @@ public class dataMenu extends javax.swing.JFrame {
         private void editData(){
         int i = tableMenu21552011235.getSelectedRow();
         
-        String kode = table.getValueAt(i, 0).toString();
+        String kode = txtFieldKodeMenu.getText();
         String nama = txtFieldNamaMenu21552011235.getText();
         String harga =txtFieldHarga21552011235.getText();
         String stok = txtFieldStok21552011235.getText();
@@ -161,7 +161,7 @@ public class dataMenu extends javax.swing.JFrame {
         
         java.sql.Connection connect = koneksi.getKoneksi();
         
-        String query = "UPDATE `tb_menu` SET `nama_menu` = '"+nama+"', `harga` = '"+harga+"', `stok` = '"+stok+"', `tanggal` = '"+tanggal+"' "
+        String query = "UPDATE `tb_menu` SET `kode_menu` = '"+kode+"', `nama_menu` = '"+nama+"', `harga` = '"+harga+"', `stok` = '"+stok+"', `tanggal` = '"+tanggal+"' "
                 + "WHERE `tb_menu`.`kode_menu` = '"+kode+"';";
 
         try{
@@ -455,6 +455,7 @@ public class dataMenu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableVarian = new javax.swing.JTable();
         line9 = new javax.swing.JLabel();
+        line13 = new javax.swing.JLabel();
         txtFieldNamaVarian = new javax.swing.JTextField();
         NamaMenu4 = new javax.swing.JLabel();
         txtFieldHargaVarian = new javax.swing.JTextField();
@@ -467,6 +468,8 @@ public class dataMenu extends javax.swing.JFrame {
         txtFieldCariVarian = new javax.swing.JTextField();
         PanelEditVarian = new javax.swing.JPanel();
         BtnEditVarian = new javax.swing.JLabel();
+        KodeMenu = new javax.swing.JLabel();
+        txtFieldKodeMenu = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -518,7 +521,7 @@ public class dataMenu extends javax.swing.JFrame {
         line5.setForeground(new java.awt.Color(255, 255, 255));
         line5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line5.setText("________________");
-        jPanel3.add(line5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 160, 20));
+        jPanel3.add(line5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 160, 20));
 
         Navbar1.setBackground(new java.awt.Color(45, 35, 23));
         Navbar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -563,7 +566,7 @@ public class dataMenu extends javax.swing.JFrame {
                 txtFieldStok21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldStok21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 150, 40));
+        jPanel3.add(txtFieldStok21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 150, 40));
 
         PanelCariMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelCariMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -610,15 +613,15 @@ public class dataMenu extends javax.swing.JFrame {
                 BtnAddMenuMouseExited(evt);
             }
         });
-        PanelAddMenu.add(BtnAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 50));
+        PanelAddMenu.add(BtnAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
 
-        jPanel3.add(PanelAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 330, 50));
+        jPanel3.add(PanelAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 150, 50));
 
         Stok.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Stok.setForeground(new java.awt.Color(255, 255, 255));
         Stok.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Stok.setText("Stok");
-        jPanel3.add(Stok, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 90, 40));
+        jPanel3.add(Stok, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 90, 40));
 
         PanelAddVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelAddVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -649,28 +652,28 @@ public class dataMenu extends javax.swing.JFrame {
         NamaMenu3.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu3.setText("Nama Menu");
-        jPanel3.add(NamaMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 120, 40));
+        jPanel3.add(NamaMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 120, 40));
 
         line8.setBackground(new java.awt.Color(255, 255, 255));
         line8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line8.setForeground(new java.awt.Color(255, 255, 255));
         line8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line8.setText("________________");
-        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 150, 20));
+        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 150, 20));
 
         txtFieldNamaMenu21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldNamaMenu21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldNamaMenu21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldNamaMenu21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldNamaMenu21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 150, 40));
+        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 150, 40));
 
         line3.setBackground(new java.awt.Color(255, 255, 255));
         line3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line3.setForeground(new java.awt.Color(255, 255, 255));
         line3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line3.setText("________________");
-        jPanel3.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 160, 20));
+        jPanel3.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 160, 20));
 
         line2.setBackground(new java.awt.Color(255, 255, 255));
         line2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -690,13 +693,13 @@ public class dataMenu extends javax.swing.JFrame {
                 txtFieldHarga21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 150, 40));
+        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 150, 40));
 
         Harga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Harga.setForeground(new java.awt.Color(255, 255, 255));
         Harga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Harga.setText("Harga");
-        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 100, 40));
+        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 100, 40));
 
         PanelClearMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelClearMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -721,7 +724,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelClearMenu.add(BtnClearMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 50));
 
-        jPanel3.add(PanelClearMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 100, 50));
+        jPanel3.add(PanelClearMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 100, 50));
 
         PanelClearVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelClearVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -770,7 +773,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelRefreshMenu.add(BtnRefreshMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
-        jPanel3.add(PanelRefreshMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 50, 50));
+        jPanel3.add(PanelRefreshMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 50, 50));
 
         PanelRefreshVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelRefreshVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -970,6 +973,13 @@ public class dataMenu extends javax.swing.JFrame {
         line9.setText("______________________");
         jPanel3.add(line9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 200, 20));
 
+        line13.setBackground(new java.awt.Color(255, 255, 255));
+        line13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        line13.setForeground(new java.awt.Color(255, 255, 255));
+        line13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        line13.setText("________________");
+        jPanel3.add(line13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 150, 20));
+
         txtFieldNamaVarian.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldNamaVarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldNamaVarian.setForeground(new java.awt.Color(255, 255, 255));
@@ -1071,6 +1081,19 @@ public class dataMenu extends javax.swing.JFrame {
         PanelEditVarian.add(BtnEditVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 50));
 
         jPanel3.add(PanelEditVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 560, 130, 50));
+
+        KodeMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        KodeMenu.setForeground(new java.awt.Color(255, 255, 255));
+        KodeMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        KodeMenu.setText("Kode Menu");
+        jPanel3.add(KodeMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 120, 40));
+
+        txtFieldKodeMenu.setBackground(new java.awt.Color(64, 49, 33));
+        txtFieldKodeMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtFieldKodeMenu.setForeground(new java.awt.Color(255, 255, 255));
+        txtFieldKodeMenu.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtFieldKodeMenu.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel3.add(txtFieldKodeMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 150, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -1202,6 +1225,9 @@ public class dataMenu extends javax.swing.JFrame {
     private void tableMenu21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMenu21552011235MouseClicked
         // TODO add your handling code here:
         int baris = tableMenu21552011235.getSelectedRow();
+        
+        String kode = table.getValueAt(baris,0).toString();
+        txtFieldKodeMenu.setText(kode);
         
         String nama = table.getValueAt(baris,1).toString();
         txtFieldNamaMenu21552011235.setText(nama);
@@ -1395,6 +1421,7 @@ public class dataMenu extends javax.swing.JFrame {
     private javax.swing.JLabel DaftarMenu2;
     private javax.swing.JLabel DaftarMenu3;
     private javax.swing.JLabel Harga;
+    private javax.swing.JLabel KodeMenu;
     private javax.swing.JLabel NamaMenu3;
     private javax.swing.JLabel NamaMenu4;
     private javax.swing.JLabel NamaMenu5;
@@ -1423,6 +1450,7 @@ public class dataMenu extends javax.swing.JFrame {
     private javax.swing.JLabel line10;
     private javax.swing.JLabel line11;
     private javax.swing.JLabel line12;
+    private javax.swing.JLabel line13;
     private javax.swing.JLabel line2;
     private javax.swing.JLabel line3;
     private javax.swing.JLabel line5;
@@ -1434,6 +1462,7 @@ public class dataMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txtFieldCariVarian;
     private javax.swing.JTextField txtFieldHarga21552011235;
     private javax.swing.JTextField txtFieldHargaVarian;
+    private javax.swing.JTextField txtFieldKodeMenu;
     private javax.swing.JTextField txtFieldNamaMenu21552011235;
     private javax.swing.JTextField txtFieldNamaVarian;
     private javax.swing.JTextField txtFieldStok21552011235;
