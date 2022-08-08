@@ -43,6 +43,7 @@ public class stokMenu extends javax.swing.JFrame {
         table.addColumn("Kode Menu");
         table.addColumn("Nama Menu");
         table.addColumn("Harga");
+        table.addColumn("UMKM");
         table.addColumn("Stok");
         
         tampilData();
@@ -68,10 +69,11 @@ public class stokMenu extends javax.swing.JFrame {
                     String kode = rslt.getString("kode_menu");
                     String nama = rslt.getString("nama_menu");
                     String harga = rslt.getString("harga");
+                    String umkm = rslt.getString("UMKM");
                     String stok = rslt.getString("stok");
                     
                 //masukan semua data kedalam array
-                String[] data = {kode,nama,harga,stok};
+                String[] data = {kode,nama,harga,umkm,stok};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
             }
@@ -181,13 +183,36 @@ public class stokMenu extends javax.swing.JFrame {
     }
     
     
-        private void reset(){
+    private void reset(){
         txFieldKodeMenu.setText(null);
         txtFieldNamaMenu.setText(null);
         txtFieldhargaMenu.setText(null);
         txtFieldHargaTotal.setText(null);
     }
     
+        
+    private void BtnAddTransaksi(){
+        int row = table_menu.getSelectedRow();
+        pageTransaksi menu = new pageTransaksi();
+
+        String kode = table.getValueAt(row, 0).toString();
+        menu.txFieldKodeMenu21552011235.setText(kode);
+
+        String nama = table.getValueAt(row, 1).toString();
+        menu.txtFieldNamaMenu21552011235.setText(nama);
+
+        String harga = table.getValueAt(row, 2).toString();
+        menu.txtFieldHarga21552011235.setText(harga);
+        
+        String umkm = table.getValueAt(row, 3).toString();
+        menu.txtFieldNamaUMKM21552011235.setText(umkm);
+        
+    
+        menu.setVisible(true);
+        menu.pack();
+        menu.setDefaultCloseOperation(pageTransaksi.DISPOSE_ON_CLOSE);
+        dispose();
+    }
     
     
     
@@ -649,7 +674,7 @@ public class stokMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnResetMouseExited
 
     private void BtnAddTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddTransaksiMouseClicked
-        // TODO add your handling code here:
+       BtnAddTransaksi();
     }//GEN-LAST:event_BtnAddTransaksiMouseClicked
 
     private void BtnAddTransaksiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddTransaksiMouseEntered

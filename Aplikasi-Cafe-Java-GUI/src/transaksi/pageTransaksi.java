@@ -225,6 +225,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldHarga21552011235.setText(null);
         txtFieldJumlah21552011235.setText(null);
         txtFieldTotalHarga21552011235.setText(null);
+        txtFieldNamaUMKM21552011235.setText(null);
         txtFieldDiskon.setText(null);
     }
      
@@ -348,7 +349,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldDiskon = new javax.swing.JTextField();
         NamaMenu5 = new javax.swing.JLabel();
         line7 = new javax.swing.JLabel();
-        txtFieldNamaUMKM = new javax.swing.JTextField();
+        txtFieldNamaUMKM21552011235 = new javax.swing.JTextField();
         Keranjang = new javax.swing.JLabel();
         NamaUMKM = new javax.swing.JLabel();
         NamaMenu3 = new javax.swing.JLabel();
@@ -833,17 +834,17 @@ public class pageTransaksi extends javax.swing.JFrame {
         line7.setText("____________________________");
         jPanel3.add(line7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 270, 20));
 
-        txtFieldNamaUMKM.setBackground(new java.awt.Color(64, 49, 33));
-        txtFieldNamaUMKM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtFieldNamaUMKM.setForeground(new java.awt.Color(255, 255, 255));
-        txtFieldNamaUMKM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtFieldNamaUMKM.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtFieldNamaUMKM.addActionListener(new java.awt.event.ActionListener() {
+        txtFieldNamaUMKM21552011235.setBackground(new java.awt.Color(64, 49, 33));
+        txtFieldNamaUMKM21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtFieldNamaUMKM21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        txtFieldNamaUMKM21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtFieldNamaUMKM21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtFieldNamaUMKM21552011235.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFieldNamaUMKMActionPerformed(evt);
+                txtFieldNamaUMKM21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldNamaUMKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 260, 40));
+        jPanel3.add(txtFieldNamaUMKM21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 260, 40));
 
         Keranjang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Keranjang.setForeground(new java.awt.Color(255, 255, 255));
@@ -1091,9 +1092,9 @@ public class pageTransaksi extends javax.swing.JFrame {
          //BtnPrint21552011235.setEnabled(true);
     }//GEN-LAST:event_txtFieldUangKembali21552011235KeyReleased
 
-    private void txtFieldNamaUMKMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldNamaUMKMActionPerformed
+    private void txtFieldNamaUMKM21552011235ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldNamaUMKM21552011235ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFieldNamaUMKMActionPerformed
+    }//GEN-LAST:event_txtFieldNamaUMKM21552011235ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1191,7 +1192,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     public javax.swing.JTextField txtFieldJumlah21552011235;
     public static javax.swing.JTextField txtFieldMasukanUang21552011235;
     public javax.swing.JTextField txtFieldNamaMenu21552011235;
-    public javax.swing.JTextField txtFieldNamaUMKM;
+    public javax.swing.JTextField txtFieldNamaUMKM21552011235;
     public static javax.swing.JTextField txtFieldTotalBayar21552011235;
     public javax.swing.JTextField txtFieldTotalHarga21552011235;
     public static javax.swing.JTextField txtFieldUangKembali21552011235;
