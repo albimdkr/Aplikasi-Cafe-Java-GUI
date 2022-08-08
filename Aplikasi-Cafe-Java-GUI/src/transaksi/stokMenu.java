@@ -173,25 +173,8 @@ public class stokMenu extends javax.swing.JFrame {
         txtFieldHargaTotal.setText(String.valueOf(total));
         JOptionPane.showMessageDialog(null,"Hitung Harga Varian Berhasil");
         }catch(NumberFormatException e){
-           JOptionPane.showMessageDialog(rootPane, "Ulangi! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE); 
+          // JOptionPane.showMessageDialog(null, "Ulangi! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE); 
         }
-        //String hargaMenu = txtFieldHarga21552011235.getText();
-        //String hargaVarian = jComboBoxPilihVarian.getText();
-        
-        
-//        int harga, total, diskon, totaldiskon;
-//        
-//        try{
-//        harga = Integer.parseInt(txtFieldTotalBayar21552011235.getText());
-//        diskon = Integer.parseInt(txtFieldDiskon.getText());
-//        totaldiskon = (diskon * harga)/100;
-//        total = harga - totaldiskon;
-//        txtFieldTotalBayar21552011235.setText(String.valueOf(total));
-//        JOptionPane.showMessageDialog(null,"Hitung Harga Diskon Berhasil");
-//        }catch(NumberFormatException e){
-//            JOptionPane.showMessageDialog(rootPane, "Ulangi! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE);
-//            txtFieldDiskon.setText(null);
-//        }
     }
     
     
@@ -380,7 +363,7 @@ public class stokMenu extends javax.swing.JFrame {
         });
         PanelReset.add(BtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 50));
 
-        jPanel3.add(PanelReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 590, 200, 50));
+        jPanel3.add(PanelReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 200, 50));
 
         PanelRefresh21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelRefresh21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -405,7 +388,7 @@ public class stokMenu extends javax.swing.JFrame {
         });
         PanelRefresh21552011235.add(BtnRefresh21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 50));
 
-        jPanel3.add(PanelRefresh21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 660, 160, 50));
+        jPanel3.add(PanelRefresh21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 600, 160, 50));
 
         PanelAddTransaksi.setBackground(new java.awt.Color(64, 49, 33));
         PanelAddTransaksi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -428,9 +411,9 @@ public class stokMenu extends javax.swing.JFrame {
                 BtnAddTransaksiMouseExited(evt);
             }
         });
-        PanelAddTransaksi.add(BtnAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 50));
+        PanelAddTransaksi.add(BtnAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 50));
 
-        jPanel3.add(PanelAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 430, 50));
+        jPanel3.add(PanelAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 200, 50));
 
         txtFieldCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -463,15 +446,15 @@ public class stokMenu extends javax.swing.JFrame {
         line10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line10.setForeground(new java.awt.Color(255, 255, 255));
         line10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        line10.setText("________________________________________________");
-        jPanel3.add(line10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 440, 20));
+        line10.setText("_____________________");
+        jPanel3.add(line10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 190, 20));
 
         txtFieldHargaTotal.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldHargaTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldHargaTotal.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldHargaTotal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldHargaTotal.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldHargaTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 440, 40));
+        jPanel3.add(txtFieldHargaTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 200, 40));
 
         jenisVariant1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jenisVariant1.setForeground(new java.awt.Color(255, 255, 255));
@@ -514,7 +497,7 @@ public class stokMenu extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table_menu);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 770, 380));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 770, 390));
 
         jComboBoxPilihVarian.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jComboBoxPilihVarian.addActionListener(new java.awt.event.ActionListener() {
@@ -522,7 +505,7 @@ public class stokMenu extends javax.swing.JFrame {
                 jComboBoxPilihVarianActionPerformed(evt);
             }
         });
-        jPanel3.add(jComboBoxPilihVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 200, 40));
+        jPanel3.add(jComboBoxPilihVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 210, 40));
 
         NamaMenu7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu7.setForeground(new java.awt.Color(255, 255, 255));
