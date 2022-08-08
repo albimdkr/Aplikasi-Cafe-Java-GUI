@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import koneksi.koneksi;
@@ -21,6 +23,7 @@ import koneksi.koneksi;
  */
 public class stokMenu extends javax.swing.JFrame {
     DefaultTableModel table = new DefaultTableModel();
+    ArrayList<varian> arrVarian = new ArrayList<>();
 
     /**
      * Creates new form daftarMenu
@@ -80,23 +83,46 @@ public class stokMenu extends javax.swing.JFrame {
     
     
     private void updateJcomboboxVarian(){
-           String query = "SELECT * FROM tb_varian";
-           
-           try{
+//           String query = "SELECT * FROM tb_varian";
+//           
+//           try{
+//            Connection connect = koneksi.getKoneksi();//memanggil koneksi
+//            Statement sttmnt = connect.createStatement();//membuat statement
+//            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+//                while (rslt.next()){
+//                    jComboBoxPilihVarian.addItem(rslt.getString("nama_varian"));
+//                }
+//           
+//           }catch(SQLException e){
+//        }
+            String query = "SELECT no, nama_varian, harga FROM tb_varian";
+            try {
+                
             Connection connect = koneksi.getKoneksi();//memanggil koneksi
             Statement sttmnt = connect.createStatement();//membuat statement
             ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
-                while (rslt.next()){
-                    jComboBoxPilihVarian.addItem(rslt.getString("nama_varian"));
-                }
-           
-           }catch(SQLException e){
+            
+            //ResultSet rs = DB.read( "select id_jabatan, jabatan, gaji_pokok from jabatan" );
+            
+            //masukkan kedalam class Divisi ( tampung )
+            while( rslt.next() ){
+                arrVarian.add( new varian (Integer.parseInt(rslt.getString("no") ),
+                                        Integer.parseInt (rslt.getString("harga") ),
+                                        rslt.getString("nama_varian")));
+            }
+            
+            //ambil dari class divisi dan munculkan pada combo box cbx_divisi
+            for( int i = 0; i < arrVarian.size(); i++ ){
+                jComboBoxPilihVarian.addItem( arrVarian.get( i ).getVarian());
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.toString());
         }
+
+
             
     }
-    
-    
-
     
     
     private void cari(){
@@ -134,6 +160,13 @@ public class stokMenu extends javax.swing.JFrame {
     }catch(SQLException e){
            System.out.println(e);
     }
+    }
+    
+    private void hitungVarian(){
+        //int hargaMenu, hargaVarian, total;
+        
+        //String hargaMenu = txtFieldHarga21552011235.getText();
+        //String hargaVarian = jComboBoxPilihVarian.getText();
     }
     
     
@@ -415,7 +448,7 @@ public class stokMenu extends javax.swing.JFrame {
         jenisVariant1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jenisVariant1.setForeground(new java.awt.Color(255, 255, 255));
         jenisVariant1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jenisVariant1.setText("Harga");
+        jenisVariant1.setText("Harga Total");
         jPanel3.add(jenisVariant1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 120, 40));
 
         line11.setBackground(new java.awt.Color(255, 255, 255));
