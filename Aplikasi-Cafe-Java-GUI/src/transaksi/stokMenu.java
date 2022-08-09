@@ -201,8 +201,8 @@ public class stokMenu extends javax.swing.JFrame {
         String nama = table.getValueAt(row, 1).toString();
         menu.txtFieldNamaMenu21552011235.setText(nama);
 
-        String harga = table.getValueAt(row, 2).toString();
-        menu.txtFieldHarga21552011235.setText(harga);
+        String hargatotal = txtFieldHargaTotal.getText();
+        menu.txtFieldHarga21552011235.setText(hargatotal);
         
         String umkm = table.getValueAt(row, 3).toString();
         menu.txtFieldNamaUMKM21552011235.setText(umkm);
