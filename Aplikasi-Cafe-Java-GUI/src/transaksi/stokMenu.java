@@ -172,9 +172,13 @@ public class stokMenu extends javax.swing.JFrame {
     
     private void hitungVarian(){
         int hargaMenu;
+        //String namaVarian;
         try{
+        
+        //namaVarian = (String) jComboBoxPilihVarian.getSelectedItem();
         hargaMenu  = Integer.parseInt(txtFieldhargaMenu.getText());
         total = hargaMenu + harga;
+        //txtFieldNamaMenu.setText(String.valueOf(namaVarian));
         txtFieldHargaTotal.setText(String.valueOf(total));
         JOptionPane.showMessageDialog(null,"Hitung Harga Varian Berhasil");
         }catch(NumberFormatException e){
@@ -200,14 +204,36 @@ public class stokMenu extends javax.swing.JFrame {
 
         String nama = table.getValueAt(row, 1).toString();
         menu.txtFieldNamaMenu21552011235.setText(nama);
-
+        
+        
+//         String query = "SELECT * FROM `tb_varian` ";
+//        
+//        try {
+//            Connection connect = koneksi.getKoneksi();//memanggil koneksi
+//            Statement sttmnt = connect.createStatement();//membuat statement
+//            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+//            
+//            while (rslt.next()){
+//                
+//                no = rslt.getInt("no");
+//                
+//                //temukan index class Divisi dan Jabatan
+//                for( int i = 0; i < arrVarian.size(); i++)
+//                    if ( no == arrVarian.get(i).getNo() )
+//                       jComboBoxPilihVarian.setSelectedIndex(i);
+//                       
+//                }
+//            } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog( null, ex.toString() );
+//        }
+        
+   
+        String varian = (String) jComboBoxPilihVarian.getSelectedItem();
+        menu.txtFieldVarian21552011235.setText(varian);        
+        
         String hargatotal = txtFieldHargaTotal.getText();
         menu.txtFieldHarga21552011235.setText(hargatotal);
-        
-        String umkm = table.getValueAt(row, 3).toString();
-        menu.txtFieldNamaUMKM21552011235.setText(umkm);
-        
-    
+       
         menu.setVisible(true);
         menu.pack();
         menu.setDefaultCloseOperation(pageTransaksi.DISPOSE_ON_CLOSE);
@@ -476,7 +502,7 @@ public class stokMenu extends javax.swing.JFrame {
         jenisVariant.setForeground(new java.awt.Color(255, 255, 255));
         jenisVariant.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jenisVariant.setText("Pilih Varian/Toping");
-        jPanel3.add(jenisVariant, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 160, 40));
+        jPanel3.add(jenisVariant, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 160, 40));
 
         line10.setBackground(new java.awt.Color(255, 255, 255));
         line10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
