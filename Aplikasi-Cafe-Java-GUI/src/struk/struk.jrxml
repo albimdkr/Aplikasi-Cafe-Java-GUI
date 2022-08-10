@@ -2,12 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="226" pageHeight="431" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="aaf7be79-1e9a-4062-ba5d-20b8a0edbe03">
 	<property name="ireport.zoom" value="2.7272727272727284"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="12"/>
 	<parameter name="total" class="java.lang.String"/>
 	<parameter name="uang" class="java.lang.String"/>
 	<parameter name="kembalian" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT * FROM `penjualan`]]>
+		<![CDATA[SELECT * FROM `keranjang`]]>
 	</queryString>
 	<field name="id_transaksi" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -25,6 +25,9 @@
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="total_harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sub_total" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="tgl_transaksi" class="java.sql.Date">
