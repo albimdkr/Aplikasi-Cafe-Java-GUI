@@ -53,7 +53,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         tb_keranjang.setModel(table);
         table.addColumn("ID");
         table.addColumn("Nama Menu");
-        table.addColumn("Varian");
         table.addColumn("Harga");
         table.addColumn("Jumlah");
         table.addColumn("Total Harga");
@@ -74,7 +73,7 @@ public class pageTransaksi extends javax.swing.JFrame {
             table.removeRow(0);
         }
         
-        String sql = "SELECT * FROM penjualan ORDER BY id_transaksi ";
+        String sql = "SELECT * FROM keranjang ORDER BY id_transaksi ";
         String procedures = "CALL `total_harga_transaksi`()";
         try{
             Connection c = koneksi.getKoneksi();//memanggil koneksi
@@ -86,13 +85,12 @@ public class pageTransaksi extends javax.swing.JFrame {
                    
                     String kode = rslt.getString("id_transaksi");
                     String nama = rslt.getString("nama_menu");
-                    String varian = rslt.getString("varian");
                     String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah");
                     String total = rslt.getString("total_harga");
                     
                 //masukan semua data kedalam array
-                String[] data = {kode,nama,varian,harga,jumlah,total};
+                String[] data = {kode,nama,harga,jumlah,total};
                 
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
@@ -241,7 +239,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         if (ok==0){
             String kode = table.getValueAt(i, 0).toString();
             Connection connect = koneksi.getKoneksi();
-            String sql = "DELETE FROM penjualan WHERE id_transaksi = "+kode+"";
+            String sql = "DELETE FROM keranjang WHERE id_transaksi = "+kode+"";
         try{
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(sql);
             ps.execute();
@@ -943,7 +941,7 @@ public class pageTransaksi extends javax.swing.JFrame {
             + "Menbersihkan Halaman Transaksi?","Konfirmasi Clear Form Transaksi ", JOptionPane.YES_NO_OPTION);
         
         if (ok==0){
-            String clear = "TRUNCATE `penjualan`";
+            String clear = "TRUNCATE `keranjang`";
             Connection connect = koneksi.getKoneksi();
         try{ 
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(clear);
