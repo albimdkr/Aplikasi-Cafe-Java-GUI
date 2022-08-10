@@ -75,6 +75,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         table.addColumn("Harga");
         table.addColumn("Jumlah");
         table.addColumn("Total Harga");
+        table.addColumn("UMKM");
         
         tampilData();
     }
@@ -103,9 +104,10 @@ public class LaporanRiwayat extends javax.swing.JFrame {
                     String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah_menu");
                     String total = rslt.getString("total_harga");
+                    String umkm = rslt.getString("umkm");
                     
                 //masukan semua data kedalam array
-                String[] data = {tanggal,id,kode,nama,harga,jumlah,total};
+                String[] data = {tanggal,id,kode,nama,harga,jumlah,total,umkm};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
             }
@@ -129,6 +131,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
                 + "`kode_menu`  LIKE '%"+cari+"%' OR "
                 + "`tgl_transaksi` LIKE '%"+cari+"%' OR"
                 + "`id_transaksi` LIKE '%"+cari+"%' OR"
+                + "`umkm` LIKE '%"+cari+"%' OR"
                 + "`nama_menu` LIKE '%"+cari+"%' ";
                 
        try{

@@ -201,6 +201,10 @@ public class stokMenu extends javax.swing.JFrame {
 
         String kode = table.getValueAt(row, 0).toString();
         menu.txFieldKodeMenu21552011235.setText(kode);
+        
+        
+        String umkm = table.getValueAt(row, 3).toString();
+        menu.txFieldUMKM21552011235.setText(umkm);
 
         String nama = table.getValueAt(row, 1).toString();
         menu.txtFieldNamaMenu21552011235.setText(nama);
@@ -294,6 +298,9 @@ public class stokMenu extends javax.swing.JFrame {
         line9 = new javax.swing.JLabel();
         txtFieldhargaMenu = new javax.swing.JTextField();
         Harga = new javax.swing.JLabel();
+        line12 = new javax.swing.JLabel();
+        txtFieldUMKM = new javax.swing.JTextField();
+        NamaMenu6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -496,13 +503,13 @@ public class stokMenu extends javax.swing.JFrame {
         NamaMenu5.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu5.setText("Nama Menu");
-        jPanel3.add(NamaMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 120, 40));
+        jPanel3.add(NamaMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 120, 40));
 
         jenisVariant.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jenisVariant.setForeground(new java.awt.Color(255, 255, 255));
         jenisVariant.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jenisVariant.setText("Pilih Varian/Toping");
-        jPanel3.add(jenisVariant, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 160, 40));
+        jPanel3.add(jenisVariant, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 160, 30));
 
         line10.setBackground(new java.awt.Color(255, 255, 255));
         line10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -522,7 +529,7 @@ public class stokMenu extends javax.swing.JFrame {
         jenisVariant1.setForeground(new java.awt.Color(255, 255, 255));
         jenisVariant1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jenisVariant1.setText("Harga Total");
-        jPanel3.add(jenisVariant1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 120, 40));
+        jPanel3.add(jenisVariant1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 120, 40));
 
         line11.setBackground(new java.awt.Color(255, 255, 255));
         line11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -573,7 +580,7 @@ public class stokMenu extends javax.swing.JFrame {
         NamaMenu7.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu7.setText("Kode");
-        jPanel3.add(NamaMenu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 60, 40));
+        jPanel3.add(NamaMenu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 60, 40));
 
         line9.setBackground(new java.awt.Color(255, 255, 255));
         line9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -593,7 +600,28 @@ public class stokMenu extends javax.swing.JFrame {
         Harga.setForeground(new java.awt.Color(255, 255, 255));
         Harga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Harga.setText("Harga Menu");
-        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 120, 40));
+        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 120, 40));
+
+        line12.setBackground(new java.awt.Color(255, 255, 255));
+        line12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        line12.setForeground(new java.awt.Color(255, 255, 255));
+        line12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        line12.setText("_____________________");
+        jPanel3.add(line12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 200, 20));
+
+        txtFieldUMKM.setBackground(new java.awt.Color(64, 49, 33));
+        txtFieldUMKM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtFieldUMKM.setForeground(new java.awt.Color(255, 255, 255));
+        txtFieldUMKM.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtFieldUMKM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtFieldUMKM.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel3.add(txtFieldUMKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 190, 40));
+
+        NamaMenu6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        NamaMenu6.setForeground(new java.awt.Color(255, 255, 255));
+        NamaMenu6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NamaMenu6.setText("UMKM");
+        jPanel3.add(NamaMenu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 120, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -661,6 +689,9 @@ public class stokMenu extends javax.swing.JFrame {
 
         String harga = table.getValueAt(row, 2).toString();
         txtFieldhargaMenu.setText(harga);
+        
+        String umkm = table.getValueAt(row, 3).toString();
+        txtFieldUMKM.setText(umkm);
     
 //        menu.setVisible(true);
 //        menu.pack();
@@ -767,6 +798,7 @@ public class stokMenu extends javax.swing.JFrame {
     private javax.swing.JLabel DaftarMenu;
     private javax.swing.JLabel Harga;
     private javax.swing.JLabel NamaMenu5;
+    private javax.swing.JLabel NamaMenu6;
     private javax.swing.JLabel NamaMenu7;
     private javax.swing.JPanel Navbar;
     private javax.swing.JPanel PanelAddTransaksi;
@@ -786,6 +818,7 @@ public class stokMenu extends javax.swing.JFrame {
     private javax.swing.JLabel line;
     private javax.swing.JLabel line10;
     private javax.swing.JLabel line11;
+    private javax.swing.JLabel line12;
     private javax.swing.JLabel line6;
     private javax.swing.JLabel line8;
     private javax.swing.JLabel line9;
@@ -794,6 +827,7 @@ public class stokMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txtFieldCari21552011235;
     public javax.swing.JTextField txtFieldHargaTotal;
     public javax.swing.JTextField txtFieldNamaMenu;
+    public javax.swing.JTextField txtFieldUMKM;
     public javax.swing.JTextField txtFieldhargaMenu;
     // End of variables declaration//GEN-END:variables
 }
