@@ -1017,6 +1017,9 @@ public class pageTransaksi extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             HashMap param = new HashMap();
             
+            param.put("nama",txFieldNamaPelanggan.getText());
+            param.put("varian",txtFieldVarian21552011235.getText());
+            param.put("diskon",txtFieldDiskon.getText());
             param.put("total",txtFieldTotalBayar21552011235.getText());
             param.put("uang",txtFieldMasukanUang21552011235.getText());
             param.put("kembalian",txtFieldUangKembali21552011235.getText());

@@ -1232,22 +1232,22 @@ public class dataMenu extends javax.swing.JFrame {
         String stok = table.getValueAt(baris, 3).toString();
         txtFieldStok21552011235.setText(stok);
         
-        String kondisipasien = table.getValueAt(baris,12).toString();
+        String umkm = table.getValueAt(baris,4).toString();
           for (int i = 0; i <jComboBoxUMKM.getItemCount(); i++ ){
-              if (jComboBoxUMKM.getItemAt(i).equalsIgnoreCase(kondisipasien)){
+              if (jComboBoxUMKM.getItemAt(i).equalsIgnoreCase(umkm)){
                   jComboBoxUMKM.setSelectedIndex(i);
               }
           }
         
-        String tanggal = table.getValueAt(baris, 4).toString();
-        
-        Date convert = null;
-        try{
-            convert = new SimpleDateFormat("yyyy-MM-dd").parse(tanggal);   
-        }catch(ParseException e){
-            System.out.println(e);
-        }
-        txtTanggal21552011235.setDate(convert);
+//        String tanggal = table.getValueAt(baris, ).toString();
+//        
+//        Date convert = null;
+//        try{
+//            convert = new SimpleDateFormat("yyyy-MM-dd").parse(tanggal);   
+//        }catch(ParseException e){
+//            System.out.println(e);
+//        }
+//        txtTanggal21552011235.setDate(convert);
     }//GEN-LAST:event_tableMenu21552011235MouseClicked
 
     private void txtTanggal21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTanggal21552011235MouseClicked
