@@ -25,7 +25,7 @@ public class stokMenu extends javax.swing.JFrame {
     DefaultTableModel table = new DefaultTableModel();
     ArrayList<varian> arrVarian = new ArrayList<>();
     
-    int no,harga,total;
+    int no_varian,harga,total;
     //int no,harga,total;
 
     /**
@@ -89,7 +89,7 @@ public class stokMenu extends javax.swing.JFrame {
     
     private void updateJcomboboxVarian(){
 
-            String query = "SELECT no, nama_varian, harga FROM tb_varian";
+            String query = "SELECT no_varian, nama_varian, harga FROM tb_varian";
             try {
                 
             Connection connect = koneksi.getKoneksi();//memanggil koneksi
@@ -100,7 +100,7 @@ public class stokMenu extends javax.swing.JFrame {
             
             //masukkan kedalam class Divisi ( tampung )
             while( rslt.next() ){
-                arrVarian.add( new varian (Integer.parseInt(rslt.getString("no") ),
+                arrVarian.add( new varian (Integer.parseInt(rslt.getString("no_varian") ),
                                         Integer.parseInt (rslt.getString("harga") ),
                                         rslt.getString("nama_varian")));
             }
@@ -114,22 +114,7 @@ public class stokMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.toString());
         }
             
-            
-        //           String query = "SELECT * FROM tb_varian";
-        //           
-        //           try{
-        //            Connection connect = koneksi.getKoneksi();//memanggil koneksi
-        //            Statement sttmnt = connect.createStatement();//membuat statement
-        //            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
-        //                while (rslt.next()){
-        //                    jComboBoxPilihVarian.addItem(rslt.getString("nama_varian"));
-        //                }
-        //           
-        //           }catch(SQLException e){
-        //        }
-
-
-            
+         //BtnAddTransaksi();
     }
     
     
@@ -202,15 +187,17 @@ public class stokMenu extends javax.swing.JFrame {
         String kode = table.getValueAt(row, 0).toString();
         menu.txFieldKodeMenu21552011235.setText(kode);
         
-        
         String umkm = table.getValueAt(row, 3).toString();
         menu.txFieldUMKM21552011235.setText(umkm);
 
         String nama = table.getValueAt(row, 1).toString();
         menu.txtFieldNamaMenu21552011235.setText(nama);
         
+        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+        menu.txtFieldVarian21552011235.setText(varian);
         
-//         String query = "SELECT * FROM `tb_varian` ";
+        
+//        String query = "SELECT * FROM `tb_varian` ";
 //        
 //        try {
 //            Connection connect = koneksi.getKoneksi();//memanggil koneksi
@@ -219,12 +206,18 @@ public class stokMenu extends javax.swing.JFrame {
 //            
 //            while (rslt.next()){
 //                
-//                no = rslt.getInt("no");
 //                
-//                //temukan index class Divisi dan Jabatan
-//                for( int i = 0; i < arrVarian.size(); i++)
-//                    if ( no == arrVarian.get(i).getNo() )
-//                       jComboBoxPilihVarian.setSelectedIndex(i);
+//                 //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian") ),
+//                
+////                no = rslt.getInt("no");
+////                
+////                //temukan index class Divisi dan Jabatan
+////                for( int i = 0; i < arrVarian.size(); i++)
+////                    if ( no == arrVarian.get(i).getNo() )
+////                       jComboBoxPilihVarian.setSelectedIndex(i);
+//                        
+//                          String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+//                          menu.txtFieldVarian21552011235.setText(varian);
 //                       
 //                }
 //            } catch (SQLException ex) {
@@ -232,22 +225,23 @@ public class stokMenu extends javax.swing.JFrame {
 //        }
         
    
-        String varian = (String) jComboBoxPilihVarian.getSelectedItem();
-        menu.txtFieldVarian21552011235.setText(varian);        
+//        String varian = (String) jComboBoxPilihVarian.getSelectedItem();
+//        menu.txtFieldVarian21552011235.setText(varian);
+        
+//        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+//        menu.txtFieldVarian21552011235.setText(varian);
         
         String hargatotal = txtFieldHargaTotal.getText();
         menu.txtFieldHarga21552011235.setText(hargatotal);
        
         menu.setVisible(true);
         menu.pack();
+        updateJcomboboxVarian();
         menu.setDefaultCloseOperation(pageTransaksi.DISPOSE_ON_CLOSE);
         dispose();
     }
     
-    
-    
-    
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -746,7 +740,7 @@ public class stokMenu extends javax.swing.JFrame {
         int idx = jComboBoxPilihVarian.getSelectedIndex();
         
         if ( arrVarian.size() > 0 ){
-            no = arrVarian.get(idx).getNo();
+            no_varian = arrVarian.get(idx).getNo();
             harga = arrVarian.get(idx).getHarga();
         }
         
@@ -806,7 +800,7 @@ public class stokMenu extends javax.swing.JFrame {
     private javax.swing.JPanel PanelCari21552011235;
     private javax.swing.JPanel PanelRefresh21552011235;
     private javax.swing.JPanel PanelReset;
-    private javax.swing.JComboBox<String> jComboBoxPilihVarian;
+    public javax.swing.JComboBox<String> jComboBoxPilihVarian;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;

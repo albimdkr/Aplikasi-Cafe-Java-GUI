@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="226" pageHeight="431" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="aaf7be79-1e9a-4062-ba5d-20b8a0edbe03">
-	<property name="ireport.zoom" value="3.005259203606313"/>
-	<property name="ireport.x" value="36"/>
-	<property name="ireport.y" value="255"/>
+	<property name="ireport.zoom" value="1.542173157718128"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="total" class="java.lang.String"/>
 	<parameter name="uang" class="java.lang.String"/>
 	<parameter name="kembalian" class="java.lang.String"/>
@@ -27,6 +27,9 @@
 	<field name="nama_menu" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="nama_varian" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="harga" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -34,9 +37,6 @@
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="total_harga" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="sub_total" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="tgl_transaksi" class="java.sql.Date">
@@ -181,16 +181,16 @@
 				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="22bdc2b6-620c-4bac-a9cc-efaa6eb54feb" x="50" y="0" width="46" height="18"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Segoe UI" size="8"/>
+				<reportElement uuid="964bfe30-e120-4c08-8b5a-c6ed89f70355" x="50" y="0" width="46" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{varian}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nama_varian}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="96" splitType="Stretch">
+		<band height="97" splitType="Stretch">
 			<staticText>
 				<reportElement uuid="ac58f52c-dfb4-48e4-949e-c58bf6387b85" x="76" y="38" width="46" height="14"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">

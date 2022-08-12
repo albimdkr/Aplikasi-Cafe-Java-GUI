@@ -262,7 +262,7 @@ public class dataMenu extends javax.swing.JFrame {
             
             while (rslt.next()){
                 //menampung data sementara
-                    String no = rslt.getString("no");
+                    String no = rslt.getString("no_varian");
                     String nama = rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
                     
@@ -292,7 +292,7 @@ public class dataMenu extends javax.swing.JFrame {
         //panggil koneksi
         java.sql.Connection connect = koneksi.getKoneksi();
         //query untuk memasukan data
-        String query = "INSERT INTO `tb_varian` (no, `nama_varian`, `harga`) "
+        String query = "INSERT INTO `tb_varian` (no_varian, `nama_varian`, `harga`) "
                      + "VALUES (NULL, '"+nama+"', '"+harga+"')";
         
         try{
@@ -340,11 +340,11 @@ public class dataMenu extends javax.swing.JFrame {
         //ambill data no pendaftaran
         int i = tableVarian.getSelectedRow();
         
-        String kode = tableVarian.getValueAt(i, 0).toString();
+        String no = tableVarian.getValueAt(i, 0).toString();
         
         java.sql.Connection connect = koneksi.getKoneksi();
         
-        String query = "DELETE FROM `tb_varian` WHERE `tb_varian`.`no` = "+kode+" ";
+        String query = "DELETE FROM `tb_varian` WHERE `tb_varian`.`no_varian` = "+no+" ";
         try{
             PreparedStatement ps = (PreparedStatement) connect.prepareStatement(query);
             ps.execute();
@@ -366,7 +366,7 @@ public class dataMenu extends javax.swing.JFrame {
         
         String cari = txtFieldCariVarian.getText();
         
-        String query = "SELECT * FROM `tb_varian` WHERE `no`  LIKE '%"+cari+"%' OR `nama_varian` LIKE '%"+cari+"%' ";
+        String query = "SELECT * FROM `tb_varian` WHERE `no_varian`  LIKE '%"+cari+"%' OR `nama_varian` LIKE '%"+cari+"%' ";
                 
        try{
            java.sql.Connection connect = koneksi.getKoneksi();//memanggil koneksi
@@ -376,7 +376,7 @@ public class dataMenu extends javax.swing.JFrame {
            while (rslt.next()){
                 //menampung data sementara
                    
-                    String no = rslt.getString("no");
+                    String no = rslt.getString("no_varian");
                     String nama = rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
                     

@@ -52,11 +52,11 @@ public class pageTransaksi extends javax.swing.JFrame {
         
         tb_keranjang.setModel(table);
         table.addColumn("ID");
-        table.addColumn("Nama Menu");
+        table.addColumn("Menu");
+        table.addColumn("Varian");
         table.addColumn("Harga");
         table.addColumn("Jumlah");
         table.addColumn("Total Harga");
-        
         tampilData();
     }
      private void tanggal(){
@@ -72,30 +72,29 @@ public class pageTransaksi extends javax.swing.JFrame {
         for(int a = 0 ; a < row ; a++){
             table.removeRow(0);
         }
-        
+        //String menuvarian = "SELECT * FROM tb_varian ";
         String sql = "SELECT * FROM keranjang ORDER BY id_transaksi ";
         String procedures = "CALL `total_harga_transaksi`()";
         try{
-            Connection c = koneksi.getKoneksi();//memanggil koneksi
-            Statement s = c.createStatement();//membuat statement
+            Connection  connect = koneksi.getKoneksi();//memanggil koneksi
+            Statement s = connect.createStatement();//membuat statement
             ResultSet rslt = s.executeQuery(sql);//menjalanakn query
 //            
             while (rslt.next()){
                 //menampung data sementara
-                   
                     String kode = rslt.getString("id_transaksi");
-                    String nama = rslt.getString("nama_menu");
+                    String menu = rslt.getString("nama_menu");
+                    String menuVarian = (String) rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah");
                     String total = rslt.getString("total_harga");
                     
                 //masukan semua data kedalam array
-                String[] data = {kode,nama,harga,jumlah,total};
+                String[] data = {kode,menu,menuVarian,harga,jumlah,total};
                 
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
             }
-              
             tb_keranjang.setModel(table);
         }catch(SQLException e){
             System.out.println(e);
@@ -356,7 +355,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldDiskon = new javax.swing.JTextField();
         NamaMenu5 = new javax.swing.JLabel();
         line7 = new javax.swing.JLabel();
-        txtFieldVarian21552011235 = new javax.swing.JTextField();
         Keranjang = new javax.swing.JLabel();
         NamaUMKM = new javax.swing.JLabel();
         NamaMenu3 = new javax.swing.JLabel();
@@ -366,6 +364,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         line10 = new javax.swing.JLabel();
         txFieldUMKM21552011235 = new javax.swing.JTextField();
         Kode1 = new javax.swing.JLabel();
+        txtFieldVarian21552011235 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -844,18 +843,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         line7.setText("____________________________");
         jPanel3.add(line7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 270, 20));
 
-        txtFieldVarian21552011235.setBackground(new java.awt.Color(64, 49, 33));
-        txtFieldVarian21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtFieldVarian21552011235.setForeground(new java.awt.Color(255, 255, 255));
-        txtFieldVarian21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtFieldVarian21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtFieldVarian21552011235.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFieldVarian21552011235ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(txtFieldVarian21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 260, 40));
-
         Keranjang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Keranjang.setForeground(new java.awt.Color(255, 255, 255));
         Keranjang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -915,6 +902,13 @@ public class pageTransaksi extends javax.swing.JFrame {
         Kode1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Kode1.setText("Nama UMKM");
         jPanel3.add(Kode1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 90, 40));
+
+        txtFieldVarian21552011235.setBackground(new java.awt.Color(64, 49, 33));
+        txtFieldVarian21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtFieldVarian21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        txtFieldVarian21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtFieldVarian21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel3.add(txtFieldVarian21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 260, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 900));
 
@@ -1018,7 +1012,6 @@ public class pageTransaksi extends javax.swing.JFrame {
             HashMap param = new HashMap();
             
             param.put("nama",txFieldNamaPelanggan.getText());
-            param.put("varian",txtFieldVarian21552011235.getText());
             param.put("diskon",txtFieldDiskon.getText());
             param.put("total",txtFieldTotalBayar21552011235.getText());
             param.put("uang",txtFieldMasukanUang21552011235.getText());
@@ -1141,10 +1134,6 @@ public class pageTransaksi extends javax.swing.JFrame {
     private void txtFieldUangKembali21552011235KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldUangKembali21552011235KeyReleased
          //BtnPrint21552011235.setEnabled(true);
     }//GEN-LAST:event_txtFieldUangKembali21552011235KeyReleased
-
-    private void txtFieldVarian21552011235ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldVarian21552011235ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFieldVarian21552011235ActionPerformed
 
     /**
      * @param args the command line arguments
