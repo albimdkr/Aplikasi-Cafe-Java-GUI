@@ -263,14 +263,14 @@ public class pageTransaksi extends javax.swing.JFrame {
         //String id = 
         String nama = txFieldNamaPelanggan.getText();
         String diskon = txtFieldDiskon.getText();
-        String subtotal = txtFieldTotalBayar21552011235.getText();
+        String grandtotal = txtFieldTotalBayar21552011235.getText();
         String kembalian = txtFieldUangKembali21552011235.getText();
       
         //panggil koneksi
         Connection connect = koneksi.getKoneksi();
         //query untuk memasukan data
-        String query = "INSERT INTO `tb_pelanggan` (`no_pelanggan`,`nama`,`diskon`, `sub_total`, `uang_kembali`) "
-                + "VALUES ( NULL, '"+nama+"', '"+diskon+"', '"+subtotal+"', '"+kembalian+"')";
+        String query = "INSERT INTO `tb_pelanggan` (`no_pelanggan`,`nama`,`diskon`, `grand_total`, `uang_kembali`) "
+                + "VALUES ( NULL, '"+nama+"', '"+diskon+"', '"+grandtotal+"', '"+kembalian+"')";
         
         try{
             //menyiapkan statement untuk di eksekusi

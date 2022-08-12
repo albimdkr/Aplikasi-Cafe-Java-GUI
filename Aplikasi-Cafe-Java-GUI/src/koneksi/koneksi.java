@@ -28,10 +28,10 @@ public class koneksi {
             
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             koneksi = DriverManager.getConnection(url,user,password);
-            System.out.println("Koneksi Database sukses ");
+            System.out.println("Database Success Connected");
             
         }catch(SQLException e){
-            System.out.println("Koneksi Database Gagal");
+            System.out.println("Database Failed!!! don't forget turn on mysql");
         }
 return koneksi;
     
