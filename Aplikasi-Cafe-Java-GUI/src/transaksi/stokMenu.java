@@ -193,7 +193,7 @@ public class stokMenu extends javax.swing.JFrame {
         String nama = table.getValueAt(row, 1).toString();
         menu.txtFieldNamaMenu21552011235.setText(nama);
         
-        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+        String varian = (String) jComboBoxPilihVarian.getSelectedItem().toString();
         menu.txtFieldVarian21552011235.setText(varian);
         
         

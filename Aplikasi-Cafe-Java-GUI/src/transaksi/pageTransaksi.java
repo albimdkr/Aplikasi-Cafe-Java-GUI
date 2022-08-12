@@ -84,13 +84,12 @@ public class pageTransaksi extends javax.swing.JFrame {
                 //menampung data sementara
                     String kode = rslt.getString("id_transaksi");
                     String menu = rslt.getString("nama_menu");
-                    String menuVarian = (String) rslt.getString("nama_varian");
+                    String nama_varian = rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah");
                     String total = rslt.getString("total_harga");
-                    
                 //masukan semua data kedalam array
-                String[] data = {kode,menu,menuVarian,harga,jumlah,total};
+                String[] data = {kode,menu,nama_varian,harga,jumlah,total};
                 
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
@@ -1223,7 +1222,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel line8;
     private javax.swing.JLabel line9;
     private javax.swing.JLabel namaPelanggan;
-    private javax.swing.JTable tb_keranjang;
+    public javax.swing.JTable tb_keranjang;
     private com.toedter.calendar.JDateChooser tgl_transaksi;
     private javax.swing.JLabel totalHarga;
     public javax.swing.JTextField txFieldKodeMenu21552011235;
