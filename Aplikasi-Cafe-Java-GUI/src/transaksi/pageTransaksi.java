@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JFrame;
@@ -31,6 +32,7 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class pageTransaksi extends javax.swing.JFrame {
     DefaultTableModel table = new DefaultTableModel();
+    ArrayList<varian> arrVarian = new ArrayList<>();
   
 
     /**
@@ -39,24 +41,28 @@ public class pageTransaksi extends javax.swing.JFrame {
     public pageTransaksi() {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
+        koneksi.getKoneksi();
+        totalnya();
+        tanggal();
         BtnHitungDiskon.setEnabled(false);
         BtnBayar21552011235.setEnabled(false);
         BtnPrint21552011235.setEnabled(false);
         BtnAdd21552011235.setEnabled(false);
         //PanelBayar21552011235.setEnabled(false);
         //BtnPrint21552011235.setEnabled(false);
-        koneksi.getKoneksi();
-        totalnya();
-        //hitungDiskon();
-        tanggal();
+        //koneksi conn = new koneksi();
+
         
         tb_keranjang.setModel(table);
         table.addColumn("ID");
+        table.addColumn("Kode Menu");
         table.addColumn("Menu");
+        //table.addColumn("No Varian"); 
         table.addColumn("Varian");
         table.addColumn("Harga");
         table.addColumn("Jumlah");
         table.addColumn("Total Harga");
+        table.addColumn("Tanggal");
         tampilData();
     }
      private void tanggal(){
@@ -73,23 +79,28 @@ public class pageTransaksi extends javax.swing.JFrame {
             table.removeRow(0);
         }
         //String menuvarian = "SELECT * FROM tb_varian ";
-        String sql = "SELECT * FROM keranjang ORDER BY id_transaksi ";
+        //SELECT no_varian, nama_varian, harga FROM tb_varian
+        //String sql = "SELECT id_transaksi, kode_menu, nama_menu, nama_varian, harga, jumlah, total_harga FROM keranjang ORDER BY id_transaksi ";
+        String sql = "SELECT * FROM `keranjang` ORDER BY id_transaksi  ";
         String procedures = "CALL `total_harga_transaksi`()";
         try{
             Connection  connect = koneksi.getKoneksi();//memanggil koneksi
             Statement s = connect.createStatement();//membuat statement
             ResultSet rslt = s.executeQuery(sql);//menjalanakn query
-//            
             while (rslt.next()){
                 //menampung data sementara
-                    String kode = rslt.getString("id_transaksi");
+                    String id = rslt.getString("id_transaksi");
+                    String kode_menu = rslt.getString("kode_menu");
                     String menu = rslt.getString("nama_menu");
-                    String nama_varian = rslt.getString("nama_varian");
+                    //String no_varian =  rslt.getString("no_varian");
+                    String nama_varian =  rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah");
                     String total = rslt.getString("total_harga");
+                    String tgl = rslt.getString("tgl_transaksi");
+                    
                 //masukan semua data kedalam array
-                String[] data = {kode,menu,nama_varian,harga,jumlah,total};
+                String[] data = {id,kode_menu,menu,nama_varian,harga,jumlah,total,tgl};
                 
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
@@ -98,11 +109,10 @@ public class pageTransaksi extends javax.swing.JFrame {
         }catch(SQLException e){
             System.out.println(e);
         }
-       
     }
     
      
-    private void penjualan(){
+    private void keranjang(){
         String kode = txFieldKodeMenu21552011235.getText();
         //String namaPelanggan = txFieldNamaPelanggan.getText();
         String namaMenu = txtFieldNamaMenu21552011235.getText();
@@ -117,7 +127,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         //panggil koneksi
         Connection connect = koneksi.getKoneksi();
         //query untuk memasukan data
-        String query = "INSERT INTO `transaksi` (`tgl_transaksi`, `id_transaksi`, `kode_menu`, `nama_menu`, `varian`, `harga`, `jumlah_menu`, `total_harga`, `umkm`) "
+        String query = "INSERT INTO `transaksi` (`tgl_transaksi`, `id_transaksi`, `kode_menu`, `nama_menu`, `nama_varian`, `harga`, `jumlah_menu`, `total_harga`, `umkm`) "
                 + "VALUES ('"+tanggal+"', NULL, '"+kode+"', '"+namaMenu+"', '"+varian+"', '"+harga+"', '"+jumlah+"', '"+total+"', '"+umkm+"')";
         
         try{
@@ -133,7 +143,6 @@ public class pageTransaksi extends javax.swing.JFrame {
         }finally{
             tampilData();
             clear();
-            
         }
         totalnya();
         //hitungDiskon();
@@ -170,7 +179,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldTotalBayar21552011235.setText(String.valueOf(total));
         JOptionPane.showMessageDialog(null,"Hitung Harga Diskon Berhasil");
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(rootPane, "Ulangi! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Ulang! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE);
             txtFieldDiskon.setText(null);
         }
         
@@ -193,7 +202,7 @@ public class pageTransaksi extends javax.swing.JFrame {
             ResultSet rslt = sttmnt.executeQuery(procedures);//menjalanakn query\
                 while(rslt.next()){
                 txtFieldTotalBayar21552011235.setText(rslt.getString(1));
-                }
+              }
         }catch(SQLException e){
             System.out.println(e);
         }
@@ -907,6 +916,11 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldVarian21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldVarian21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldVarian21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtFieldVarian21552011235.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFieldVarian21552011235ActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtFieldVarian21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 260, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 900));
@@ -944,7 +958,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private void BtnCari21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCari21552011235MouseClicked
 //     new transaksi.stokMenu().setVisible(true);
 //     dispose(); 
-     new stokMenu().setVisible(true);
+     new transaksi.stokMenu().setVisible(true);
      dispose();
     }//GEN-LAST:event_BtnCari21552011235MouseClicked
 
@@ -992,7 +1006,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnReset21552011235MouseExited
 
     private void BtnAdd21552011235MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAdd21552011235MouseClicked
-        penjualan();
+        keranjang();
     }//GEN-LAST:event_BtnAdd21552011235MouseClicked
 
     private void BtnAdd21552011235MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAdd21552011235MouseEntered
@@ -1116,7 +1130,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnHitungDiskonMouseEntered
 
     private void BtnHitungDiskonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHitungDiskonMouseExited
-         changecolor(PaneHitungDiskon, new Color (64,49,33));
+        changecolor(PaneHitungDiskon, new Color (64,49,33));
     }//GEN-LAST:event_BtnHitungDiskonMouseExited
 
     private void txtFieldMasukanUang21552011235KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldMasukanUang21552011235KeyReleased
@@ -1133,6 +1147,19 @@ public class pageTransaksi extends javax.swing.JFrame {
     private void txtFieldUangKembali21552011235KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFieldUangKembali21552011235KeyReleased
          //BtnPrint21552011235.setEnabled(true);
     }//GEN-LAST:event_txtFieldUangKembali21552011235KeyReleased
+
+    private void txtFieldVarian21552011235ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldVarian21552011235ActionPerformed
+//        int no_varian, harga;
+//        String nama_varian;
+//        
+//        int idx = txtFieldVarian21552011235.getText();
+//        
+//        if ( arrVarian.size() > 0 ){
+//            no_varian = arrVarian.get(idx).getNo();
+//            harga = arrVarian.get(idx).getHarga();
+//            nama_varian = arrVarian.get(idx).toString();
+//        }
+    }//GEN-LAST:event_txtFieldVarian21552011235ActionPerformed
 
     /**
      * @param args the command line arguments

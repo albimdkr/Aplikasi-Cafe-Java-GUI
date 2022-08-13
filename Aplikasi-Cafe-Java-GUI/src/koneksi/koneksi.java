@@ -31,7 +31,7 @@ public class koneksi {
             System.out.println("Database Success Connected");
             
         }catch(SQLException e){
-            System.out.println("Database Failed!!! don't forget turn on mysql");
+            System.out.println("Database Failed!!! don't forget turn on apache and mysqli in XAMPP.");
         }
 return koneksi;
     

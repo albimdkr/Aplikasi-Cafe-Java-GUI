@@ -2,12 +2,12 @@ package transaksi;
 
 public class varian {
     int no_varian, harga;
-    String varian;
+    String nama_varian;
 
-    public varian(int no_varian, int harga, String varian) {
+    public varian(int no_varian, int harga, String nama_varian) {
         this.no_varian = no_varian;
         this.harga = harga;
-        this.varian = varian;
+        this.nama_varian = nama_varian;
     }
 
     public int getNo() {
@@ -18,8 +18,8 @@ public class varian {
         return harga;
     }
 
-    public String getVarian() {
-        return varian;
+    public String toString() {
+        return nama_varian;
     }
     
 }

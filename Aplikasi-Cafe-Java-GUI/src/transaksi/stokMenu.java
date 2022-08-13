@@ -26,6 +26,7 @@ public class stokMenu extends javax.swing.JFrame {
     ArrayList<varian> arrVarian = new ArrayList<>();
     
     int no_varian,harga,total;
+    String nama_varian;
     //int no,harga,total;
 
     /**
@@ -40,12 +41,11 @@ public class stokMenu extends javax.swing.JFrame {
         koneksi.getKoneksi();
         
         table_menu.setModel(table);
-        table.addColumn("Kode Menu");
-        table.addColumn("Nama Menu");
-        table.addColumn("Harga");
-        table.addColumn("UMKM");
-        table.addColumn("Stok");
-        
+        table.addColumn("Kode Menu");//0
+        table.addColumn("Nama Menu");//1
+        table.addColumn("Harga");//3
+        table.addColumn("UMKM");//4
+        table.addColumn("Stok");//5
         tampilData();
     }
     
@@ -68,12 +68,12 @@ public class stokMenu extends javax.swing.JFrame {
                    
                     String kode = rslt.getString("kode_menu");
                     String nama = rslt.getString("nama_menu");
-                    String harga = rslt.getString("harga");
+                    String hargaMenu = rslt.getString("harga");
                     String umkm = rslt.getString("UMKM");
                     String stok = rslt.getString("stok");
                     
                 //masukan semua data kedalam array
-                String[] data = {kode,nama,harga,umkm,stok};
+                String[] data = {kode,nama,hargaMenu,umkm,stok};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
             }
@@ -89,7 +89,7 @@ public class stokMenu extends javax.swing.JFrame {
     
     private void updateJcomboboxVarian(){
 
-            String query = "SELECT no_varian, nama_varian, harga FROM tb_varian";
+            String query = "SELECT no_varian, nama_varian, harga  FROM tb_varian";
             try {
                 
             Connection connect = koneksi.getKoneksi();//memanggil koneksi
@@ -107,14 +107,12 @@ public class stokMenu extends javax.swing.JFrame {
             
             //ambil dari class divisi dan munculkan pada combo box cbx_divisi
             for( int i = 0; i < arrVarian.size(); i++ ){
-                jComboBoxPilihVarian.addItem( arrVarian.get( i ).getVarian());
+                jComboBoxPilihVarian.addItem( arrVarian.get( i ).toString());
             }
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.toString());
         }
-            
-         //BtnAddTransaksi();
     }
     
     
@@ -138,11 +136,11 @@ public class stokMenu extends javax.swing.JFrame {
                    
                     String kode = rslt.getString("kode_menu");
                     String nama = rslt.getString("nama_menu");
-                    String harga = rslt.getString("harga");
+                    String hargaMenu = rslt.getString("harga");
                     String stok = rslt.getString("stok");
                     
                 //masukan semua data kedalam array
-                String[] data = {kode,nama,harga,stok};
+                String[] data = {kode,nama,hargaMenu,stok};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
             }
@@ -184,19 +182,81 @@ public class stokMenu extends javax.swing.JFrame {
         int row = table_menu.getSelectedRow();
         pageTransaksi menu = new pageTransaksi();
 
-        String kode = table.getValueAt(row, 0).toString();
+//        String kode = table.getValueAt(row, 0).toString();
+//        menu.txFieldKodeMenu21552011235.setText(kode);
+//        
+//        String nama = table.getValueAt(row, 1).toString();
+//        menu.txtFieldNamaMenu21552011235.setText(nama);
+//        
+//        String varian = (String) jComboBoxPilihVarian.getSelectedItem().toString();
+//        menu.txtFieldVarian21552011235.setText(varian);
+//        
+//        String umkm = table.getValueAt(row, 3).toString();
+//        menu.txFieldUMKM21552011235.setText(umkm);
+        
+        
+        String kode = txFieldKodeMenu.getText();
         menu.txFieldKodeMenu21552011235.setText(kode);
         
-        String umkm = table.getValueAt(row, 3).toString();
-        menu.txFieldUMKM21552011235.setText(umkm);
-
-        String nama = table.getValueAt(row, 1).toString();
+        String nama = txtFieldNamaMenu.getText();
         menu.txtFieldNamaMenu21552011235.setText(nama);
         
-        String varian = (String) jComboBoxPilihVarian.getSelectedItem().toString();
-        menu.txtFieldVarian21552011235.setText(varian);
+        String query = "SELECT * FROM `tb_varian` ";
+        
+        try {
+            Connection connect = koneksi.getKoneksi();//memanggil koneksi
+            Statement sttmnt = connect.createStatement();//membuat statement
+            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+            
+            while (rslt.next()){
+                
+                
+                 //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian") ),
+                
+                no_varian = rslt.getInt("no_varian");
+                
+                        int no_varian = jComboBoxPilihVarian.getSelectedIndex();
+                        menu.txtFieldVarian21552011235.setText(String.valueOf(no_varian));
+        
+                        if ( arrVarian.size() > 0 ){
+                            no_varian = arrVarian.get(no_varian).getNo();
+                           // harga = arrVarian.get(idx).getHarga();
+                           // nama_varian = arrVarian.get(idx).getNama();
+                        }
+//                
+//                //temukan index class Divisi dan Jabatan
+//                for( int i = 0; i < arrVarian.size(); i++)
+//                    if ( no == arrVarian.get(i).getNo() )
+//                       jComboBoxPilihVarian.setSelectedIndex(i);
+                        
+                          //String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+                          //menu.txtFieldVarian21552011235.setText(varian);
+                       
+                }
+            } catch (SQLException ex) {
+            JOptionPane.showMessageDialog( null, ex.toString() );
+        }
+        
+        int idx = jComboBoxPilihVarian.getSelectedIndex();
+        menu.txtFieldVarian21552011235.setText(String.valueOf(idx));
+        
+//        if ( arrVarian.size() > 0 ){
+//            no_varian = arrVarian.get(idx).getNo();
+//            harga = arrVarian.get(idx).getHarga();
+//            nama_varian = arrVarian.get(idx).getNama();
+//        }
         
         
+//        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+//        menu.txtFieldVarian21552011235.setText(String.valueOf(varian));
+        
+        String hargatotal = txtFieldHargaTotal.getText();
+        menu.txtFieldHarga21552011235.setText(hargatotal);
+        
+        String umkm = txtFieldUMKM.getText();
+        menu.txFieldUMKM21552011235.setText(umkm);
+
+
 //        String query = "SELECT * FROM `tb_varian` ";
 //        
 //        try {
@@ -231,12 +291,11 @@ public class stokMenu extends javax.swing.JFrame {
 //        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
 //        menu.txtFieldVarian21552011235.setText(varian);
         
-        String hargatotal = txtFieldHargaTotal.getText();
-        menu.txtFieldHarga21552011235.setText(hargatotal);
+
        
         menu.setVisible(true);
         menu.pack();
-        updateJcomboboxVarian();
+       // updateJcomboboxVarian();
         menu.setDefaultCloseOperation(pageTransaksi.DISPOSE_ON_CLOSE);
         dispose();
     }
@@ -686,6 +745,9 @@ public class stokMenu extends javax.swing.JFrame {
         
         String umkm = table.getValueAt(row, 3).toString();
         txtFieldUMKM.setText(umkm);
+        
+//        String varian = (String) jComboBoxPilihVarian.getSelectedItem().toString();
+//        jComboBoxPilihVarian.setText(varian);
     
 //        menu.setVisible(true);
 //        menu.pack();
@@ -742,8 +804,8 @@ public class stokMenu extends javax.swing.JFrame {
         if ( arrVarian.size() > 0 ){
             no_varian = arrVarian.get(idx).getNo();
             harga = arrVarian.get(idx).getHarga();
+            //nama_varian = arrVarian.get(idx).toString();
         }
-        
         hitungVarian();
     }//GEN-LAST:event_jComboBoxPilihVarianActionPerformed
 
