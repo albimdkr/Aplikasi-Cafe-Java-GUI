@@ -177,21 +177,11 @@ public class pageTransaksi extends javax.swing.JFrame {
         totaldiskon = (diskon * harga)/100;
         total = harga - totaldiskon;
         txtFieldTotalBayar21552011235.setText(String.valueOf(total));
-        JOptionPane.showMessageDialog(null,"Hitung Harga Diskon Berhasil");
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(rootPane, "Ulang! pastikan input nilai dalam diskon ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.ERROR_MESSAGE);
-            txtFieldDiskon.setText(null);
+            JOptionPane.showMessageDialog(rootPane, "Pastikan input nilai dalam field ini hanya angka.", "PERHATIKAN GUNAKAN ANGKA !", JOptionPane.WARNING_MESSAGE);
+            txtFieldDiskon.setText(null);;
         }
-        
-//        harga = Integer.parseInt(txtFieldTotalHarga21552011235.getText());
-//        diskon = Integer.parseInt(txtFieldDiskon.getText());
-//        totaldiskon = (diskon * harga)/100;
-//        total = harga - totaldiskon;
-        //txtFieldDiskon.setText(String.valueOf(totaldiskon));
-         //txtFieldTotalHarga21552011235.setText(String.valueOf(total));
-        //txtFieldTotalBayar21552011235.setText(String.valueOf(total));
-        
-     }
+    }
      
     private void totalnya(){
         String procedures = "CALL `total_harga_transaksi`()";
@@ -363,6 +353,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldDiskon = new javax.swing.JTextField();
         NamaMenu5 = new javax.swing.JLabel();
         line7 = new javax.swing.JLabel();
+        line13 = new javax.swing.JLabel();
         Keranjang = new javax.swing.JLabel();
         NamaUMKM = new javax.swing.JLabel();
         NamaMenu3 = new javax.swing.JLabel();
@@ -373,6 +364,8 @@ public class pageTransaksi extends javax.swing.JFrame {
         txFieldUMKM21552011235 = new javax.swing.JTextField();
         Kode1 = new javax.swing.JLabel();
         txtFieldVarian21552011235 = new javax.swing.JTextField();
+        txFieldNoVarian21552011235 = new javax.swing.JTextField();
+        Kode2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -851,6 +844,13 @@ public class pageTransaksi extends javax.swing.JFrame {
         line7.setText("____________________________");
         jPanel3.add(line7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 270, 20));
 
+        line13.setBackground(new java.awt.Color(255, 255, 255));
+        line13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        line13.setForeground(new java.awt.Color(255, 255, 255));
+        line13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        line13.setText("_________");
+        jPanel3.add(line13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 90, 20));
+
         Keranjang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Keranjang.setForeground(new java.awt.Color(255, 255, 255));
         Keranjang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -922,6 +922,20 @@ public class pageTransaksi extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txtFieldVarian21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 260, 40));
+
+        txFieldNoVarian21552011235.setBackground(new java.awt.Color(64, 49, 33));
+        txFieldNoVarian21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txFieldNoVarian21552011235.setForeground(new java.awt.Color(255, 255, 255));
+        txFieldNoVarian21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txFieldNoVarian21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txFieldNoVarian21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel3.add(txFieldNoVarian21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 80, 40));
+
+        Kode2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Kode2.setForeground(new java.awt.Color(255, 255, 255));
+        Kode2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Kode2.setText("No Varian");
+        jPanel3.add(Kode2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 90, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 900));
 
@@ -1217,6 +1231,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel Keranjang;
     private javax.swing.JLabel Kode;
     private javax.swing.JLabel Kode1;
+    private javax.swing.JLabel Kode2;
     private javax.swing.JLabel MasukanUang;
     private javax.swing.JLabel MasukanUang1;
     private javax.swing.JLabel NamaMenu2;
@@ -1240,6 +1255,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel line10;
     private javax.swing.JLabel line11;
     private javax.swing.JLabel line12;
+    private javax.swing.JLabel line13;
     private javax.swing.JLabel line2;
     private javax.swing.JLabel line3;
     private javax.swing.JLabel line4;
@@ -1254,6 +1270,7 @@ public class pageTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel totalHarga;
     public javax.swing.JTextField txFieldKodeMenu21552011235;
     public javax.swing.JTextField txFieldNamaPelanggan;
+    public javax.swing.JTextField txFieldNoVarian21552011235;
     public javax.swing.JTextField txFieldUMKM21552011235;
     public javax.swing.JTextField txtFieldDiskon;
     public javax.swing.JTextField txtFieldHarga21552011235;
