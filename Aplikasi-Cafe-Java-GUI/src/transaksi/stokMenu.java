@@ -201,44 +201,56 @@ public class stokMenu extends javax.swing.JFrame {
         String nama = txtFieldNamaMenu.getText();
         menu.txtFieldNamaMenu21552011235.setText(nama);
         
-        String query = "SELECT * FROM `tb_varian` ";
-        
-        try {
-            Connection connect = koneksi.getKoneksi();//memanggil koneksi
-            Statement sttmnt = connect.createStatement();//membuat statement
-            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
-            
-            while (rslt.next()){
-                
-                
-                 //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian") ),
-                
-                no_varian = rslt.getInt("no_varian");
-                
-                        int no_varian = jComboBoxPilihVarian.getSelectedIndex();
-                        menu.txtFieldVarian21552011235.setText(String.valueOf(no_varian));
-        
-                        if ( arrVarian.size() > 0 ){
-                            no_varian = arrVarian.get(no_varian).getNo();
-                           // harga = arrVarian.get(idx).getHarga();
-                           // nama_varian = arrVarian.get(idx).getNama();
-                        }
+//        String query = "SELECT * FROM `tb_varian` ";
+//        
+//        try {
+//            Connection connect = koneksi.getKoneksi();//memanggil koneksi
+//            Statement sttmnt = connect.createStatement();//membuat statement
+//            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+//            
+//            while (rslt.next()){
+//                //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian"))
+//                no_varian = rslt.getInt("no_varian");
+////                harga = rslt.getInt("harga");
+////                nama_varian = rslt.getString("nama_varian");
 //                
-//                //temukan index class Divisi dan Jabatan
-//                for( int i = 0; i < arrVarian.size(); i++)
-//                    if ( no == arrVarian.get(i).getNo() )
-//                       jComboBoxPilihVarian.setSelectedIndex(i);
-                        
-                          //String varian = jComboBoxPilihVarian.getSelectedItem().toString();
-                          //menu.txtFieldVarian21552011235.setText(varian);
-                       
-                }
-            } catch (SQLException ex) {
-            JOptionPane.showMessageDialog( null, ex.toString() );
-        }
+//                        int no_varian = jComboBoxPilihVarian.getSelectedIndex();
+//                        menu.txtFieldVarian21552011235.setText(String.valueOf(no_varian));
+//        
+//                        if ( arrVarian.size() > 0 ){
+//                            no_varian = arrVarian.get(no_varian).getNo();
+//                            //harga = arrVarian.get(harga).getHarga();
+//                            //nama_varian = arrVarian.get(nama_varian).toString();
+//                        }
+////                
+////                //temukan index class 
+////                for( int i = 0; i < arrVarian.size(); i++)
+////                    if ( no == arrVarian.get(i).getNo() )
+////                       jComboBoxPilihVarian.setSelectedIndex(i);
+//                        
+//                          //String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+//                          //menu.txtFieldVarian21552011235.setText(varian);
+//                       
+//                }
+//            } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog( null, ex.toString() );
+//        }
         
         int idx = jComboBoxPilihVarian.getSelectedIndex();
-        menu.txtFieldVarian21552011235.setText(String.valueOf(idx));
+        menu.txFieldNoVarian21552011235.setText(String.valueOf(idx));
+        
+//        String noVarian = txFieldNoVarian.getText();
+//        menu.txFieldNoVarian21552011235.setText(noVarian);
+
+//        no_varian = jComboBoxPilihVarian.getSelectedIndex();
+//        txFieldNoVarian.setText(String.valueOf(no_varian));
+        
+        nama_varian = jComboBoxPilihVarian.getSelectedItem().toString();
+        menu.txtFieldVarian21552011235.setText(nama_varian);
+        
+        //menu.txFieldNoVarian21552011235.setText(String.valueOf(idx));
+        
+        
         
 //        if ( arrVarian.size() > 0 ){
 //            no_varian = arrVarian.get(idx).getNo();
@@ -355,7 +367,7 @@ public class stokMenu extends javax.swing.JFrame {
         txtFieldUMKM = new javax.swing.JTextField();
         NamaMenu6 = new javax.swing.JLabel();
         line13 = new javax.swing.JLabel();
-        txFieldNoVarian21552011235 = new javax.swing.JTextField();
+        txFieldNoVarian = new javax.swing.JTextField();
         NamaMenu8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -687,13 +699,13 @@ public class stokMenu extends javax.swing.JFrame {
         line13.setText("_______");
         jPanel3.add(line13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, 20));
 
-        txFieldNoVarian21552011235.setBackground(new java.awt.Color(64, 49, 33));
-        txFieldNoVarian21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txFieldNoVarian21552011235.setForeground(new java.awt.Color(255, 255, 255));
-        txFieldNoVarian21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txFieldNoVarian21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txFieldNoVarian21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txFieldNoVarian21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 60, 40));
+        txFieldNoVarian.setBackground(new java.awt.Color(64, 49, 33));
+        txFieldNoVarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txFieldNoVarian.setForeground(new java.awt.Color(255, 255, 255));
+        txFieldNoVarian.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txFieldNoVarian.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txFieldNoVarian.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel3.add(txFieldNoVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 60, 40));
 
         NamaMenu8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu8.setForeground(new java.awt.Color(255, 255, 255));
@@ -770,6 +782,9 @@ public class stokMenu extends javax.swing.JFrame {
         
         String umkm = table.getValueAt(row, 3).toString();
         txtFieldUMKM.setText(umkm);
+        
+//        no_varian = jComboBoxPilihVarian.getSelectedIndex();
+//        txFieldNoVarian.setText(String.valueOf(no_varian));
         
 //        String varian = (String) jComboBoxPilihVarian.getSelectedItem().toString();
 //        jComboBoxPilihVarian.setText(varian);
@@ -907,7 +922,7 @@ public class stokMenu extends javax.swing.JFrame {
     private javax.swing.JLabel line9;
     public javax.swing.JTable table_menu;
     public javax.swing.JTextField txFieldKodeMenu;
-    public javax.swing.JTextField txFieldNoVarian21552011235;
+    public javax.swing.JTextField txFieldNoVarian;
     private javax.swing.JTextField txtFieldCari21552011235;
     public javax.swing.JTextField txtFieldHargaTotal;
     public javax.swing.JTextField txtFieldNamaMenu;
