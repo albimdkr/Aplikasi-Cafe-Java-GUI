@@ -36,7 +36,7 @@ public class stokMenu extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
         updateJcomboboxVarian();
-        
+        //indexJcomboboxVarian();
         koneksi conn = new koneksi();
         koneksi.getKoneksi();
         
@@ -88,7 +88,6 @@ public class stokMenu extends javax.swing.JFrame {
     
     
     private void updateJcomboboxVarian(){
-
             String query = "SELECT no_varian, nama_varian, harga  FROM tb_varian";
             try {
                 
@@ -96,16 +95,13 @@ public class stokMenu extends javax.swing.JFrame {
             Statement sttmnt = connect.createStatement();//membuat statement
             ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
             
-            //ResultSet rs = DB.read( "select id_jabatan, jabatan, gaji_pokok from jabatan" );
-            
-            //masukkan kedalam class Divisi ( tampung )
             while( rslt.next() ){
                 arrVarian.add( new varian (Integer.parseInt(rslt.getString("no_varian") ),
                                         Integer.parseInt (rslt.getString("harga") ),
                                         rslt.getString("nama_varian")));
             }
             
-            //ambil dari class divisi dan munculkan pada combo box cbx_divisi
+            //ambil dari class
             for( int i = 0; i < arrVarian.size(); i++ ){
                 jComboBoxPilihVarian.addItem( arrVarian.get( i ).toString());
             }
@@ -177,140 +173,139 @@ public class stokMenu extends javax.swing.JFrame {
         txtFieldHargaTotal.setText(null);
     }
     
+//    private void indexJcomboboxVarian(){
+//        int no_varian = jComboBoxPilihVarian.getSelectedIndex();
+//        txtFieldNoVarian.setText(String.valueOf(no_varian));
+//    }
         
     private void BtnAddTransaksi(){
-        int row = table_menu.getSelectedRow();
+        //int row = table_menu.getSelectedRow();
         pageTransaksi menu = new pageTransaksi();
 
-//        String kode = table.getValueAt(row, 0).toString();
-//        menu.txFieldKodeMenu21552011235.setText(kode);
-//        
-//        String nama = table.getValueAt(row, 1).toString();
-//        menu.txtFieldNamaMenu21552011235.setText(nama);
-//        
-//        String varian = (String) jComboBoxPilihVarian.getSelectedItem().toString();
-//        menu.txtFieldVarian21552011235.setText(varian);
-//        
-//        String umkm = table.getValueAt(row, 3).toString();
-//        menu.txFieldUMKM21552011235.setText(umkm);
-        
-        
         String kode = txFieldKodeMenu.getText();
         menu.txFieldKodeMenu21552011235.setText(kode);
         
         String nama = txtFieldNamaMenu.getText();
         menu.txtFieldNamaMenu21552011235.setText(nama);
         
-//        String query = "SELECT * FROM `tb_varian` ";
-//        
-//        try {
-//            Connection connect = koneksi.getKoneksi();//memanggil koneksi
-//            Statement sttmnt = connect.createStatement();//membuat statement
-//            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
-//            
-//            while (rslt.next()){
-//                //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian"))
-//                no_varian = rslt.getInt("no_varian");
-////                harga = rslt.getInt("harga");
-////                nama_varian = rslt.getString("nama_varian");
-//                
-//                        int no_varian = jComboBoxPilihVarian.getSelectedIndex();
-//                        menu.txtFieldVarian21552011235.setText(String.valueOf(no_varian));
-//        
-//                        if ( arrVarian.size() > 0 ){
-//                            no_varian = arrVarian.get(no_varian).getNo();
-//                            //harga = arrVarian.get(harga).getHarga();
-//                            //nama_varian = arrVarian.get(nama_varian).toString();
-//                        }
-////                
-////                //temukan index class 
-////                for( int i = 0; i < arrVarian.size(); i++)
-////                    if ( no == arrVarian.get(i).getNo() )
-////                       jComboBoxPilihVarian.setSelectedIndex(i);
-//                        
-//                          //String varian = jComboBoxPilihVarian.getSelectedItem().toString();
-//                          //menu.txtFieldVarian21552011235.setText(varian);
-//                       
-//                }
-//            } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog( null, ex.toString() );
-//        }
-        
-        int idx = jComboBoxPilihVarian.getSelectedIndex();
-        menu.txFieldNoVarian21552011235.setText(String.valueOf(idx));
-        
-//        String noVarian = txFieldNoVarian.getText();
-//        menu.txFieldNoVarian21552011235.setText(noVarian);
+        int no_varian = jComboBoxPilihVarian.getSelectedIndex();
+        menu.txFieldNoVarian21552011235.setText(String.valueOf(no_varian));
 
-//        no_varian = jComboBoxPilihVarian.getSelectedIndex();
-//        txFieldNoVarian.setText(String.valueOf(no_varian));
+//        String noVarian = txtFieldNoVarian.getText();
+//        menu.txFieldNoVarian21552011235.setText(noVarian);
         
         nama_varian = jComboBoxPilihVarian.getSelectedItem().toString();
         menu.txtFieldVarian21552011235.setText(nama_varian);
-        
-        //menu.txFieldNoVarian21552011235.setText(String.valueOf(idx));
-        
-        
-        
-//        if ( arrVarian.size() > 0 ){
-//            no_varian = arrVarian.get(idx).getNo();
-//            harga = arrVarian.get(idx).getHarga();
-//            nama_varian = arrVarian.get(idx).getNama();
-//        }
-        
-        
-//        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
-//        menu.txtFieldVarian21552011235.setText(String.valueOf(varian));
         
         String hargatotal = txtFieldHargaTotal.getText();
         menu.txtFieldHarga21552011235.setText(hargatotal);
         
         String umkm = txtFieldUMKM.getText();
         menu.txFieldUMKM21552011235.setText(umkm);
-
-
-//        String query = "SELECT * FROM `tb_varian` ";
-//        
-//        try {
-//            Connection connect = koneksi.getKoneksi();//memanggil koneksi
-//            Statement sttmnt = connect.createStatement();//membuat statement
-//            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
-//            
-//            while (rslt.next()){
-//                
-//                
-//                 //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian") ),
-//                
-////                no = rslt.getInt("no");
-////                
-////                //temukan index class Divisi dan Jabatan
-////                for( int i = 0; i < arrVarian.size(); i++)
-////                    if ( no == arrVarian.get(i).getNo() )
-////                       jComboBoxPilihVarian.setSelectedIndex(i);
-//                        
-//                          String varian = jComboBoxPilihVarian.getSelectedItem().toString();
-//                          menu.txtFieldVarian21552011235.setText(varian);
-//                       
-//                }
-//            } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog( null, ex.toString() );
-//        }
         
-   
-//        String varian = (String) jComboBoxPilihVarian.getSelectedItem();
-//        menu.txtFieldVarian21552011235.setText(varian);
-        
-//        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
-//        menu.txtFieldVarian21552011235.setText(varian);
-        
-
-       
         menu.setVisible(true);
         menu.pack();
        // updateJcomboboxVarian();
         menu.setDefaultCloseOperation(pageTransaksi.DISPOSE_ON_CLOSE);
         dispose();
     }
+    
+    
+    //btn add transaksi
+    //        String kode = table.getValueAt(row, 0).toString();
+    //        menu.txFieldKodeMenu21552011235.setText(kode);
+    //        
+    //        String nama = table.getValueAt(row, 1).toString();
+    //        menu.txtFieldNamaMenu21552011235.setText(nama);
+    //        
+    //        String varian = (String) jComboBoxPilihVarian.getSelectedItem().toString();
+    //        menu.txtFieldVarian21552011235.setText(varian);
+    //        
+    //        String umkm = table.getValueAt(row, 3).toString();
+    //        menu.txFieldUMKM21552011235.setText(umkm);
+    //        String query = "SELECT * FROM `tb_varian` ";
+    //        
+    //        try {
+    //            Connection connect = koneksi.getKoneksi();//memanggil koneksi
+    //            Statement sttmnt = connect.createStatement();//membuat statement
+    //            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+    //            
+    //            while (rslt.next()){
+    //                //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian"))
+    //                no_varian = rslt.getInt("no_varian");
+    ////                harga = rslt.getInt("harga");
+    ////                nama_varian = rslt.getString("nama_varian");
+    //                
+    //                        int no_varian = jComboBoxPilihVarian.getSelectedIndex();
+    //                        menu.txtFieldVarian21552011235.setText(String.valueOf(no_varian));
+    //        
+    //                        if ( arrVarian.size() > 0 ){
+    //                            no_varian = arrVarian.get(no_varian).getNo();
+    //                            //harga = arrVarian.get(harga).getHarga();
+    //                            //nama_varian = arrVarian.get(nama_varian).toString();
+    //                        }
+    ////                
+    ////                //temukan index class 
+    ////                for( int i = 0; i < arrVarian.size(); i++)
+    ////                    if ( no == arrVarian.get(i).getNo() )
+    ////                       jComboBoxPilihVarian.setSelectedIndex(i);
+    //                        
+    //                          //String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+    //                          //menu.txtFieldVarian21552011235.setText(varian);
+    //                       
+    //                }
+    //            } catch (SQLException ex) {
+    //            JOptionPane.showMessageDialog( null, ex.toString() );
+    //        }
+    //        String noVarian = txFieldNoVarian.getText();
+    //        menu.txFieldNoVarian21552011235.setText(noVarian);
+
+    //        no_varian = jComboBoxPilihVarian.getSelectedIndex();
+    //        txFieldNoVarian.setText(String.valueOf(no_varian));
+    //menu.txFieldNoVarian21552011235.setText(String.valueOf(idx));
+        
+    //        if ( arrVarian.size() > 0 ){
+    //            no_varian = arrVarian.get(idx).getNo();
+    //            harga = arrVarian.get(idx).getHarga();
+    //            nama_varian = arrVarian.get(idx).getNama();
+    //        }
+
+    //        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+    //        menu.txtFieldVarian21552011235.setText(String.valueOf(varian));
+    
+    //        String query = "SELECT * FROM `tb_varian` ";
+    //        
+    //        try {
+    //            Connection connect = koneksi.getKoneksi();//memanggil koneksi
+    //            Statement sttmnt = connect.createStatement();//membuat statement
+    //            ResultSet rslt = sttmnt.executeQuery(query);//menjalanakn query
+    //            
+    //            while (rslt.next()){
+    //                
+    //                
+    //                 //arrVarian.add( new varian (Integer.parseInt(rslt.getString("nama_varian") ),
+    //                
+    ////                no = rslt.getInt("no");
+    ////                
+    ////                //temukan index class Divisi dan Jabatan
+    ////                for( int i = 0; i < arrVarian.size(); i++)
+    ////                    if ( no == arrVarian.get(i).getNo() )
+    ////                       jComboBoxPilihVarian.setSelectedIndex(i);
+    //                        
+    //                          String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+    //                          menu.txtFieldVarian21552011235.setText(varian);
+    //                       
+    //                }
+    //            } catch (SQLException ex) {
+    //            JOptionPane.showMessageDialog( null, ex.toString() );
+    //        }
+
+
+    //        String varian = (String) jComboBoxPilihVarian.getSelectedItem();
+    //        menu.txtFieldVarian21552011235.setText(varian);
+
+    //        String varian = jComboBoxPilihVarian.getSelectedItem().toString();
+    //        menu.txtFieldVarian21552011235.setText(varian);
     
    
     /**
@@ -366,9 +361,6 @@ public class stokMenu extends javax.swing.JFrame {
         line12 = new javax.swing.JLabel();
         txtFieldUMKM = new javax.swing.JTextField();
         NamaMenu6 = new javax.swing.JLabel();
-        line13 = new javax.swing.JLabel();
-        txFieldNoVarian = new javax.swing.JTextField();
-        NamaMenu8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -475,7 +467,7 @@ public class stokMenu extends javax.swing.JFrame {
         line8.setForeground(new java.awt.Color(255, 255, 255));
         line8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line8.setText("_____________________");
-        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 200, 20));
+        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 200, 20));
 
         PanelReset.setBackground(new java.awt.Color(64, 49, 33));
         PanelReset.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -548,9 +540,9 @@ public class stokMenu extends javax.swing.JFrame {
                 BtnAddTransaksiMouseExited(evt);
             }
         });
-        PanelAddTransaksi.add(BtnAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 50));
+        PanelAddTransaksi.add(BtnAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 50));
 
-        jPanel3.add(PanelAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 270, 50));
+        jPanel3.add(PanelAddTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 280, 50));
 
         txtFieldCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldCari21552011235.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -565,26 +557,26 @@ public class stokMenu extends javax.swing.JFrame {
         txtFieldNamaMenu.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldNamaMenu.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldNamaMenu.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldNamaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 190, 40));
+        jPanel3.add(txtFieldNamaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 190, 40));
 
         NamaMenu5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu5.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu5.setText("Nama Menu");
-        jPanel3.add(NamaMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 120, 40));
+        jPanel3.add(NamaMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 120, 40));
 
         jenisVariant.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jenisVariant.setForeground(new java.awt.Color(255, 255, 255));
         jenisVariant.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jenisVariant.setText("Pilih Varian/Toping");
-        jPanel3.add(jenisVariant, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 160, 30));
+        jPanel3.add(jenisVariant, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 160, 30));
 
         line10.setBackground(new java.awt.Color(255, 255, 255));
         line10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line10.setForeground(new java.awt.Color(255, 255, 255));
         line10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        line10.setText("_______________________________________________");
-        jPanel3.add(line10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 430, 20));
+        line10.setText("_____________________");
+        jPanel3.add(line10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 190, 20));
 
         txtFieldHargaTotal.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldHargaTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -592,13 +584,13 @@ public class stokMenu extends javax.swing.JFrame {
         txtFieldHargaTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldHargaTotal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldHargaTotal.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldHargaTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 420, 40));
+        jPanel3.add(txtFieldHargaTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 190, 40));
 
         jenisVariant1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jenisVariant1.setForeground(new java.awt.Color(255, 255, 255));
         jenisVariant1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jenisVariant1.setText("Harga Total");
-        jPanel3.add(jenisVariant1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 120, 40));
+        jPanel3.add(jenisVariant1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 120, 40));
 
         line11.setBackground(new java.awt.Color(255, 255, 255));
         line11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -643,7 +635,7 @@ public class stokMenu extends javax.swing.JFrame {
                 jComboBoxPilihVarianActionPerformed(evt);
             }
         });
-        jPanel3.add(jComboBoxPilihVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 210, 40));
+        jPanel3.add(jComboBoxPilihVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 210, 40));
 
         NamaMenu7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu7.setForeground(new java.awt.Color(255, 255, 255));
@@ -656,27 +648,27 @@ public class stokMenu extends javax.swing.JFrame {
         line9.setForeground(new java.awt.Color(255, 255, 255));
         line9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line9.setText("_____________________");
-        jPanel3.add(line9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 190, 20));
+        jPanel3.add(line9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 190, 20));
 
         txtFieldhargaMenu.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldhargaMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldhargaMenu.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldhargaMenu.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldhargaMenu.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldhargaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 190, 40));
+        jPanel3.add(txtFieldhargaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 190, 40));
 
         Harga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Harga.setForeground(new java.awt.Color(255, 255, 255));
         Harga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Harga.setText("Harga Menu");
-        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 120, 40));
+        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 120, 40));
 
         line12.setBackground(new java.awt.Color(255, 255, 255));
         line12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line12.setForeground(new java.awt.Color(255, 255, 255));
         line12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line12.setText("_____________________");
-        jPanel3.add(line12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 200, 20));
+        jPanel3.add(line12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 200, 20));
 
         txtFieldUMKM.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldUMKM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -684,34 +676,13 @@ public class stokMenu extends javax.swing.JFrame {
         txtFieldUMKM.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtFieldUMKM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldUMKM.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldUMKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 190, 40));
+        jPanel3.add(txtFieldUMKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 190, 40));
 
         NamaMenu6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu6.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu6.setText("UMKM");
-        jPanel3.add(NamaMenu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 120, 40));
-
-        line13.setBackground(new java.awt.Color(255, 255, 255));
-        line13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        line13.setForeground(new java.awt.Color(255, 255, 255));
-        line13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        line13.setText("_______");
-        jPanel3.add(line13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, 20));
-
-        txFieldNoVarian.setBackground(new java.awt.Color(64, 49, 33));
-        txFieldNoVarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txFieldNoVarian.setForeground(new java.awt.Color(255, 255, 255));
-        txFieldNoVarian.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txFieldNoVarian.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txFieldNoVarian.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txFieldNoVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 60, 40));
-
-        NamaMenu8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        NamaMenu8.setForeground(new java.awt.Color(255, 255, 255));
-        NamaMenu8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        NamaMenu8.setText("No Varian");
-        jPanel3.add(NamaMenu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 80, 40));
+        jPanel3.add(NamaMenu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 120, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -782,6 +753,8 @@ public class stokMenu extends javax.swing.JFrame {
         
         String umkm = table.getValueAt(row, 3).toString();
         txtFieldUMKM.setText(umkm);
+        
+
         
 //        no_varian = jComboBoxPilihVarian.getSelectedIndex();
 //        txFieldNoVarian.setText(String.valueOf(no_varian));
@@ -896,7 +869,6 @@ public class stokMenu extends javax.swing.JFrame {
     private javax.swing.JLabel NamaMenu5;
     private javax.swing.JLabel NamaMenu6;
     private javax.swing.JLabel NamaMenu7;
-    private javax.swing.JLabel NamaMenu8;
     private javax.swing.JPanel Navbar;
     private javax.swing.JPanel PanelAddTransaksi;
     private javax.swing.JPanel PanelBack21552011235;
@@ -916,13 +888,11 @@ public class stokMenu extends javax.swing.JFrame {
     private javax.swing.JLabel line10;
     private javax.swing.JLabel line11;
     private javax.swing.JLabel line12;
-    private javax.swing.JLabel line13;
     private javax.swing.JLabel line6;
     private javax.swing.JLabel line8;
     private javax.swing.JLabel line9;
     public javax.swing.JTable table_menu;
     public javax.swing.JTextField txFieldKodeMenu;
-    public javax.swing.JTextField txFieldNoVarian;
     private javax.swing.JTextField txtFieldCari21552011235;
     public javax.swing.JTextField txtFieldHargaTotal;
     public javax.swing.JTextField txtFieldNamaMenu;

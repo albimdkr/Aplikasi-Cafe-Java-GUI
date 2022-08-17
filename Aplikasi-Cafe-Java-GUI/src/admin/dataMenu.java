@@ -60,6 +60,7 @@ public class dataMenu extends javax.swing.JFrame {
         tablevarian.addColumn("No");
         tablevarian.addColumn("Nama Varian");
         tablevarian.addColumn("Harga");
+        tablevarian.addColumn("UMKM");
         tampilDataVarian();
         
     }
@@ -108,7 +109,7 @@ public class dataMenu extends javax.swing.JFrame {
         txtFieldNamaMenu21552011235.setText(null);
         txtFieldHarga21552011235.setText(null);
         txtFieldStok21552011235.setText(null);
-        jComboBoxUMKM.setSelectedIndex(0);
+        jComboBoxUmkmMenu.setSelectedIndex(0);
 //        txt_tanggal.setDate(null);
         
     }
@@ -119,7 +120,7 @@ public class dataMenu extends javax.swing.JFrame {
         String nama = txtFieldNamaMenu21552011235.getText();
         String harga = txtFieldHarga21552011235.getText();
         String stok = txtFieldStok21552011235.getText();
-        String umkm = (String) jComboBoxUMKM.getSelectedItem();
+        String umkm = (String) jComboBoxUmkmMenu.getSelectedItem();
         
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         String tanggal = date.format(txtTanggal21552011235.getDate());
@@ -159,7 +160,7 @@ public class dataMenu extends javax.swing.JFrame {
         String nama = txtFieldNamaMenu21552011235.getText();
         String harga =txtFieldHarga21552011235.getText();
         String stok = txtFieldStok21552011235.getText();
-        String umkm = (String) jComboBoxUMKM.getSelectedItem();
+        String umkm = (String) jComboBoxUmkmMenu.getSelectedItem();
         
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         String tanggal = String.valueOf(date.format(txtTanggal21552011235.getDate()));
@@ -264,9 +265,10 @@ public class dataMenu extends javax.swing.JFrame {
                     String no = rslt.getString("no_varian");
                     String nama = rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
+                    String umkm = rslt.getString("umkm");
                     
                 //masukan semua data kedalam array
-                String[] data = {no,nama,harga};
+                String[] data = {no,nama,harga,umkm};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 tablevarian.addRow(data);
             }
@@ -283,18 +285,20 @@ public class dataMenu extends javax.swing.JFrame {
         //txtFieldNamaNoVarian.setText(null);
         txtFieldNamaVarian.setText(null);
         txtFieldHargaVarian.setText(null);
+        jComboBoxUmkmVarian.setSelectedIndex(0);
     }
         
         private void tambahDataVarian(){
         //String no = txtFieldNamaNoVarian.getText();
-        String nama = txtFieldNamaVarian.getText();
-        String harga = txtFieldHargaVarian.getText();
+        String namaVarian = txtFieldNamaVarian.getText();
+        String hargaVarian = txtFieldHargaVarian.getText();
+        String umkmVarian = (String) jComboBoxUmkmVarian.getSelectedItem();
         
         //panggil koneksi
         java.sql.Connection connect = koneksi.getKoneksi();
         //query untuk memasukan data
-        String query = "INSERT INTO `tb_varian` (no_varian, `nama_varian`, `harga`) "
-                     + "VALUES (NULL, '"+nama+"', '"+harga+"')";
+        String query = "INSERT INTO `tb_varian` (no_varian, `nama_varian`, `harga`, `umkm`) "
+                     + "VALUES (NULL, '"+namaVarian+"', '"+hargaVarian+"', '"+umkmVarian+"')";
         
         try{
             //menyiapkan statement untuk di eksekusi
@@ -315,13 +319,14 @@ public class dataMenu extends javax.swing.JFrame {
         private void editDataVarian(){
         int i = tableVarian.getSelectedRow();
         
-        String no = table.getValueAt(i, 0).toString();
-        String nama = txtFieldNamaVarian.getText();
-        String harga =txtFieldHargaVarian.getText();
+        String no = tablevarian.getValueAt(i, 0).toString();
+        String namaVarian = txtFieldNamaVarian.getText();
+        String hargaVarian = txtFieldHargaVarian.getText();
+        String umkmVarian = (String) jComboBoxUmkmVarian.getSelectedItem();
         
         java.sql.Connection connect = koneksi.getKoneksi();
         
-        String query = "UPDATE `tb_varian` SET `nama_varian` = '"+nama+"', `harga` = '"+harga+"' "
+        String query = "UPDATE `tb_varian` SET `nama_varian` = '"+namaVarian+"', `harga` = '"+hargaVarian+"', `umkm` = '"+umkmVarian+"' "
                 + "WHERE `tb_varian`.`no_varian` = '"+no+"';";
 
         try{
@@ -341,7 +346,7 @@ public class dataMenu extends javax.swing.JFrame {
         //ambill data no pendaftaran
         int i = tableVarian.getSelectedRow();
         
-        String no = tableVarian.getValueAt(i, 0).toString();
+        String no = tablevarian.getValueAt(i, 0).toString();
         
         java.sql.Connection connect = koneksi.getKoneksi();
         
@@ -380,9 +385,10 @@ public class dataMenu extends javax.swing.JFrame {
                     String no = rslt.getString("no_varian");
                     String nama = rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
+                    String umkm = rslt.getString("umkm");
                     
                 //masukan semua data kedalam array
-                String[] data = {no,nama,harga};
+                String[] data = {no,nama,harga,umkm};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 tablevarian.addRow(data);
             }
@@ -474,7 +480,9 @@ public class dataMenu extends javax.swing.JFrame {
         PanelEditVarian = new javax.swing.JPanel();
         BtnEditVarian = new javax.swing.JLabel();
         KodeMenu = new javax.swing.JLabel();
-        jComboBoxUMKM = new javax.swing.JComboBox<>();
+        jComboBoxUmkmMenu = new javax.swing.JComboBox<>();
+        jComboBoxUmkmVarian = new javax.swing.JComboBox<>();
+        KodeMenu1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -526,7 +534,7 @@ public class dataMenu extends javax.swing.JFrame {
         line5.setForeground(new java.awt.Color(255, 255, 255));
         line5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line5.setText("________________");
-        jPanel3.add(line5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 160, 20));
+        jPanel3.add(line5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 160, 20));
 
         Navbar1.setBackground(new java.awt.Color(45, 35, 23));
         Navbar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -571,7 +579,7 @@ public class dataMenu extends javax.swing.JFrame {
                 txtFieldStok21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldStok21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 150, 40));
+        jPanel3.add(txtFieldStok21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 150, 40));
 
         PanelCariMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelCariMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -593,9 +601,9 @@ public class dataMenu extends javax.swing.JFrame {
                 BtnCariMenuMouseExited(evt);
             }
         });
-        PanelCariMenu.add(BtnCariMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
+        PanelCariMenu.add(BtnCariMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, 50));
 
-        jPanel3.add(PanelCariMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 110, -1, 50));
+        jPanel3.add(PanelCariMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 80, -1, 50));
 
         PanelAddMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelAddMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -620,13 +628,13 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelAddMenu.add(BtnAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
 
-        jPanel3.add(PanelAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 150, 50));
+        jPanel3.add(PanelAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 150, 50));
 
         Stok.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Stok.setForeground(new java.awt.Color(255, 255, 255));
         Stok.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Stok.setText("Stok");
-        jPanel3.add(Stok, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 90, 40));
+        jPanel3.add(Stok, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 90, 40));
 
         PanelAddVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelAddVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -649,36 +657,36 @@ public class dataMenu extends javax.swing.JFrame {
                 BtnAddVarianMouseExited(evt);
             }
         });
-        PanelAddVarian.add(BtnAddVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 50));
+        PanelAddVarian.add(BtnAddVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 50));
 
-        jPanel3.add(PanelAddVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 640, 330, 50));
+        jPanel3.add(PanelAddVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 580, 110, 50));
 
         NamaMenu3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu3.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu3.setText("Nama Menu");
-        jPanel3.add(NamaMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 120, 40));
+        jPanel3.add(NamaMenu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 120, 40));
 
         line8.setBackground(new java.awt.Color(255, 255, 255));
         line8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line8.setForeground(new java.awt.Color(255, 255, 255));
         line8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line8.setText("________________");
-        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 150, 20));
+        jPanel3.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 150, 20));
 
         txtFieldNamaMenu21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldNamaMenu21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldNamaMenu21552011235.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldNamaMenu21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldNamaMenu21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 150, 40));
+        jPanel3.add(txtFieldNamaMenu21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, 40));
 
         line3.setBackground(new java.awt.Color(255, 255, 255));
         line3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line3.setForeground(new java.awt.Color(255, 255, 255));
         line3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line3.setText("________________");
-        jPanel3.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 160, 20));
+        jPanel3.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 160, 20));
 
         line2.setBackground(new java.awt.Color(255, 255, 255));
         line2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -686,7 +694,7 @@ public class dataMenu extends javax.swing.JFrame {
         line2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line2.setText("_____________________________________________________________________________________________________________________________________");
         line2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel3.add(line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 1210, 30));
+        jPanel3.add(line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 1210, 30));
 
         txtFieldHarga21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldHarga21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -698,13 +706,13 @@ public class dataMenu extends javax.swing.JFrame {
                 txtFieldHarga21552011235ActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 150, 40));
+        jPanel3.add(txtFieldHarga21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 150, 40));
 
         Harga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Harga.setForeground(new java.awt.Color(255, 255, 255));
         Harga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Harga.setText("Harga");
-        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 100, 40));
+        jPanel3.add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 100, 40));
 
         PanelClearMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelClearMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -729,7 +737,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelClearMenu.add(BtnClearMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 50));
 
-        jPanel3.add(PanelClearMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 100, 50));
+        jPanel3.add(PanelClearMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 100, 50));
 
         PanelClearVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelClearVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -753,7 +761,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelClearVarian.add(BtnClearVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 40));
 
-        jPanel3.add(PanelClearVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 110, 40));
+        jPanel3.add(PanelClearVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, 110, 40));
 
         PanelRefreshMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelRefreshMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -777,7 +785,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelRefreshMenu.add(BtnRefreshMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
-        jPanel3.add(PanelRefreshMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 50, 50));
+        jPanel3.add(PanelRefreshMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 50, 50));
 
         PanelRefreshVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelRefreshVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -801,7 +809,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelRefreshVarian.add(BtnRefreshVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 40));
 
-        jPanel3.add(PanelRefreshVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 110, 40));
+        jPanel3.add(PanelRefreshVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 110, 40));
 
         PanelDeleteMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelDeleteMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -826,7 +834,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelDeleteMenu.add(BtnDeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 50));
 
-        jPanel3.add(PanelDeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 340, 130, 50));
+        jPanel3.add(PanelDeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 280, 130, 50));
 
         PanelDeleteVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelDeleteVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -851,7 +859,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelDeleteVarian.add(BtnDeleteVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 50));
 
-        jPanel3.add(PanelDeleteVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 620, 130, 50));
+        jPanel3.add(PanelDeleteVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 580, 130, 50));
 
         PanelPrint21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelPrint21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -876,7 +884,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 50));
 
-        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 200, 130, 50));
+        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 140, 130, 50));
 
         PanelEditMenu.setBackground(new java.awt.Color(64, 49, 33));
         PanelEditMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -901,7 +909,7 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelEditMenu.add(BtnEditMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 50));
 
-        jPanel3.add(PanelEditMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 270, 130, 50));
+        jPanel3.add(PanelEditMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 210, 130, 50));
 
         tableMenu21552011235.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -923,21 +931,21 @@ public class dataMenu extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableMenu21552011235);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 680, 250));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 680, 190));
 
         line11.setBackground(new java.awt.Color(255, 255, 255));
         line11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line11.setForeground(new java.awt.Color(255, 255, 255));
         line11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line11.setText("______");
-        jPanel3.add(line11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 140, -1, 20));
+        jPanel3.add(line11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 110, -1, 20));
 
         line10.setBackground(new java.awt.Color(255, 255, 255));
         line10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line10.setForeground(new java.awt.Color(255, 255, 255));
         line10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line10.setText("______________________");
-        jPanel3.add(line10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 210, 20));
+        jPanel3.add(line10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 210, 20));
 
         txtFieldCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldCari21552011235.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -945,7 +953,7 @@ public class dataMenu extends javax.swing.JFrame {
         txtFieldCari21552011235.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldCari21552011235.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldCari21552011235.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 120, 60, 40));
+        jPanel3.add(txtFieldCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 90, 60, 40));
         jPanel3.add(txtTanggal21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, 150, 40));
 
         tableVarian.setModel(new javax.swing.table.DefaultTableModel(
@@ -968,46 +976,46 @@ public class dataMenu extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tableVarian);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 680, 200));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 680, 190));
 
         line9.setBackground(new java.awt.Color(255, 255, 255));
         line9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line9.setForeground(new java.awt.Color(255, 255, 255));
         line9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line9.setText("______________________");
-        jPanel3.add(line9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 200, 20));
+        jPanel3.add(line9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 200, 20));
 
         txtFieldNamaVarian.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldNamaVarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldNamaVarian.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldNamaVarian.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldNamaVarian.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldNamaVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 200, 40));
+        jPanel3.add(txtFieldNamaVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 200, 40));
 
         NamaMenu4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu4.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu4.setText("Nama Varian/Toping");
-        jPanel3.add(NamaMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 150, 40));
+        jPanel3.add(NamaMenu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 150, 40));
 
         txtFieldHargaVarian.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldHargaVarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFieldHargaVarian.setForeground(new java.awt.Color(255, 255, 255));
         txtFieldHargaVarian.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldHargaVarian.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldHargaVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, 200, 40));
+        jPanel3.add(txtFieldHargaVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 200, 40));
 
         NamaMenu5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaMenu5.setForeground(new java.awt.Color(255, 255, 255));
         NamaMenu5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaMenu5.setText("Harga Varian");
-        jPanel3.add(NamaMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 150, 40));
+        jPanel3.add(NamaMenu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 150, 40));
 
         DaftarMenu.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         DaftarMenu.setForeground(new java.awt.Color(255, 255, 255));
         DaftarMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         DaftarMenu.setText("Tabel Varian");
-        jPanel3.add(DaftarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 120, 50));
+        jPanel3.add(DaftarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 120, 50));
 
         DaftarMenu3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         DaftarMenu3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1037,14 +1045,14 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelCariVarian.add(BtnCariVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
 
-        jPanel3.add(PanelCariVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 490, -1, 50));
+        jPanel3.add(PanelCariVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 440, -1, 50));
 
         line12.setBackground(new java.awt.Color(255, 255, 255));
         line12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         line12.setForeground(new java.awt.Color(255, 255, 255));
         line12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         line12.setText("______");
-        jPanel3.add(line12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 520, -1, 20));
+        jPanel3.add(line12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 470, -1, 20));
 
         txtFieldCariVarian.setBackground(new java.awt.Color(64, 49, 33));
         txtFieldCariVarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1052,7 +1060,7 @@ public class dataMenu extends javax.swing.JFrame {
         txtFieldCariVarian.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFieldCariVarian.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtFieldCariVarian.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel3.add(txtFieldCariVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 500, 60, 40));
+        jPanel3.add(txtFieldCariVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 60, 40));
 
         PanelEditVarian.setBackground(new java.awt.Color(64, 49, 33));
         PanelEditVarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -1077,17 +1085,27 @@ public class dataMenu extends javax.swing.JFrame {
         });
         PanelEditVarian.add(BtnEditVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 50));
 
-        jPanel3.add(PanelEditVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 560, 130, 50));
+        jPanel3.add(PanelEditVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 510, 130, 50));
 
         KodeMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         KodeMenu.setForeground(new java.awt.Color(255, 255, 255));
         KodeMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        KodeMenu.setText("Penyedia");
-        jPanel3.add(KodeMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 120, 40));
+        KodeMenu.setText("Penyedia Menu");
+        jPanel3.add(KodeMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 120, 40));
 
-        jComboBoxUMKM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBoxUMKM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih --", "Langkah Kopi", "Angkringan99", "Kue Balok" }));
-        jPanel3.add(jComboBoxUMKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 150, 30));
+        jComboBoxUmkmMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBoxUmkmMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih --", "None", "Langkah Kopi", "Angkringan99", "Kue Balok" }));
+        jPanel3.add(jComboBoxUmkmMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 150, 30));
+
+        jComboBoxUmkmVarian.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBoxUmkmVarian.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih --", "None", "Langkah Kopi", "Angkringan99", "Kue Balok" }));
+        jPanel3.add(jComboBoxUmkmVarian, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 600, 200, 30));
+
+        KodeMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        KodeMenu1.setForeground(new java.awt.Color(255, 255, 255));
+        KodeMenu1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        KodeMenu1.setText("Penyedia Varian");
+        jPanel3.add(KodeMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 120, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -1232,12 +1250,12 @@ public class dataMenu extends javax.swing.JFrame {
         String stok = table.getValueAt(baris, 3).toString();
         txtFieldStok21552011235.setText(stok);
         
-        String umkm = table.getValueAt(baris,4).toString();
-          for (int i = 0; i <jComboBoxUMKM.getItemCount(); i++ ){
-              if (jComboBoxUMKM.getItemAt(i).equalsIgnoreCase(umkm)){
-                  jComboBoxUMKM.setSelectedIndex(i);
+        String umkmMenu = table.getValueAt(baris,4).toString();
+          for (int i = 0; i <jComboBoxUmkmMenu.getItemCount(); i++ ){
+              if (jComboBoxUmkmMenu.getItemAt(i).equalsIgnoreCase(umkmMenu)){
+                  jComboBoxUmkmMenu.setSelectedIndex(i);
               }
-          }
+        }
         
 //        String tanggal = table.getValueAt(baris, ).toString();
 //        
@@ -1261,15 +1279,23 @@ public class dataMenu extends javax.swing.JFrame {
     private void tableVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableVarianMouseClicked
         int baris = tableVarian.getSelectedRow();
         
-        
 //        String no = tableVarian.getValueAt(baris,0).toString();
 //        txtFieldNamaNoVarian.setText(no);
         
-        String nama = tableVarian.getValueAt(baris,1).toString();
+        String nama = tablevarian.getValueAt(baris,1).toString();
         txtFieldNamaVarian.setText(nama);
         
-        String harga = tableVarian.getValueAt(baris, 2).toString();
+        String harga = tablevarian.getValueAt(baris, 2).toString();
         txtFieldHargaVarian.setText(harga);
+        
+        String umkmVarian = tablevarian.getValueAt(baris, 3).toString();
+          for (int i = 0; i <jComboBoxUmkmVarian.getItemCount(); i++ ){
+              if (jComboBoxUmkmVarian.getItemAt(i).equalsIgnoreCase(umkmVarian)){
+                  jComboBoxUmkmVarian.setSelectedIndex(i);
+              }
+        }
+        
+    
        
     }//GEN-LAST:event_tableVarianMouseClicked
 
@@ -1298,7 +1324,7 @@ public class dataMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRefreshVarianMouseExited
 
     private void BtnClearVarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnClearVarianMouseClicked
-        // TODO add your handling code here:
+        clearVarian();
     }//GEN-LAST:event_BtnClearVarianMouseClicked
 
     private void BtnClearVarianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnClearVarianMouseEntered
@@ -1427,6 +1453,7 @@ public class dataMenu extends javax.swing.JFrame {
     private javax.swing.JLabel DaftarMenu3;
     private javax.swing.JLabel Harga;
     private javax.swing.JLabel KodeMenu;
+    private javax.swing.JLabel KodeMenu1;
     private javax.swing.JLabel NamaMenu3;
     private javax.swing.JLabel NamaMenu4;
     private javax.swing.JLabel NamaMenu5;
@@ -1448,7 +1475,8 @@ public class dataMenu extends javax.swing.JFrame {
     private javax.swing.JPanel PanelRefreshMenu;
     private javax.swing.JPanel PanelRefreshVarian;
     private javax.swing.JLabel Stok;
-    private javax.swing.JComboBox<String> jComboBoxUMKM;
+    private javax.swing.JComboBox<String> jComboBoxUmkmMenu;
+    private javax.swing.JComboBox<String> jComboBoxUmkmVarian;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

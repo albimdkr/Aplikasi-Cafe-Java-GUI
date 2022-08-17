@@ -55,14 +55,11 @@ public class pageTransaksi extends javax.swing.JFrame {
         
         tb_keranjang.setModel(table);
         table.addColumn("ID");
-        table.addColumn("Kode Menu");
         table.addColumn("Menu");
-        table.addColumn("No Varian"); 
         table.addColumn("Varian");
-        table.addColumn("Harga");
         table.addColumn("Jumlah");
+        table.addColumn("Harga");
         table.addColumn("Total Harga");
-        table.addColumn("Tanggal");
         tampilData();
     }
      private void tanggal(){
@@ -90,17 +87,17 @@ public class pageTransaksi extends javax.swing.JFrame {
             while (rslt.next()){
                 //menampung data sementara
                     String id = rslt.getString("id_transaksi");
-                    String kode_menu = rslt.getString("kode_menu");
+                    //String kode_menu = rslt.getString("kode_menu");
                     String menu = rslt.getString("nama_menu");
-                    String no_varian =  rslt.getString("no_varian");
+                    //String no_varian =  rslt.getString("no_varian");
                     String nama_varian =  rslt.getString("nama_varian");
-                    String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah");
+                    String harga = rslt.getString("harga");
                     String total = rslt.getString("total_harga");
-                    String tgl = rslt.getString("tgl_transaksi");
+                    //String tgl = rslt.getString("tgl_transaksi");
                     
                 //masukan semua data kedalam array
-                String[] data = {id,kode_menu,menu,no_varian,nama_varian,harga,jumlah,total,tgl};
+                String[] data = {id,menu,nama_varian,jumlah,harga,total};
                 
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
@@ -113,8 +110,6 @@ public class pageTransaksi extends javax.swing.JFrame {
     
      
     private void keranjang(){
-        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-        String tanggal = String.valueOf(date.format(tgl_transaksi.getDate()));
         String kode = txFieldKodeMenu21552011235.getText();
         //String namaPelanggan = txFieldNamaPelanggan.getText();
         String namaMenu = txtFieldNamaMenu21552011235.getText();
@@ -124,6 +119,8 @@ public class pageTransaksi extends javax.swing.JFrame {
         String jumlah = txtFieldJumlah21552011235.getText();
         String total = txtFieldTotalHarga21552011235.getText();
         String umkm = txFieldUMKM21552011235.getText();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggal = String.valueOf(date.format(tgl_transaksi.getDate()));
         //panggil koneksi
         Connection connect = koneksi.getKoneksi();
         //query untuk memasukan data
@@ -146,8 +143,6 @@ public class pageTransaksi extends javax.swing.JFrame {
             clear();
         }
         totalnya();
-        //hitungDiskon();
-        //subtotal();
         
     }
     
