@@ -56,7 +56,9 @@ public class stokMenu extends javax.swing.JFrame {
             table.removeRow(0);
         }
         
-        String query = "SELECT * FROM `tb_menu` ";
+        //String query = "SELECT * FROM tb_menu WHERE umkm = 'Langkah Kopi' ";
+        //String query = "SELECT * FROM tb_menu WHERE umkm = 'Angkringan99' ";
+        String query = "SELECT * FROM tb_menu WHERE umkm = 'Kue Balok' ";
         
         try{
             Connection connect = koneksi.getKoneksi();//memanggil koneksi

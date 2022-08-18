@@ -19,12 +19,9 @@
 	<parameter name="akhir" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-<!--	<parameter name="umkm" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>-->
 	<queryString>
 		<![CDATA[SELECT *  FROM  `transaksi`
-WHERE transaksi.`umkm`,`tgl_transaksi` BETWEEN $P{umkm},$P{awal} AND $P{akhir}]]>
+WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 	</queryString>
 	<field name="tgl_transaksi" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
