@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="301177c3-72df-41ce-90f3-0ea9b3a1bbc5">
-	<property name="ireport.zoom" value="2.357947691000106"/>
-	<property name="ireport.x" value="1246"/>
-	<property name="ireport.y" value="366"/>
+	<property name="ireport.zoom" value="1.100000000000049"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -19,9 +19,12 @@
 	<parameter name="akhir" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+<!--	<parameter name="umkm" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>-->
 	<queryString>
 		<![CDATA[SELECT *  FROM  `transaksi`
-WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
+WHERE transaksi.`umkm`,`tgl_transaksi` BETWEEN $P{umkm},$P{awal} AND $P{akhir}]]>
 	</queryString>
 	<field name="tgl_transaksi" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -85,7 +88,7 @@ WHERE transaksi.`tgl_transaksi` BETWEEN $P{awal} AND $P{akhir}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Dialog" size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA[LANGKAH KOPI MAJALAYA]]></text>
+				<text><![CDATA[HALAMAN 134]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="acef31af-c27a-4486-9a6a-3ab4a84efea4" style="SubTitle" mode="Transparent" x="0" y="79" width="802" height="31" forecolor="#000000" backcolor="#2D2302"/>

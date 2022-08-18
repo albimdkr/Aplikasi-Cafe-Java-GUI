@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="226" pageHeight="431" columnWidth="186" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="aaf7be79-1e9a-4062-ba5d-20b8a0edbe03">
-	<property name="ireport.zoom" value="1.542173157718128"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="4.400000000000008"/>
+	<property name="ireport.x" value="281"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="total" class="java.lang.String"/>
 	<parameter name="uang" class="java.lang.String"/>

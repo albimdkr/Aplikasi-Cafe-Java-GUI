@@ -72,6 +72,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         table.addColumn("ID Transaksi");
         table.addColumn("Kode Menu");
         table.addColumn("Nama Menu");
+        table.addColumn("Varian");
         table.addColumn("Harga");
         table.addColumn("Jumlah");
         table.addColumn("Total Harga");
@@ -101,13 +102,14 @@ public class LaporanRiwayat extends javax.swing.JFrame {
                     String id = rslt.getString("id_transaksi");
                     String kode = rslt.getString("kode_menu");
                     String nama = rslt.getString("nama_menu");
+                    String nama_varian = rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah_menu");
                     String total = rslt.getString("total_harga");
                     String umkm = rslt.getString("umkm");
                     
                 //masukan semua data kedalam array
-                String[] data = {tanggal,id,kode,nama,harga,jumlah,total,umkm};
+                String[] data = {tanggal,id,kode,nama,nama_varian,harga,jumlah,total,umkm};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
             }
@@ -132,6 +134,8 @@ public class LaporanRiwayat extends javax.swing.JFrame {
                 + "`tgl_transaksi` LIKE '%"+cari+"%' OR"
                 + "`id_transaksi` LIKE '%"+cari+"%' OR"
                 + "`umkm` LIKE '%"+cari+"%' OR"
+                + "`total_harga` LIKE '%"+cari+"%' OR"
+                + "`nama_varian` LIKE '%"+cari+"%' OR"
                 + "`nama_menu` LIKE '%"+cari+"%' ";
                 
        try{
@@ -146,12 +150,14 @@ public class LaporanRiwayat extends javax.swing.JFrame {
                     String id = rslt.getString("id_transaksi");
                     String kode = rslt.getString("kode_menu");
                     String nama = rslt.getString("nama_menu");
+                    String nama_varian = rslt.getString("nama_varian");
                     String harga = rslt.getString("harga");
                     String jumlah = rslt.getString("jumlah_menu");
                     String total = rslt.getString("total_harga");
+                    String umkm = rslt.getString("umkm");
                     
                 //masukan semua data kedalam array
-                String[] data = {tanggal,id,kode,nama,harga,jumlah,total};
+                String[] data = {tanggal,id,kode,nama,nama_varian,harga,jumlah,total,umkm};
                 //menambahakan baris sesuai dengan data yang tersimpan diarray
                 table.addRow(data);
             }
@@ -210,6 +216,8 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         BtnCari21552011235 = new javax.swing.JLabel();
+        NamaPendonor4 = new javax.swing.JLabel();
+        jComboBoxUmkmMenu = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -331,9 +339,9 @@ public class LaporanRiwayat extends javax.swing.JFrame {
                 BtnPrint21552011235MouseExited(evt);
             }
         });
-        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 40));
+        PanelPrint21552011235.add(BtnPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 50));
 
-        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 610, 450, 40));
+        jPanel3.add(PanelPrint21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 650, 1010, 50));
 
         PanelReset21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelReset21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -399,27 +407,27 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         tableLaporanRiwayat21552011235.setSelectionBackground(new java.awt.Color(64, 49, 33));
         jScrollPane1.setViewportView(tableLaporanRiwayat21552011235);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 1010, 320));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 1010, 280));
 
         NamaPendonor3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaPendonor3.setForeground(new java.awt.Color(255, 255, 255));
         NamaPendonor3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        NamaPendonor3.setText("Input Tanggal Awal Yang Akan Di Print ");
-        jPanel3.add(NamaPendonor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, 290, 40));
+        NamaPendonor3.setText("Pilih UMKM ");
+        jPanel3.add(NamaPendonor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 250, 40));
 
         jDateChooserAwal.setDateFormatString("d MMM, yyyy");
         jDateChooserAwal.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jPanel3.add(jDateChooserAwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 260, 40));
+        jPanel3.add(jDateChooserAwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, 260, 40));
 
         jDateChooserAkhir.setDateFormatString("d MMM, yyyy");
         jDateChooserAkhir.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jPanel3.add(jDateChooserAkhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 610, 260, 40));
+        jPanel3.add(jDateChooserAkhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 580, 260, 40));
 
         NamaPendonor1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NamaPendonor1.setForeground(new java.awt.Color(255, 255, 255));
         NamaPendonor1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         NamaPendonor1.setText("Input Tanggal Akhir Yang Akan Di Print ");
-        jPanel3.add(NamaPendonor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 570, 290, 40));
+        jPanel3.add(NamaPendonor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 540, 270, 40));
 
         PanelCari21552011235.setBackground(new java.awt.Color(64, 49, 33));
         PanelCari21552011235.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -462,6 +470,21 @@ public class LaporanRiwayat extends javax.swing.JFrame {
         PanelCari21552011235.add(BtnCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 50));
 
         jPanel3.add(PanelCari21552011235, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 140, 50));
+
+        NamaPendonor4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        NamaPendonor4.setForeground(new java.awt.Color(255, 255, 255));
+        NamaPendonor4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NamaPendonor4.setText("Input Tanggal Awal Yang Akan Di Print ");
+        jPanel3.add(NamaPendonor4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 290, 40));
+
+        jComboBoxUmkmMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBoxUmkmMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih --", "Langkah Kopi", "Angkringan99", "Kue Balok" }));
+        jComboBoxUmkmMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxUmkmMenuActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBoxUmkmMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 270, 40));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -533,6 +556,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
     
      try{
         Map<String, Object> parameter = new HashMap <>();
+        parameter.put("umkm", jComboBoxUmkmMenu.getSelectedItem());
         parameter.put("awal", jDateChooserAwal.getDate());
         parameter.put("akhir", jDateChooserAkhir.getDate());
         File file = new File ("src/laporan/report_transaksi.jrxml");
@@ -595,6 +619,10 @@ public class LaporanRiwayat extends javax.swing.JFrame {
     private void BtnReset21552011235MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnReset21552011235MouseExited
         changecolor(PanelReset21552011235, new Color (64,49,33));
     }//GEN-LAST:event_BtnReset21552011235MouseExited
+
+    private void jComboBoxUmkmMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxUmkmMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxUmkmMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -762,6 +790,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
     private javax.swing.JLabel DaftarMenu1;
     private javax.swing.JLabel NamaPendonor1;
     private javax.swing.JLabel NamaPendonor3;
+    private javax.swing.JLabel NamaPendonor4;
     private javax.swing.JPanel Navbar;
     private javax.swing.JPanel Navbar1;
     private javax.swing.JPanel PanelBack21552011235;
@@ -770,6 +799,7 @@ public class LaporanRiwayat extends javax.swing.JFrame {
     private javax.swing.JPanel PanelPrint21552011235;
     private javax.swing.JPanel PanelRefresh21552011235;
     private javax.swing.JPanel PanelReset21552011235;
+    private javax.swing.JComboBox<String> jComboBoxUmkmMenu;
     private com.toedter.calendar.JDateChooser jDateChooserAkhir;
     private com.toedter.calendar.JDateChooser jDateChooserAwal;
     private javax.swing.JLabel jLabel6;

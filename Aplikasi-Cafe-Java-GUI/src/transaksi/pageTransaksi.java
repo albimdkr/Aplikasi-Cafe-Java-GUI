@@ -225,6 +225,7 @@ public class pageTransaksi extends javax.swing.JFrame {
         txtFieldDiskon.setText(null);
         txFieldNamaPelanggan.setText(null);
         txFieldUMKM21552011235.setText(null);
+        txFieldNoVarian21552011235.setText(null);
     }
      
     private void hapusData(){
